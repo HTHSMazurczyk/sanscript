@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
+    <div class="container-fluid justify-content-center">
+        <!-- Logo -->
+        <a href="{{url_for('index')}}" class="navbar-brand">
+            <img src="assets/images/logo.png" alt="AirAware Logo"
+                class="d-inline-block psize align-top">
+            <span class="logo-left">Sanscript</span>
+        </a>
+        <!--Hamburger Menu Button-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Rest of the navbar -->
+        <div class="collapse navbar-collapse" id="navmenu">
+            <!--Links to menu button-->
+            <ul class="navbar-nav navbar-menu">
+                {% for item in site.data.navbar %}
+                    <li class="nav-item">
+                        <a href="{{ item.link }}" class="nav-link hover-underline-animation nbMenuItem"> {{ item.name }} </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
