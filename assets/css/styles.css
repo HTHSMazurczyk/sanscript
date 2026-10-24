@@ -1,16 +1,6 @@
-/*  File Name: styles.css
-    Coded by: Jody and Alex
-    Date: 29 May 2026
-    Objective: Provide styling information for the website
-*/
-
 /* -------------------------------------------------------------General CSS------------------------------------------------------------------ */
 * {
-    font-family: "Be Vietnam Pro", Arial, sans-serif;
-}
-
-body {
-    background: var(--accent-2);
+    font-family: "Quicksand", Arial, sans-serif;
 }
 
 img {
@@ -19,51 +9,37 @@ img {
 
 :root {
     --txt-color: #000;
-    --bg-color: #fdfcfa;
-    --accent-1: #014489;
-    --accent-2: #447db8;
-    --outside-color: #f3f4f7;
-    --bs-body-bg: var(--outside-color);
+    --bg-color: #fff;
+    --accent-50: hsl(217, 89%, 50%);
+    --accent-20: hsl(217, 89%, 20%);
+    --accent-70: hsl(217, 89%, 70%);
+    --bs-body-bg: var(--bg-color);
 }
 
 .btn-outline-primary {
-    --bs-btn-color: var(--accent-1);
-    --bs-btn-border-color: var(--accent-1);
+    --bs-btn-color: var(--accent-50);
+    --bs-btn-border-color: var(--accent-50);
     --bs-btn-hover-color: var(--bg-color);
-    --bs-btn-hover-bg: var(--accent-1);
+    --bs-btn-hover-bg: var(--accent-50);
     --bs-btn-hover-border-color: var(--accent-1)
 }
 
 .btn-secondary {
     --bs-btn-color: var(--bg-color);
-    --bs-btn-bg: var(--accent-2);
-    --bs-btn-border-color: var(--accent-2);
+    --bs-btn-bg: var(--accent-20);
+    --bs-btn-border-color: var(--accent-20);
     --bs-btn-hover-color: var(--bg-color);
-    --bs-btn-hover-bg: var(--accent-2);
+    --bs-btn-hover-bg: var(--accent-20);
     --bs-btn-hover-border-color: var(--accent-2)
 }
 
-.logo-left {
+.logo {
     font-family: 'Times New Roman', Times, serif;
     font-size: 3.375em;
-    color: var(--accent-2);
+    color: var(--accent-20);
     font-style: italic;
 }
 
-.logo-right {
-    font-family: 'Be Vietnam Pro', Arial, sans-serif;
-    font-size: 3.04375em;
-    color: var(--accent-1);
-    font-weight: bold;
-}
-
-.nb-background-color {
-    background-color: var(--accent-1);
-}
-
-body>div {
-    background-color: var(--bg-color);
-}
 
 /* any direct children in the main container that aren't the nav or footer */
 body>div>section {
@@ -71,28 +47,14 @@ body>div>section {
     padding-left: calc(var(--bs-gutter-x) * 0.5);
 }
 
-#chart-wrapper {
-    max-height: 60vh;
-}
-
-.title .card {
-    background-color: var(--accent-2);
-    color: var(--bg-color);
-    margin: 16px;
-}
-
-.title .card .row div {
-    vertical-align: middle;
-}
-
-#profile-pic {
-    height: 1.5em;
-    margin: 0.25em;
-}
 
 /* -----------------------------------------------------------Navbar CSS------------------------------------------------------------------ */
+.nb-background-color {
+    background-color: var(--accent-50);
+}
+
 .navbar {
-    padding: 0.10em;
+    padding: 0.10em 1em;
     height: auto;
     z-index: 1000;
     display: flex;
@@ -105,7 +67,6 @@ body>div>section {
 
 .navbar .container-fluid {
     display: flex !important;
-    justify-content: center !important;
     align-items: center !important;
     gap: 20px;
     padding: 0 !important;
@@ -158,272 +119,24 @@ body>div>section {
 }
 
 .navbar-menu {
-    background-color: #014489;
     width: 100%;
+}
+
+/* lg breakpoint */
+@media (max-width: 992px) {
+    .nav-item {
+        text-align: right;
+    }
+
 }
 
 /* -----------------------------------------------------------Footer CSS------------------------------------------------------------------ */
 .footer {
-    background-color: var(--accent-1);
+    background-color: var(--accent-50);
     color: var(--bg-color);
 }
 
-#footer-img {
-    width: 7.5rem;
-}
-
-@media (max-width: 768px) {
-    .footer {
-        height: 7.5rem;
-    }
-}
 
 .icon-white {
     color: var(--bg-color)
 }
-
-/* ----------------------------------------------------------Sign in CSS------------------------------------------------------------------ */
-
-.sign-in {
-    width: max(50%, 350px);
-    margin: 0 auto;
-}
-
-.w-min-content {
-    width: min-content;
-}
-
-.w-max-content {
-    width: max-content;
-}
-
-/* -----------------------------------------------------------Index CSS------------------------------------------------------------------ */
-.index-content {
-    margin: 80px;
-    font-size: 1.375rem;
-    border-radius: 12px;
-    background-color: var(--bg-color);
-}
-
-.index-content-blue {
-    font-size: 1.375rem;
-    border-radius: 40px;
-    background-color: var(--accent-2);
-    color: var(--bg-color);
-}
-
-.index-content h1,
-.index-content h4,
-.index-content-blue h1,
-.index-content-blue h4 {
-    text-align: center;
-}
-
-.index-content img,
-.index-content-blue img {
-    height: 75%;
-    margin: 0 auto;
-    /* makes margin centering work? */
-    display: block;
-}
-
-.index-header {
-    height: 92vh;
-    background-color: #f5f7ff;
-}
-
-.index-header h1,
-.index-header h2 {
-    color: var(--accent-1);
-    text-align: center;
-    font-weight: bold;
-}
-
-#call-to-action {
-    font-size: 1.375rem;
-    width: 17ch;
-    margin: 0 auto;
-    display: block;
-    box-shadow: 0.3em 0.3em var(--accent-1);
-    border: 1px solid black;
-    height: 4rem;
-    line-height: 3rem;
-    border-radius: 1rem;
-    font-weight: bold;
-}
-
-.index-wave {
-    background-color: #f5f7ff;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.index-wave svg {
-    display: block;
-    width: 100%;
-    height: 200px;
-}
-
-/* -----------------------------------------------------------Procedure CSS------------------------------------------------------------------ */
-.procedure {
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-.procedure p {
-    font-size: 22px;
-}
-
-.procedure-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.procedure-desc {
-    display: flex;
-    align-items: center;
-}
-
-@media (max-width: 768px) {
-    .procedure-desc {
-        flex-wrap: wrap;
-    }
-}
-
-
-.procedure-step h1,
-h2 {
-    margin: 0px;
-}
-
-.procedure-desc img {
-    width: 131.25px;
-    height: 175px;
-    margin: 0 auto;
-}
-
-.procedure-desc p {
-    margin-left: 1rem;
-}
-
-.step-label {
-    color: #014489
-}
-
-/* ---------------------------------------------------------Fading Animation---------------------------------------------------------------- */
-.fade-in-box {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease-out forwards;
-}
-
-.fade-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ------------------------------------------------------------User CSS------------------------------------------------------------------- */
-.user {
-    background-color: #b8d2ee;
-}
-
-/* Card Styling (overall)*/
-.card {
-    border-radius: 16px;
-}
-
-.card-header {
-    background-color: var(--accent-1);
-    text-align: center;
-    color: var(--bg-color);
-    font-size: 25px;
-    border-radius: 16px 16px 0 0 !important;
-
-}
-
-.card-body {
-    background-color: var(--bg-color);
-    border-radius: 0 0 16px 16px;
-    padding: 18px;
-    height: 200px;
-}
-
-.card-text {
-    font-size: 15px;
-    color: var(--txt-color);
-}
-
-/* Trend card styling */
-.trend-card {
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-}
-
-.trend-card .card-header {
-    height: 46.8px;
-    /* text-align: center; */
-}
-
-.trend-card .card-body {
-    background-color: var(--bg-color);
-    border-radius: 0 0 16px 16px;
-    padding: 18px;
-    flex: 1;
-    overflow-y: scroll;
-    max-height: 200px;
-}
-
-.trend-text {
-    font-size: 25px;
-    color: var(--txt-color);
-}
-
-/* Severity Table */
-.card-body table {
-    border-collapse: collapse;
-}
-
-.card-body th {
-    color: var(--accent-1);
-    padding: 6px 10px;
-}
-
-.card-body td {
-    padding: 3px 6px;
-}
-
-/* Color-code severity levels */
-.card-body tr td:last-child[data-severity="0"] {
-    color: green;
-}
-
-.card-body tr td:last-child[data-severity="1"] {
-    color: orange;
-}
-
-.card-body tr td:last-child[data-severity="2"] {
-    color: red;
-}
-
-/* End of severity table*/
