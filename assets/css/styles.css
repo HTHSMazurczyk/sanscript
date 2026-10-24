@@ -134,9 +134,18 @@ body>div>section {
 .footer {
     background-color: var(--accent-50);
     color: var(--bg-color);
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
 }
 
+.logo-footer {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em;
+    color: var(--bg-color);
+    font-style: italic;
+}
 
-.icon-white {
-    color: var(--bg-color)
+#footer-img {
+    height: 1cap;
 }
