@@ -3,18 +3,14 @@ title: Lesson Overview
 layout: default
 ---
 <div class="container">
+  {% for item in site.data.lessons %}
     <a class="lesson text-reset" href="lesson1.html">
-        <div class="circle">1</div>
-        <div class="d-inline-block">
-            <strong>Letters</strong>
-            <br>desc
-        </div>
+      <div class="circle">{{ forloop.index + 1 }}</div>
+      <div class="d-inline-block">
+        <strong>{{ item.name }}</strong>
+        <br>
+        {{ item.desc }}
+      </div>
     </a>
-    <a class="lesson text-reset" href="lesson1.html">
-        <div class="circle">1</div>
-        <div class="d-inline-block">
-            <strong>Letters</strong>
-            <br>desc
-        </div>
-    </a>
+  {%- endfor -%}
 </div>

@@ -1,0 +1,6 @@
+- name: Letters
+  desc: lorem ipsum 1
+- name: Syllables
+  desc: lorem ipsum 2
+- name: Words
+  desc: lorem ipsum 3
