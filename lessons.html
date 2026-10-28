@@ -4,8 +4,8 @@ layout: default
 ---
 <div class="container">
   {% for item in site.data.lessons %}
-    <a class="lesson text-reset" href="lesson1.html">
-      <div class="circle">{{ forloop.index + 1 }}</div>
+    <a class="lesson text-reset" href="lesson{{ forloop.index }}.html">
+      <div class="circle">{{ forloop.index }}</div>
       <div class="d-inline-block">
         <strong>{{ item.name }}</strong>
         <br>
