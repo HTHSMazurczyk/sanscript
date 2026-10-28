@@ -10,6 +10,7 @@ img {
 :root {
     --txt-color: #000;
     --bg-color: #fff;
+    --gray: #4d4d4d;
     --accent-50: hsl(217, 89%, 50%);
     --accent-20: hsl(217, 89%, 20%);
     --accent-70: hsl(217, 89%, 70%);
@@ -148,4 +149,34 @@ body>div>section {
 
 #footer-img {
     height: 1cap;
+}
+
+/* -----------------------------------------------------------Lesson CSS------------------------------------------------------------------ */
+.container:has(.lesson) {
+    padding: 2rem 0;
+}
+
+.circle {
+    display: inline-block;
+    width: 8rcap;
+    height: 8rcap;
+    line-height: 8rcap;
+    background-color: var(--accent-70);
+    border-radius: 50%;
+    border: 1px solid var(--gray);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    vertical-align: super;
+}
+
+.lesson {
+    padding: 2rem;
+    font-size: calc(18/16 * 1rem);
+    text-decoration: none;
+    display: block;
+}
+
+.lesson div:last-child {
+    padding-left: 1rem;
 }
