@@ -1,182 +1,179 @@
 /* -------------------------------------------------------------General CSS------------------------------------------------------------------ */
 * {
-    font-family: "Quicksand", Arial, sans-serif;
+  font-family: 'Quicksand', Arial, sans-serif;
 }
 
 img {
-    object-fit: contain;
+  object-fit: contain;
 }
 
 :root {
-    --txt-color: #000;
-    --bg-color: #fff;
-    --gray: #4d4d4d;
-    --accent-50: hsl(217, 89%, 50%);
-    --accent-20: hsl(217, 89%, 20%);
-    --accent-70: hsl(217, 89%, 70%);
-    --bs-body-bg: var(--bg-color);
+  --txt-color: #000;
+  --bg-color: #fff;
+  --gray: #4d4d4d;
+  --accent-50: hsl(217, 89%, 50%);
+  --accent-20: hsl(217, 89%, 20%);
+  --accent-70: hsl(217, 89%, 70%);
+  --bs-body-bg: var(--bg-color);
 }
 
 .btn-outline-primary {
-    --bs-btn-color: var(--accent-50);
-    --bs-btn-border-color: var(--accent-50);
-    --bs-btn-hover-color: var(--bg-color);
-    --bs-btn-hover-bg: var(--accent-50);
-    --bs-btn-hover-border-color: var(--accent-1)
+  --bs-btn-color: var(--accent-50);
+  --bs-btn-border-color: var(--accent-50);
+  --bs-btn-hover-color: var(--bg-color);
+  --bs-btn-hover-bg: var(--accent-50);
+  --bs-btn-hover-border-color: var(--accent-1);
 }
 
 .btn-secondary {
-    --bs-btn-color: var(--bg-color);
-    --bs-btn-bg: var(--accent-20);
-    --bs-btn-border-color: var(--accent-20);
-    --bs-btn-hover-color: var(--bg-color);
-    --bs-btn-hover-bg: var(--accent-20);
-    --bs-btn-hover-border-color: var(--accent-2)
+  --bs-btn-color: var(--bg-color);
+  --bs-btn-bg: var(--accent-20);
+  --bs-btn-border-color: var(--accent-20);
+  --bs-btn-hover-color: var(--bg-color);
+  --bs-btn-hover-bg: var(--accent-20);
+  --bs-btn-hover-border-color: var(--accent-2);
 }
 
 .logo {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 3.375em;
-    color: var(--accent-20);
-    font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3.375em;
+  color: var(--accent-20);
+  font-style: italic;
 }
-
 
 /* any direct children in the main container that aren't the nav or footer */
-body>div>section {
-    padding-right: calc(var(--bs-gutter-x) * 0.5);
-    padding-left: calc(var(--bs-gutter-x) * 0.5);
+body > div > section {
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
 }
-
 
 /* -----------------------------------------------------------Navbar CSS------------------------------------------------------------------ */
 .nb-background-color {
-    background-color: var(--accent-50);
+  background-color: var(--accent-50);
 }
 
 .navbar {
-    padding: 0.10em 1em;
-    height: auto;
-    z-index: 1000;
-    display: flex;
+  padding: 0.1em 1em;
+  height: auto;
+  z-index: 1000;
+  display: flex;
 }
 
 .navbar-brand {
-    font-size: 12px;
-    margin: 0;
+  font-size: 12px;
+  margin: 0;
 }
 
 .navbar .container-fluid {
-    display: flex !important;
-    align-items: center !important;
-    gap: 20px;
-    padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px;
+  padding: 0 !important;
 }
 
 .navbar-brand span {
-    color: var(--bg-color);
-    display: inline-block;
+  color: var(--bg-color);
+  display: inline-block;
 }
 
 .navbar-brand img {
-    height: 5.0675em;
+  height: 5.0675em;
 }
 
 .navbar-collapse {
-    flex-grow: 0;
+  flex-grow: 0;
 }
 
 /* navbar link text properties */
 .nbMenuItem {
-    font-size: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: var(--bg-color);
+  font-size: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: var(--bg-color);
 }
 
 /* Underline Animations */
 .hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    /*color: #0087ca;*/
+  display: inline-block;
+  position: relative;
+  /*color: #0087ca;*/
 }
 
 .hover-underline-animation::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--bg-color);
-    /*transform-origin: bottom right;*/
-    transition: transform 0.35s ease-out;
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  /*transform-origin: bottom right;*/
+  transition: transform 0.35s ease-out;
 }
 
 .hover-underline-animation:hover::after {
-    transform: scaleX(1);
-    /*transform-origin: bottom left;*/
+  transform: scaleX(1);
+  /*transform-origin: bottom left;*/
 }
 
 .navbar-menu {
-    width: 100%;
+  width: 100%;
 }
 
 /* lg breakpoint */
 @media (max-width: 992px) {
-    .nav-item {
-        text-align: right;
-    }
-
+  .nav-item {
+    text-align: right;
+  }
 }
 
 /* -----------------------------------------------------------Footer CSS------------------------------------------------------------------ */
 .footer {
-    background-color: var(--accent-50);
-    color: var(--bg-color);
-    font-size: 1rem;
-    display: flex;
-    justify-content: space-between;
+  background-color: var(--accent-50);
+  color: var(--bg-color);
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo-footer {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1em;
-    color: var(--bg-color);
-    font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1em;
+  color: var(--bg-color);
+  font-style: italic;
 }
 
 #footer-img {
-    height: 1cap;
+  height: 1cap;
 }
 
 /* -----------------------------------------------------------Lesson CSS------------------------------------------------------------------ */
 .container:has(.lesson) {
-    padding: 2rem 0;
+  padding: 2rem 0;
 }
 
 .circle {
-    display: inline-block;
-    width: 8rcap;
-    height: 8rcap;
-    line-height: 8rcap;
-    background-color: var(--accent-70);
-    border-radius: 50%;
-    border: 1px solid var(--gray);
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    vertical-align: super;
+  display: inline-block;
+  width: 8rcap;
+  height: 8rcap;
+  line-height: 8rcap;
+  background-color: var(--accent-70);
+  border-radius: 50%;
+  border: 1px solid var(--gray);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  vertical-align: super;
 }
 
 .lesson {
-    padding: 2rem;
-    font-size: calc(18/16 * 1rem);
-    text-decoration: none;
-    display: block;
+  padding: 2rem;
+  font-size: calc(18 / 16 * 1rem);
+  text-decoration: none;
+  display: block;
 }
 
 .lesson div:last-child {
-    padding-left: 1rem;
+  padding-left: 1rem;
 }
