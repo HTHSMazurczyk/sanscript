@@ -1,5 +1,5 @@
 ---
-title: Landing Page
+
 ---
 
 <!doctype html>
@@ -17,8 +17,11 @@ title: Landing Page
     <link rel="stylesheet" href="assets\css\styles.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="assets/js/{{page.script}}"></script>
 
+    {% if page.script %}
     <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    {% endif %}
     <title>{{page.title}}</title>
   </head>
 
