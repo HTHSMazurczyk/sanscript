@@ -1,0 +1,20 @@
+---
+title: IAST Guide
+layout: default
+---
+
+<div class="container">
+  <h1>Letters</h1>
+  <table>
+    <tr>
+      <th>IAST</th>
+      <th>Approximate English</th>
+    </tr>
+    {% for item in site.data.letters %}
+    <tr>
+      <td>{{item.iast}}</td>
+      <td>{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
