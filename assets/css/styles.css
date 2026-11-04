@@ -190,8 +190,10 @@ body > div > section {
 }
 
 /* ---------------------------------------------------Practice CSS (shared) ---------------------------- */
-#front,
-#back {
+#front {
   /* height - padding - horizontal rule */
   height: calc((70vw - 4rem - 1rem) / 2);
+}
+#back {
+  height: calc(70vw - (70vw - 4rem - 1rem) / 2);
 }
