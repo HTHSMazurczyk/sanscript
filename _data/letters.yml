@@ -1,108 +1,192 @@
-- iast: om
-  noUnder: H
-  under: om
-  noUnder1: e
-- iast: om
+- iast: a
   noUnder: F
   under: u
   noUnder1: n
-- iast: om
+- iast: ā
   noUnder: C
   under: a
   noUnder1: r
-- iast: om
+- iast: i
   noUnder: P
   under: i
   noUnder1: n
-- iast: om
+- iast: ī
   noUnder: F
   under: ee
   noUnder1: t
-- iast: om
+- iast: u
   noUnder: P
   under: u
   noUnder1: t
-- iast: om
+- iast: ū
   noUnder: P
   under: oo
   noUnder1: l
-- iast: om
+- iast: ṛ
   noUnder: R
   under: i
   noUnder1: g
-- iast: om
-  noUnder: (long __)
+- iast: ṝ
+  noUnder: (long ṛ)
   under:
   noUnder1:
-- iast: om
+- iast: ḷ
   noUnder: No English
   under:
   noUnder1:
-- iast: om
+- iast: ḹ
   noUnder: Pl
   under: ay
   noUnder1:
-- iast: om
+- iast: e
+  noUnder: bal
+  under: e
+  noUnder1:
+- iast: ai
   noUnder: H
   under: i
   noUnder1: gh
-- iast: om
+- iast: o
   noUnder:
   under: O
   noUnder1: ver
-- iast: om
+- iast: au
   noUnder: C
   under: ow
   noUnder1:
-- iast: om
-  noUnder: C
-  under: ow
-  noUnder1: (With Nasalization)
-- iast: om
-  noUnder: C
-  under: ow
-  noUnder1: (Aspiration)
-- iast: om
+- iast: k
   noUnder:
   under: K
   noUnder1: ind
-- iast: om
+- iast: kh
   noUnder: Blo
   under: ckh
   noUnder1: ead
-- iast: ask archith bout this
-  noUnder: H
-  under: om
-  noUnder1: e
-- iast: om
+- iast: g
+  noUnder:
+  under: G
+  noUnder1: ate
+- iast: gh
   noUnder: Lo
   under: g-h
   noUnder1: ut
-- iast: om
+- iast: ṅ
   noUnder: S
   under: in
   noUnder1: g
-- iast: om
-  noUnder: H
-  under: om
-  noUnder1: e
-- iast: om
-  noUnder: H
-  under: om
-  noUnder1: e
-- iast: om
-  noUnder: H
-  under: om
-  noUnder1: e
-- iast: om
-  noUnder: H
-  under: om
-  noUnder1: e
-- iast: om
-  noUnder: H
-  under: om
-  noUnder1: e
-- iast: om
-  noUnder: H
-  under: om
-  noUnder1: e
+- iast: c
+  noUnder:
+  under: Ch
+  noUnder1: unk
+- iast: ch
+  noUnder: Mat
+  under: ch
+  noUnder1:
+- iast: j
+  noUnder:
+  under: J
+  noUnder1: ug
+- iast: jh
+  noUnder: Hed
+  under: ge
+  noUnder1: hog
+- iast: ñ
+  noUnder: Bu
+  under: n
+  noUnder1: ch
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: ouch
+- iast: ṭh
+  noUnder: An
+  under: t-h
+  noUnder1: ill
+- iast: ḍ
+  noUnder:
+  under: D
+  noUnder1: uck
+- iast: ḍh
+  noUnder: Go
+  under: dh
+  noUnder1: ood
+- iast: ṇ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
+- iast: ṭ
+  noUnder:
+  under: T
+  noUnder1: o
