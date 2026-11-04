@@ -19,22 +19,25 @@ function getPracticePreferences() {
   return prefs
 }
 
-function hideForm() {
-  document.getElementById('perfs_form').style.display = 'none'
-}
-
-function setup() {
-  document.getElementById('run_btn').onclick = mainThingy
-}
-
-function mainThingy() {
+function processForm() {
   let prefs = getPracticePreferences()
-  hideForm()
-  // if (prefs.is_matching) {
-  //   startFlashcards(prefs)
-  // } else {
-  //   startMatching(prefs)
-  // }
+  if (prefs === null) {
+    return
+  }
+
+  let is_matching = prefs.is_matching
+  // encode the preferences into the url
+  delete prefs.is_matching
+  query = new URLSearchParams(prefs).toString()
+  console.log(query)
+  // redirect to appropriate page
+  if (is_matching) {
+    window.location.assign('matching.html?' + query)
+  } else {
+    window.location.assign('flashcards.html?' + query)
+  }
 }
 
-window.onload = setup
+window.onload = () => {
+  document.getElementById('run_btn').onclick = processForm
+}
