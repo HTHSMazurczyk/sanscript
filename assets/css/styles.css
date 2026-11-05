@@ -17,6 +17,15 @@ img {
   --bs-body-bg: var(--bg-color);
 }
 
+.btn-primary {
+  --bs-btn-color: var(--bg-color);
+  --bs-btn-bg: var(--accent-50);
+  --bs-btn-border-color: var(--accent-50);
+  --bs-btn-hover-color: var(--bg-color);
+  --bs-btn-hover-bg: var(--accent-50);
+  --bs-btn-hover-border-color: var(--accent-20);
+}
+
 .btn-outline-primary {
   --bs-btn-color: var(--accent-50);
   --bs-btn-border-color: var(--accent-50);
