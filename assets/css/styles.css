@@ -56,6 +56,11 @@ body > div > section {
   padding-left: calc(var(--bs-gutter-x) * 0.5);
 }
 
+/* bootstrap icons */
+i.bi {
+  font-size: 1.25em;
+}
+
 /* -----------------------------------------------------------Navbar CSS------------------------------------------------------------------ */
 .nb-background-color {
   background-color: var(--accent-50);

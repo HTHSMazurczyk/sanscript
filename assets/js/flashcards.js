@@ -1,13 +1,16 @@
-let cards = [
-  {
-    front: 'f',
-    back: 'b',
-  },
-  {
-    front: 'f2',
-    back: 'b2',
-  },
-]
+let cards
+let front_text, back, back_text, next_btn, front_audio_btn, back_audio_btn
+async function onloadFunction() {
+  front_text = document.getElementById('front_text')
+  front_audio_btn = document.getElementById('front_audio_btn')
+  back = document.getElementById('back')
+  back_text = document.getElementById('back_text')
+  back_audio_btn = document.getElementById('back_audio_btn')
+  next_btn = document.getElementById('next_btn')
+  cards = await getCards()
+  console.log(cards)
+  await mainloop()
+}
 
 function zip(left, right) {
   let out = []
@@ -38,28 +41,41 @@ async function getCards() {
   for (let row of rows) {
     cards.push(Object.fromEntries(zip(header, row.split(','))))
   }
-  console.log(cards)
-}
-
-let front, back, back_text, next_btn
-
-function onloadFunction() {
-  front = document.getElementById('front')
-  back = document.getElementById('back')
-  back_text = document.getElementById('back_text')
-  next_btn = document.getElementById('next_btn')
-  // cards = getCards()
-  mainloop()
+  // console.log(cards)
+  return cards
 }
 
 function pickNextCard() {
   return cards[Math.floor(Math.random() * cards.length)]
 }
 
+function playAudio(audio_name) {
+  const path = `assets/audio/${audio_name}.mp3`
+  new Audio(path).play()
+}
+
 function showCard(card) {
-  front.innerText = card.front
+  front_text.innerText = card['front text'] + '\n'
+
+  let audio_name = card['front audio path']
+  if (audio_name) {
+    front_audio_btn.style.display = 'inline-block' /* default */
+    front_audio_btn.onclick = () => playAudio(audio_name)
+    playAudio(audio_name)
+  } else {
+    front_audio_btn.style.display = 'none'
+  }
   back.style.display = 'none'
-  back_text.innerText = card.back
+  back_text.innerText = card['back text']
+
+  audio_name = card['back audio path']
+  if (audio_name) {
+    back_audio_btn.style.display = 'inline-block' /* default */
+    const path = `assets/audio/${audio_name}.mp3`
+    back_audio_btn.onclick = () => playAudio(audio_name)
+  } else {
+    back_audio_btn.style.display = 'none'
+  }
 }
 
 async function mainloop() {
@@ -69,7 +85,7 @@ async function mainloop() {
 
     // wait for button press
     await new Promise((resolve, reject) => {
-      front.onclick = () => {
+      front_text.onclick = () => {
         resolve()
       }
     })
