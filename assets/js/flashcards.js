@@ -9,6 +9,38 @@ let cards = [
   },
 ]
 
+function zip(left, right) {
+  let out = []
+  for (let i = 0; i < Math.min(left.length, right.length); i++) {
+    out.push([left[i], right[i]])
+  }
+  return out
+}
+
+async function getCards() {
+  let data
+  try {
+    const response = await fetch('assets/questiondata/flashcards.csv')
+    if (!response.ok) {
+      throw new Error('Network Error!')
+    }
+    data = await response.text()
+  } catch (err) {
+    console.error(err)
+    alert('error fetching card database!')
+    return null
+  }
+
+  let rows = data.split('\n')
+  let header = rows.shift().split(',')
+
+  cards = []
+  for (let row of rows) {
+    cards.push(Object.fromEntries(zip(header, row.split(','))))
+  }
+  console.log(cards)
+}
+
 let front, back, back_text, next_btn
 
 function onloadFunction() {
