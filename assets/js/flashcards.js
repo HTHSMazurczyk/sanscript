@@ -100,11 +100,17 @@ async function mainloop() {
     let card = pickNextCard()
     showCard(card)
 
-    // wait for button press
+    // wait for space press
     await new Promise((resolve, reject) => {
-      front_text.onclick = () => {
-        resolve()
-      }
+      document.addEventListener(
+        'keyup',
+        (event) => {
+          if (event.key == ' ') {
+            resolve()
+          }
+        },
+        { once: true },
+      )
     })
 
     // flip card
@@ -115,8 +121,17 @@ async function mainloop() {
       next_btn.onclick = () => {
         resolve()
       }
+      document.addEventListener(
+        'keyup',
+        (event) => {
+          if (event.key == ' ') {
+            resolve()
+          }
+        },
+        { once: true },
+      )
     })
-    console.log('done!')
+    // console.log('done!')
   }
 }
 

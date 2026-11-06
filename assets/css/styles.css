@@ -31,7 +31,7 @@ img {
   --bs-btn-border-color: var(--accent-50);
   --bs-btn-hover-color: var(--bg-color);
   --bs-btn-hover-bg: var(--accent-50);
-  --bs-btn-hover-border-color: var(--accent-1);
+  --bs-btn-hover-border-color: var(--accent-70);
 }
 
 .btn-secondary {
@@ -40,7 +40,7 @@ img {
   --bs-btn-border-color: var(--accent-20);
   --bs-btn-hover-color: var(--bg-color);
   --bs-btn-hover-bg: var(--accent-20);
-  --bs-btn-hover-border-color: var(--accent-2);
+  --bs-btn-hover-border-color: var(--accent-50);
 }
 
 .logo {
@@ -210,4 +210,14 @@ i.bi {
 }
 #back {
   height: calc(70vw - (70vw - 4rem - 1rem) / 2);
+}
+
+#flip-directive {
+  font-size: 0.75em;
+}
+
+#flip-directive kbd {
+  background: var(--accent-20) 75%;
+  opacity: 0.75;
+  margin: 0 1ch;
 }
