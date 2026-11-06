@@ -8,8 +8,13 @@ async function onloadFunction() {
   back_audio_btn = document.getElementById('back_audio_btn')
   next_btn = document.getElementById('next_btn')
   cards = await getCards()
+  filterCardsByLesson(cards)
   console.log(cards)
-  await mainloop()
+  if (cards.length > 0) {
+    await mainloop()
+  } else {
+    alert('no cards found!')
+  }
 }
 
 function zip(left, right) {
@@ -45,6 +50,16 @@ async function getCards() {
   return cards
 }
 
+function filterCardsByLesson() {
+  let validLessons = []
+  const url_params = new URLSearchParams(window.location.search)
+  for (const [key, val] of url_params)
+    if (val === 'true') {
+      validLessons.push(key)
+    }
+  cards = cards.filter((card) => validLessons.includes(card.lesson))
+}
+
 function pickNextCard() {
   return cards[Math.floor(Math.random() * cards.length)]
 }
@@ -57,21 +72,23 @@ function playAudio(audio_name) {
 function showCard(card) {
   front_text.innerText = card['front text'] + '\n'
 
+  // create front text + audio
   let audio_name = card['front audio path']
   if (audio_name) {
     front_audio_btn.style.display = 'inline-block' /* default */
     front_audio_btn.onclick = () => playAudio(audio_name)
-    playAudio(audio_name)
+    playAudio(audio_name) // play on card load
   } else {
     front_audio_btn.style.display = 'none'
   }
+
+  // create back text + audio
   back.style.display = 'none'
   back_text.innerText = card['back text']
 
   audio_name = card['back audio path']
   if (audio_name) {
     back_audio_btn.style.display = 'inline-block' /* default */
-    const path = `assets/audio/${audio_name}.mp3`
     back_audio_btn.onclick = () => playAudio(audio_name)
   } else {
     back_audio_btn.style.display = 'none'
