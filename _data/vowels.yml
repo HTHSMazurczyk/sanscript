@@ -1,0 +1,56 @@
+- iast: a
+  noUnder: F
+  under: u
+  noUnder1: n
+- iast: ā
+  noUnder: C
+  under: a
+  noUnder1: r
+- iast: i
+  noUnder: P
+  under: i
+  noUnder1: n
+- iast: ī
+  noUnder: F
+  under: ee
+  noUnder1: t
+- iast: u
+  noUnder: P
+  under: u
+  noUnder1: t
+- iast: ū
+  noUnder: P
+  under: oo
+  noUnder1: l
+- iast: ṛ
+  noUnder: R
+  under: i
+  noUnder1: g
+- iast: ṝ
+  noUnder: (long ṛ)
+  under:
+  noUnder1:
+- iast: ḷ
+  noUnder: No English
+  under:
+  noUnder1:
+- iast: ḹ
+  noUnder: Pl
+  under: ay
+  noUnder1:
+- iast: e
+  noUnder: bal
+  under: e
+  noUnder1:
+- iast: ai
+  noUnder: H
+  under: i
+  noUnder1: gh
+- iast: o
+  noUnder:
+  under: O
+  noUnder1: ver
+- iast: au
+  noUnder: C
+  under: ow
+  noUnder1:

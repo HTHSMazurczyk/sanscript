@@ -1,59 +1,3 @@
-- iast: a
-  noUnder: F
-  under: u
-  noUnder1: n
-- iast: ā
-  noUnder: C
-  under: a
-  noUnder1: r
-- iast: i
-  noUnder: P
-  under: i
-  noUnder1: n
-- iast: ī
-  noUnder: F
-  under: ee
-  noUnder1: t
-- iast: u
-  noUnder: P
-  under: u
-  noUnder1: t
-- iast: ū
-  noUnder: P
-  under: oo
-  noUnder1: l
-- iast: ṛ
-  noUnder: R
-  under: i
-  noUnder1: g
-- iast: ṝ
-  noUnder: (long ṛ)
-  under:
-  noUnder1:
-- iast: ḷ
-  noUnder: No English
-  under:
-  noUnder1:
-- iast: ḹ
-  noUnder: Pl
-  under: ay
-  noUnder1:
-- iast: e
-  noUnder: bal
-  under: e
-  noUnder1:
-- iast: ai
-  noUnder: H
-  under: i
-  noUnder1: gh
-- iast: o
-  noUnder:
-  under: O
-  noUnder1: ver
-- iast: au
-  noUnder: C
-  under: ow
-  noUnder1:
 - iast: k
   noUnder:
   under: K
@@ -114,75 +58,75 @@
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: t
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: th
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: d
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: dh
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: n
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: p
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: ph
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: b
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: bh
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: m
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: y
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: r
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: l
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: v
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: ś
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: ṣ
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: s
   noUnder:
   under: T
   noUnder1: o
-- iast: ṭ
+- iast: h
   noUnder:
   under: T
   noUnder1: o

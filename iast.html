@@ -10,7 +10,14 @@ layout: default
       <th>IAST</th>
       <th>Approximate English</th>
     </tr>
-    {% for item in site.data.letters %}
+    {% for item in site.data.vowels %}
+    <tr>
+      <td>{{item.iast}}</td>
+      <td>{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</td>
+    </tr>
+    {% endfor %}
+
+    {% for item in site.data.consonants%}
     <tr>
       <td>{{item.iast}}</td>
       <td>{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</td>
