@@ -83,7 +83,7 @@ function showCard(card) {
   }
 
   // create back text + audio
-  back.style.display = 'none'
+  back.style.visibility = 'hidden'
   back_text.innerText = card['back text']
 
   audio_name = card['back audio path']
@@ -114,7 +114,7 @@ async function mainloop() {
     })
 
     // flip card
-    back.style.display = 'block'
+    back.style.visibility = 'visible'
 
     // wait for button press
     await new Promise((resolve, reject) => {

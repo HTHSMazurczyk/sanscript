@@ -15,7 +15,8 @@ layout: default
         </i>
       </button>
     </div>
-    <div id="back" style="">
+    <!-- visibility: still renders size -->
+    <div id="back" style="visibility: hidden">
       <hr id="horz_rule" />
       <div class="row row-cols-2 g-3">
         {% for i in (1..4) %}
@@ -31,7 +32,7 @@ layout: default
         </div>
         {% endfor %}
       </div>
-      <button class="btn btn-primary" id="next_btn">Next</button>
+      <button class="btn btn-primary mt-5 d-block mx-auto" id="next_btn">Next &rightarrow;</button>
     </div>
   </div>
 </div>

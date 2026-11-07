@@ -198,18 +198,32 @@ i.bi {
   margin: 2rem;
   padding: 2rem;
   width: 70vw;
-  height: 70vw;
+  /* height: 70vw; */
   border: 2px solid var(--accent-50);
   border-radius: 10%;
 }
 
-/* --------------------------------------------------- Flashcard CSS ---------------------------- */
-#front {
-  /* height - padding - horizontal rule */
-  height: calc((70vw - 4rem - 1rem) / 2);
+#next_btn {
+  font-size: 0.7em;
 }
+
+/* --------------------------------------------------- Flashcard CSS ---------------------------- */
+
+div:has(#back) {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* height - padding - horizontal rule */
+
+#front {
+  flex-basis: 0;
+}
+
 #back {
-  height: calc(70vw - (70vw - 4rem - 1rem) / 2);
+  flex-basis: 0;
 }
 
 #flip-directive {

@@ -5,26 +5,28 @@ script: flashcards.js
 ---
 
 <div class="container">
-  <div id="practice_box">
+  <div id="practice_box" class="text-center">
     <!-- #front -->
-    <div>
-      <div id="front_text">FRONT</div>
+    <div id="front" class="d-flex flex-column">
+      <div id="front_text" class="h3">FRONT</div>
       <button id="front_audio_btn" class="btn btn-primary">
         <i class="bi bi-volume-down" aria>
           <span class="visually-hidden">Play audio</span>
         </i>
       </button>
-      <em id="flip-directive">press<kbd>space</kbd>to flip</em>
+      <br />
+      <em id="flip-directive" class="d-block mt-auto">press<kbd>space</kbd>to flip</em>
     </div>
-    <div id="back" style="display: none">
-      <hr id="horz_rule" />
-      <div id="back_text">BACK</div>
+    <hr id="horz_rule" class="my-0" />
+    <div id="back" class="d-flex flex-column">
+      <div id="back_text" class="h3">BACK</div>
       <button id="back_audio_btn" class="btn btn-primary">
         <i class="bi bi-volume-down" aria>
           <span class="visually-hidden">Play audio</span>
         </i>
       </button>
-      <button class="btn btn-primary" id="next_btn">Next</button>
+      <br />
+      <button class="btn btn-primary align-self-end mb-auto" id="next_btn">Next &rightarrow;</button>
     </div>
   </div>
 </div>
