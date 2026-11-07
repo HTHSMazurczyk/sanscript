@@ -203,7 +203,7 @@ i.bi {
   border-radius: 10%;
 }
 
-/* ---------------------------------------------------Practice CSS (shared) ---------------------------- */
+/* --------------------------------------------------- Flashcard CSS ---------------------------- */
 #front {
   /* height - padding - horizontal rule */
   height: calc((70vw - 4rem - 1rem) / 2);
@@ -220,4 +220,11 @@ i.bi {
   background: var(--accent-20) 75%;
   opacity: 0.75;
   margin: 0 1ch;
+}
+
+/* --------------------------------------------------- Flashcard CSS ---------------------------- */
+
+.answer {
+  border: 1px solid var(--accent-20);
+  border-radius: 0.375rem;
 }
