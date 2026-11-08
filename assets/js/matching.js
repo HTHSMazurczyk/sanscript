@@ -1,15 +1,11 @@
 let questions
-let front_text, back, back_text, next_btn, front_audio_btn, back_audio_btn
+let prompt_text, back, back_text, next_btn, prompt_audio_btn, back_audio_btn
 async function onloadFunction() {
-  front_text = document.getElementById('front_text')
-  front_audio_btn = document.getElementById('front_audio_btn')
-  back = document.getElementById('back')
-  back_text = document.getElementById('back_text')
-  back_audio_btn = document.getElementById('back_audio_btn')
+  prompt_text = document.getElementById('prompt_text')
+  prompt_audio_btn = document.getElementById('prompt_audio_btn')
   next_btn = document.getElementById('next_btn')
-  questions = await getCards()
+  questions = await getQuestions()
   filterQuestionsByLesson(questions)
-  console.log(questions)
   if (questions.length > 0) {
     await mainloop()
   } else {
@@ -25,10 +21,10 @@ function zip(left, right) {
   return out
 }
 
-async function getCards() {
+async function getQuestions() {
   let data
   try {
-    const response = await fetch('assets/questiondata/flashcards.csv')
+    const response = await fetch('assets/questiondata/matching.csv')
     if (!response.ok) {
       throw new Error('Network Error!')
     }
@@ -40,13 +36,26 @@ async function getCards() {
   }
 
   let rows = data.split('\n')
-  let header = rows.shift().split(',')
+  let header = rows
+    .shift() // pop first row out
+    .split(',')
+    .map((x) => x.trim())
 
   questions = []
   for (let row of rows) {
-    questions.push(Object.fromEntries(zip(header, row.split(','))))
+    row = row.split(',').map((x) => x.trim())
+    // prettier-ignore
+    let { 
+      ans1, ans2, ans3, ans4,
+      ans1_audio, ans2_audio, ans3_audio, ans4_audio,
+      ...question 
+    } = Object.fromEntries(zip(header, row))
+
+    question.answers = [ans1, ans2, ans3, ans4]
+    question.ans_audios = [ans1_audio, ans2_audio, ans3_audio, ans4_audio]
+    questions.push(question)
   }
-  // console.log(cards)
+  console.log(questions)
   return questions
 }
 
@@ -57,10 +66,10 @@ function filterQuestionsByLesson() {
     if (val === 'true') {
       validLessons.push(key)
     }
-  questions = questions.filter((card) => validLessons.includes(card.lesson))
+  questions = questions.filter((question) => validLessons.includes(question.lesson))
 }
 
-function pickNextCard() {
+function pickNextQuestion() {
   return questions[Math.floor(Math.random() * questions.length)]
 }
 
@@ -71,24 +80,21 @@ function playAudioCallback(audio_name) {
   }
 }
 
-function showCard(card) {
-  front_text.innerText = card['front text'] + '\n'
+function showQuestion(question) {
+  prompt_text.innerText = question['prompt text'] + '\n'
 
   // create front text + audio
-  let audio_name = card['front audio path']
+  let audio_name = question['prompt audio']
   if (audio_name) {
-    front_audio_btn.style.display = 'inline-block' /* default */
-    front_audio_btn.onclick = playAudioCallback(audio_name)
-    playAudioCallback(audio_name)() // play on card load
+    prompt_audio_btn.style.display = 'inline-block' /* default */
+    prompt_audio_btn.onclick = playAudioCallback(audio_name)
+    playAudioCallback(audio_name)() // play on question load
   } else {
-    front_audio_btn.style.display = 'none'
+    prompt_audio_btn.style.display = 'none'
   }
 
   // create back text + audio
-  back.style.visibility = 'hidden'
-  back_text.innerText = card['back text']
-
-  audio_name = card['back audio path']
+  audio_name = question['back audio path']
   if (audio_name) {
     back_audio_btn.style.display = 'inline-block' /* default */
     back_audio_btn.onclick = () => playAudioCallback(audio_name)
@@ -99,8 +105,8 @@ function showCard(card) {
 
 async function mainloop() {
   while (true) {
-    let card = pickNextCard()
-    showCard(card)
+    let card = pickNextQuestion()
+    showQuestion(card)
 
     // wait for space press
     await new Promise((resolve, reject) => {
