@@ -1,9 +1,11 @@
 let questions
-let prompt_text, back, back_text, next_btn, prompt_audio_btn, back_audio_btn
+let prompt_text, prompt_audio_btn, next_btn, ans_texts, ans_audios
 async function onloadFunction() {
   prompt_text = document.getElementById('prompt_text')
   prompt_audio_btn = document.getElementById('prompt_audio_btn')
   next_btn = document.getElementById('next_btn')
+  ans_texts = document.getElementsByClassName('ans_text')
+  ans_audios = document.getElementsByClassName('ans_audio')
   questions = await getQuestions()
   filterQuestionsByLesson(questions)
   if (questions.length > 0) {
@@ -22,6 +24,10 @@ function zip(left, right) {
 }
 
 async function getQuestions() {
+  /* question = {
+    id: str, lesson: str, prompt_text: str, prompt_audio: str,
+    answers: list[str], ans_audios: list[str]
+  */
   let data
   try {
     const response = await fetch('assets/questiondata/matching.csv')
@@ -74,19 +80,18 @@ function pickNextQuestion() {
 }
 
 function playAudioCallback(audio_name) {
-  const path = `assets/audio/${audio_name}.mp3`
+  const path = `assets/audio/${audio_name}`
   return () => {
     new Audio(path).play()
   }
 }
 
 function showQuestion(question) {
-  prompt_text.innerText = question['prompt text'] + '\n'
-
   // create front text + audio
-  let audio_name = question['prompt audio']
+  prompt_text.innerText = question.prompt_text + '\n'
+  let audio_name = question.prompt_audio
   if (audio_name) {
-    prompt_audio_btn.style.display = 'inline-block' /* default */
+    prompt_audio_btn.style.display = 'block' // default
     prompt_audio_btn.onclick = playAudioCallback(audio_name)
     playAudioCallback(audio_name)() // play on question load
   } else {
@@ -94,12 +99,17 @@ function showQuestion(question) {
   }
 
   // create back text + audio
-  audio_name = question['back audio path']
-  if (audio_name) {
-    back_audio_btn.style.display = 'inline-block' /* default */
-    back_audio_btn.onclick = () => playAudioCallback(audio_name)
-  } else {
-    back_audio_btn.style.display = 'none'
+  for (let i = 0; i < 4; i = i + 1) {
+    let text = question.answers[i]
+    ans_texts[i].innerText = text
+    let audio_name = question.ans_audios[i]
+    let audio_icon = ans_audios[i]
+    if (audio_name) {
+      audio_icon.style.display = 'inline-block' /* default */
+      audio_icon.onclick = () => playAudioCallback(audio_name)
+    } else {
+      audio_icon.style.display = 'none'
+    }
   }
 }
 

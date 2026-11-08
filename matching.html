@@ -9,7 +9,7 @@ script: matching.js
     <!-- #prompt -->
     <div>
       <div id="prompt_text" class="text-center h3">FRONT</div>
-      <button id="prompt_audio_btn" class="btn btn-primary mx-auto d-block">
+      <button id="prompt_audio_btn" class="btn btn-primary mx-auto" style="display: block">
         <i class="bi bi-volume-down">
           <span class="visually-hidden">Play audio</span>
         </i>
@@ -24,8 +24,8 @@ script: matching.js
           <!-- can't have a button inside a button :( -->
           <button class="answer btn btn-outline-tertiary p-3 d-flex align-items-center w-100">
             <kbd>{{forloop.index}}</kbd>
-            <span>answer text</span>
-            <i class="bi bi-volume-down ms-auto">
+            <span class="ans_text">answer text</span>
+            <i class="ans_audio bi bi-volume-down ms-auto">
               <span class="visually-hidden">Play audio</span>
             </i>
           </button>
