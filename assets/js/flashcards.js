@@ -64,9 +64,11 @@ function pickNextCard() {
   return cards[Math.floor(Math.random() * cards.length)]
 }
 
-function playAudio(audio_name) {
+function playAudioCallback(audio_name) {
   const path = `assets/audio/${audio_name}.mp3`
-  new Audio(path).play()
+  return () => {
+    new Audio(path).play()
+  }
 }
 
 function showCard(card) {
@@ -76,8 +78,8 @@ function showCard(card) {
   let audio_name = card['front audio path']
   if (audio_name) {
     front_audio_btn.style.display = 'inline-block' /* default */
-    front_audio_btn.onclick = () => playAudio(audio_name)
-    playAudio(audio_name) // play on card load
+    front_audio_btn.onclick = playAudioCallback(audio_name)
+    playAudioCallback(audio_name)() // play on card load
   } else {
     front_audio_btn.style.display = 'none'
   }
@@ -89,7 +91,7 @@ function showCard(card) {
   audio_name = card['back audio path']
   if (audio_name) {
     back_audio_btn.style.display = 'inline-block' /* default */
-    back_audio_btn.onclick = () => playAudio(audio_name)
+    back_audio_btn.onclick = () => playAudioCallback(audio_name)
   } else {
     back_audio_btn.style.display = 'none'
   }
