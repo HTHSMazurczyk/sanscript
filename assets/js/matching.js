@@ -1,9 +1,10 @@
 let questions
-let prompt_text, prompt_audio_btn, next_btn, ans_texts, ans_audios
+let prompt_text, prompt_audio_btn, next_btn, ans_btns, ans_texts, ans_audios
 async function onloadFunction() {
   prompt_text = document.getElementById('prompt_text')
   prompt_audio_btn = document.getElementById('prompt_audio_btn')
   next_btn = document.getElementById('next_btn')
+  ans_btns = document.getElementsByClassName('answer')
   ans_texts = document.getElementsByClassName('ans_text')
   ans_audios = document.getElementsByClassName('ans_audio')
   questions = await getQuestions()
@@ -104,9 +105,10 @@ function showQuestion(question) {
     ans_texts[i].innerText = text
     let audio_name = question.ans_audios[i]
     let audio_icon = ans_audios[i]
+    let ans_btn = ans_btns[i]
     if (audio_name) {
       audio_icon.style.display = 'inline-block' /* default */
-      audio_icon.onclick = () => playAudioCallback(audio_name)
+      ans_btn.onclick = playAudioCallback(audio_name)
     } else {
       audio_icon.style.display = 'none'
     }

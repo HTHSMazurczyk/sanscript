@@ -18,21 +18,23 @@ script: matching.js
     <!-- visibility: still renders size -->
     <div id="back">
       <hr id="horz_rule" />
-      <div class="row row-cols-2 g-3">
-        {% for i in (1..4) %}
-        <div class="col">
-          <!-- can't have a button inside a button :( -->
-          <button class="answer btn btn-outline-tertiary p-3 d-flex align-items-center w-100">
-            <kbd>{{forloop.index}}</kbd>
-            <span class="ans_text">answer text</span>
-            <i class="ans_audio bi bi-volume-down ms-auto">
-              <span class="visually-hidden">Play audio</span>
-            </i>
-          </button>
+      <form>
+        <div class="row row-cols-2 g-3">
+          {% for i in (1..4) %}
+          <div class="col">
+            <input id="ans{{forloop.index}}" type="radio" class="answer btn-check" name="answers" />
+            <label class="answer-label btn btn-outline-tertiary p-3 d-flex align-items-center w-100" for="ans{{forloop.index}}">
+              <kbd>{{forloop.index}}</kbd>
+              <span class="ans_text">answer text</span>
+              <i class="ans_audio bi bi-volume-down ms-auto">
+                <span class="visually-hidden">Play audio</span>
+              </i>
+            </label>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
-      </div>
-      <button class="btn btn-primary mt-3 d-block ms-auto" id="next_btn">Submit</button>
+        <button class="btn btn-primary mt-3 d-block ms-auto" id="next_btn">Submit</button>
+      </form>
     </div>
   </div>
 </div>
