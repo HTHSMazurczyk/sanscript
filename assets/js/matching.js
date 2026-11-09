@@ -1,10 +1,10 @@
 let questions
-let prompt_text, prompt_audio_btn, next_btn, ans_btns, ans_texts, ans_audios
+let prompt_text, prompt_audio_btn, next_btn, ans_inputs, ans_texts, ans_audios
 async function onloadFunction() {
   prompt_text = document.getElementById('prompt_text')
   prompt_audio_btn = document.getElementById('prompt_audio_btn')
   next_btn = document.getElementById('next_btn')
-  ans_btns = document.getElementsByClassName('answer')
+  ans_inputs = document.getElementsByClassName('answer')
   ans_texts = document.getElementsByClassName('ans_text')
   ans_audios = document.getElementsByClassName('ans_audio')
   questions = await getQuestions()
@@ -99,32 +99,39 @@ function showQuestion(question) {
     prompt_audio_btn.style.display = 'none'
   }
 
-  // create back text + audio
+  // create answer text, create answer audio, reset button states
   for (let i = 0; i < 4; i = i + 1) {
     let text = question.answers[i]
-    ans_texts[i].innerText = text
+    let ans_text = ans_texts[i]
+    ans_text.innerText = text
+
     let audio_name = question.ans_audios[i]
     let audio_icon = ans_audios[i]
-    let ans_btn = ans_btns[i]
+    let ans_input = ans_inputs[i]
     if (audio_name) {
       audio_icon.style.display = 'inline-block' /* default */
-      ans_btn.onclick = playAudioCallback(audio_name)
+      ans_input.onclick = playAudioCallback(audio_name)
     } else {
       audio_icon.style.display = 'none'
     }
+
+    ans_input.checked = false
+    ans_text.parentElement.classList.add('btn-outline-tertiary')
+    ans_text.parentElement.classList.remove('btn-outline-success', 'btn-outline-danger')
   }
 }
 
 function grade(question) {
   // zero-indexed
-  let user_choice = Array.from(ans_inps)
+  let user_choice = Array.from(ans_inputs)
     .map((x) => x.checked)
     .findIndex((x) => x)
+  console.assert(user_choice >= 0)
   let correct_choice = Number(question.correct_choice) - 1
   ans_texts[correct_choice].parentElement.classList.remove('btn-outline-tertiary')
   ans_texts[correct_choice].parentElement.classList.add('btn-outline-success')
+  ans_inputs[user_choice].checked = false // make button outline again
   if (correct_choice !== user_choice) {
-    ans_inps[user_choice].checked = false // make button outline again
     ans_texts[user_choice].parentElement.classList.remove('btn-outline-tertiary')
     ans_texts[user_choice].parentElement.classList.add('btn-outline-danger')
   }
@@ -132,41 +139,30 @@ function grade(question) {
 
 async function mainloop() {
   while (true) {
-    let card = pickNextQuestion()
-    showQuestion(card)
+    let question = pickNextQuestion()
+    showQuestion(question)
 
     // wait for space press
     await new Promise((resolve, reject) => {
-      document.addEventListener(
-        'keyup',
-        (event) => {
-          if (event.key == ' ') {
-            resolve()
-          }
-        },
-        { once: true },
-      )
+      next_btn.onclick = () => resolve()
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+          resolve()
+        }
+      })
     })
 
-    // flip card
-    back.style.visibility = 'visible'
+    grade(question)
 
     // wait for button press
     await new Promise((resolve, reject) => {
-      next_btn.onclick = () => {
-        resolve()
-      }
-      document.addEventListener(
-        'keyup',
-        (event) => {
-          if (event.key == ' ') {
-            resolve()
-          }
-        },
-        { once: true },
-      )
+      next_btn.onclick = () => resolve()
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+          resolve()
+        }
+      })
     })
-    // console.log('done!')
   }
 }
 
