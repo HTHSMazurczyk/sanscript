@@ -1,3 +1,3 @@
-id,lesson,prompt_text,prompt_audio,ans1,ans1_audio,ans2,ans2_audio,ans3,ans3_audio,ans4,ans4_audio
-1,Letters,Transcribe,one.mp3,one,,two,,three,,four,
-2,Letters,Pronounce: two,,,one.mp3,,two.mp3,,three.mp3,,four.mp3
+id,lesson,prompt_text,prompt_audio,correct_choice,ans1,ans1_audio,ans2,ans2_audio,ans3,ans3_audio,ans4,ans4_audio
+1,Letters,Transcribe,one.mp3,1,one,,two,,three,,four,
+2,Letters,Pronounce: two,,2,,one.mp3,,two.mp3,,three.mp3,,four.mp3

@@ -26,7 +26,7 @@ function zip(left, right) {
 
 async function getQuestions() {
   /* question = {
-    id: str, lesson: str, prompt_text: str, prompt_audio: str,
+    id: str, lesson: str, prompt_text: str, prompt_audio: str, correct_choice: str
     answers: list[str], ans_audios: list[str]
   */
   let data
@@ -112,6 +112,21 @@ function showQuestion(question) {
     } else {
       audio_icon.style.display = 'none'
     }
+  }
+}
+
+function grade(question) {
+  // zero-indexed
+  let user_choice = Array.from(ans_inps)
+    .map((x) => x.checked)
+    .findIndex((x) => x)
+  let correct_choice = Number(question.correct_choice) - 1
+  ans_texts[correct_choice].parentElement.classList.remove('btn-outline-tertiary')
+  ans_texts[correct_choice].parentElement.classList.add('btn-outline-success')
+  if (correct_choice !== user_choice) {
+    ans_inps[user_choice].checked = false // make button outline again
+    ans_texts[user_choice].parentElement.classList.remove('btn-outline-tertiary')
+    ans_texts[user_choice].parentElement.classList.add('btn-outline-danger')
   }
 }
 
