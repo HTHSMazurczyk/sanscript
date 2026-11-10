@@ -128,13 +128,17 @@ function grade(question) {
     .findIndex((x) => x)
   console.assert(user_choice >= 0)
   let correct_choice = Number(question.correct_choice) - 1
+
   ans_texts[correct_choice].parentElement.classList.remove('btn-outline-tertiary')
   ans_texts[correct_choice].parentElement.classList.add('btn-outline-success')
+
   ans_inputs[user_choice].checked = false // make button outline again
   if (correct_choice !== user_choice) {
     ans_texts[user_choice].parentElement.classList.remove('btn-outline-tertiary')
     ans_texts[user_choice].parentElement.classList.add('btn-outline-danger')
   }
+
+  next_btn.innerHTML = 'Next &rightarrow;'
 }
 
 async function mainloop() {

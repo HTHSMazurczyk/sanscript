@@ -208,21 +208,21 @@ i.bi {
 /* ---------------------------------------------------Practice CSS (shared) ---------------------------- */
 
 #practice_box {
-  margin: 2rem;
+  margin: 2rem auto;
   padding: 2rem;
-  width: 70vw;
+  max-width: min(70vw, 70vh);
   /* height: 70vw; */
   border: 2px solid var(--accent-50);
   border-radius: 10%;
 }
 
 #next_btn {
-  font-size: 0.7em;
+  font-size: 1em;
 }
 
 /* --------------------------------------------------- Flashcard CSS ---------------------------- */
 
-div:has(#back) {
+div:has(> #back) {
   display: flex;
   aspect-ratio: 1 / 1;
   flex-direction: column;
@@ -249,7 +249,7 @@ div:has(#back) {
   margin: 0 1ch;
 }
 
-/* --------------------------------------------------- Flashcard CSS ---------------------------- */
+/* --------------------------------------------------- Matching CSS ---------------------------- */
 
 .answer-label {
   border-width: 2px;
