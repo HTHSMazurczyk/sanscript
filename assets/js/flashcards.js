@@ -40,11 +40,11 @@ async function getCards() {
   }
 
   let rows = data.split('\n')
-  let header = rows.shift().split(',')
+  let header = rows.shift().trim().split(',')
 
   cards = []
   for (let row of rows) {
-    cards.push(Object.fromEntries(zip(header, row.split(','))))
+    cards.push(Object.fromEntries(zip(header, row.trim().split(','))))
   }
   // console.log(cards)
   return cards
@@ -65,7 +65,7 @@ function pickNextCard() {
 }
 
 function playAudioCallback(audio_name) {
-  const path = `assets/audio/${audio_name}.mp3`
+  const path = `assets/audio/${audio_name}`
   return () => {
     new Audio(path).play()
   }
@@ -91,7 +91,7 @@ function showCard(card) {
   audio_name = card['back audio path']
   if (audio_name) {
     back_audio_btn.style.display = 'inline-block' /* default */
-    back_audio_btn.onclick = () => playAudioCallback(audio_name)
+    back_audio_btn.onclick = playAudioCallback(audio_name)
   } else {
     back_audio_btn.style.display = 'none'
   }
@@ -117,6 +117,9 @@ async function mainloop() {
 
     // flip card
     back.style.visibility = 'visible'
+    if (back_audio_btn.style.display !== 'none') {
+      back_audio_btn.onclick() // play audio on flip
+    }
 
     // wait for button press
     await new Promise((resolve, reject) => {
