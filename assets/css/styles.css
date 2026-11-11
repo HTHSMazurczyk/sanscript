@@ -261,3 +261,16 @@ div:has(> #back) {
   margin-right: 1ch;
 }
 
+/* --------------------------------------------------- Lesson CSS ---------------------------- */
+
+.next-lesson {
+  text-align: right;
+  color: var(--accent-50);
+  font-size: 2.5em;
+}
+
+.past-lesson {
+  text-align: left;
+  color: var(--accent-50);
+  font-size: 2.5em;
+}
