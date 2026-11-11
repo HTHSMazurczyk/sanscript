@@ -5,7 +5,10 @@ script: lesson1.js
 ---
 <div class="container">
 
-    <h1><br>Lesson 1 - Letters</h1>
+    <h1>
+        <br>
+        Lesson 1 - Letters
+    </h1>
 
     <hr>
 <!--Introductory Paragraph-->
@@ -26,91 +29,127 @@ script: lesson1.js
         Below, you are going to find a table. This contains the consonants in Sanskrit. Listen to how each letter is pronounced and replicate it. Make sure you fully understand how you say each letter before moving on to the next consonants. When you are ready, you can continue to the vowels, where we can really get into making sounds. Please note that all of the consonants are pronounced with an “a” vowel at the end, as trying to pronounce just the consonants without the vowel is actual torture. Just remember that as you listen in.
         <br>
         <br>
-        <!--Table for Consonants-->
-        <table id = "constTable" border = 1 cellpadding = 5>
-            <tr>
-                <th>Consonants</th>
-                <th>Pronounciation</th>
-                
-            </tr>
+    </p>
 
-            {% for letters in site.data.consonants%}
+<!--Table for Consonants-->
+    <table id = "constTable">
+        <tr>
+            <th>Consonants</th>              <!--1-->
+            <th>Pronunciation</th>           <!--1-->
+            <th>Btn</th>
+            <th>Consonants</th>              <!--2-->
+            <th>Pronunciation</th>           <!--2-->
+            <th>Btn</th>
+            <th>Consonants</th>              <!--3-->
+            <th>Pronunciation</th>           <!--3-->
+            
+        </tr>
+
+        {% for letters in site.data.consonants limit:7%}
+        <tr>
+            <td>{{letters.iast}}</td>
+            <td>some text</td>
+            <td> 
+                <button type = "button" class = "btn btn-primary" id = "{{letters.id}}_btn" <!--</button> onclick= "playAudio( {{letters.id}} )" -->>
+                    <i class="bi bi-volume-down" aria>
+                        <span class="visually-hidden">Play audio</span>
+                    </i>
+                </button> 
+            </td>
+        </tr>
+        {% endfor %}
+
+        {% for letters in site.data.consonants limit:7 offset: continue %}
+        <tr>
+            <td>{{letters.iast}}</td>
+            <td>some text</td>
+            <td> 
+                <button type = "button" class = "btn btn-primary" id = "{{letters.id}}_btn"<!--</button> onclick= "playAudio( {{letters.id}} )" -->>
+                    <i class="bi bi-volume-down" aria>
+                        <span class="visually-hidden">Play audio</span>
+                    </i>
+                </button> 
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <p>
+        You got some practice? Good! Now do the same thing with the vowels. It’s a much shorter list than before, but they are separated because of just how often you will see these letters. For that reason, spend a bit more time trying out these letters. If you can’t pronounce these, then you probably can’t move on to the other lessons. You can also try to use different vowels for the endings of the consonants above. Simply remove the “a” sound at the end and replace it with the sound of the vowel you choose. This helps you learn the general sounds of the consonants and also helps you 
+    </p>
+    <br>
+    <br>
+    <!--Table for Vowels-->
+    <table id = "vowelTable" border = 1 cellpadding = 5>
+        <tr>
+            <th>Vowels</th>
+            <th>Sound</th>
+            
+        </tr>
+
+        {% for letters in site.data.vowels%}
             <tr>
                 <td>{{letters.iast}}</td>
                 <td>some text</td>
                 <td> 
-                    <button type = "button" class = "btn btn-primary" id = "{{letters.id}}_btn">
+                    <button type = "button" class = "btn btn-primary" id = letters>
                         <i class="bi bi-volume-down" aria>
                             <span class="visually-hidden">Play audio</span>
                         </i>
                     </button> 
                 </td>
             </tr>
-            {% endfor %}
-        </table>
-        <br>
-        You got some practice? Good! Now do the same thing with the vowels. It’s a much shorter list than before, but they are separated because of just how often you will see these letters. For that reason, spend a bit more time trying out these letters. If you can’t pronounce these, then you probably can’t move on to the other lessons. You can also try to use different vowels for the endings of the consonants above. Simply remove the “a” sound at the end and replace it with the sound of the vowel you choose. This helps you learn the general sounds of the consonants and also helps you 
-        <br>
-        <br>
-        <!--Table for Vowels-->
-        <table id = "vowelTable" border = 1 cellpadding = 5>
-            <tr>
-                <th>Vowels</th>
-                <th>Sound</th>
-                
-            </tr>
+        {% endfor %}
+    </table>
 
-            {% for letters in site.data.vowels%}
-                <tr>
-                    <td>{{letters.iast}}</td>
-                    <td>some text</td>
-                    <td> 
-                        <button type = "button" class = "btn btn-primary" id = letters>
-                            <i class="bi bi-volume-down" aria>
-                                <span class="visually-hidden">Play audio</span>
-                            </i>
-                        </button> 
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-        <br>
+    <br>
+    <p>
         These vowels are going to be pretty important to know for the next lesson on syllables. The consonants are also going to be equally important in that regard, specifically the ones represented by two letters. These two-lettered consonants are considered one grouping, so they can never be split into the individual letters that make them up.
-        <br>
-        <br>
-        The final part is codas. These are just unique sounds for Sanskrit and come with their own weird pronunciation. These are ending sounds for words and will have a vowel before them. So, similar to the consonants, these codas are pronounced with a leading “a” sound. However, you can substitute any vowel before the coda for further practice.
-        <br>
-        <!--Table for Codas-->
-        <table id = "vowelTable">
-            <tr>
-                <th>Codas</th>
-                <th>Sound</th>
-                
-            </tr>
-            <!--Make yml file with list of codas(get from AK)-->
-            {% for letters in site.data.vowels%}
-                <tr>
-                    <td>{{letters.iast}}</td>
-                    <td>some text</td>
-                    <td> 
-                        <button type = "button" class = "btn btn-primary" id = letters>
-                            <i class="bi bi-volume-down" aria>
-                                <span class="visually-hidden">Play audio</span>
-                            </i>
-                        </button> 
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-        <br>
-        <hr>
-        And that brings us to the end of our lesson! Thank you so much for showing interest in learning Sanskrit! You should now try to practice these letters on the dedicated practice page. More information is available there, but it is recommended that you familiarize yourself with the letters, as they are quite literally the foundation of the upcoming lessons. With that said, I will see you next lesson!
-
     </p>
+    <br>
+    <br>
+    <p>
+        The final part is codas. These are just unique sounds for Sanskrit and come with their own weird pronunciation. These are ending sounds for words and will have a vowel before them. So, similar to the consonants, these codas are pronounced with a leading “a” sound. However, you can substitute any vowel before the coda for further practice.
+    </p>
+    <br>
+    <!--Table for Codas-->
+    <table id = "vowelTable">
+        <tr>
+            <th>Codas</th>
+            <th>Sound</th>
+            
+        </tr>
+        <!--Make yml file with list of codas(get from AK)-->
+        {% for letters in site.data.vowels%}
+            <tr>
+                <td>{{letters.iast}}</td>
+                <td>some text</td>
+                <td> 
+                    <button type = "button" class = "btn btn-primary" id = letters>
+                        <i class="bi bi-volume-down" aria>
+                            <span class="visually-hidden">Play audio</span>
+                        </i>
+                    </button> 
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <hr>
+    <p>
+        And that brings us to the end of our lesson! Thank you so much for showing interest in learning Sanskrit! You should now try to practice these letters on the dedicated practice page. More information is available there, but it is recommended that you familiarize yourself with the letters, as they are quite literally the foundation of the upcoming lessons. With that said, I will see you next lesson!
+    </p>
+
 </div>
 
 <div class="container">
-    <button onclick="exFunc">
+    <button onclick="playAudio('one')">
         Example Button
     </button>
+</div>
+
+<div class="container">
+  <br />
+  <h1 class="next-lesson"><a href="http://127.0.0.1:4000/lesson2.html">Lesson 2 - Syllables</a></h1>
 </div>

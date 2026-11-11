@@ -2,55 +2,69 @@
   noUnder: F
   under: u
   noUnder1: n
+  id: lesson-1-a
 - iast: ā
   noUnder: C
   under: a
   noUnder1: r
+  id: lesson-1-a-bar
 - iast: i
   noUnder: P
   under: i
   noUnder1: n
+  id: lesson-1-i
 - iast: ī
   noUnder: F
   under: ee
   noUnder1: t
+  id: lesson-1-i-bar
 - iast: u
   noUnder: P
   under: u
   noUnder1: t
+  id: lesson-1-u
 - iast: ū
   noUnder: P
   under: oo
   noUnder1: l
+  id: lesson-1-u-bar
 - iast: ṛ
   noUnder: R
   under: i
   noUnder1: g
+  id: lesson-1-r-dot
 - iast: ṝ
   noUnder: (long ṛ)
   under:
   noUnder1:
+  id: lesson-1-r-bar-dot
 - iast: ḷ
   noUnder: No English
   under:
   noUnder1:
+  id: lesson-1-l-dot
 - iast: ḹ
   noUnder: Pl
   under: ay
   noUnder1:
+  id: lesson-1-l-bar-dot
 - iast: e
   noUnder: bal
   under: e
   noUnder1:
+  id: lesson-1-e
 - iast: ai
   noUnder: H
   under: i
   noUnder1: gh
+  id: lesson-1-ai
 - iast: o
   noUnder:
   under: O
   noUnder1: ver
+  id: lesson-1-o
 - iast: au
   noUnder: C
   under: ow
   noUnder1:
+  id: lesson-1-au
