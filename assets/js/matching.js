@@ -1,3 +1,32 @@
+class AccuracyDB {
+  constructor() {
+    this.data = JSON.parse(localStorage.getItem('matching_accuracies'))
+  }
+  getItem(id) {
+    if (id in this.data) {
+      let item = this.data[id].slice(0, -1)
+      item.push(new Date(this.data[id].at(-1)))
+      return item
+    } else {
+      alert('ummmmmmmm card not found :(')
+    }
+  }
+  setItem(id, correct, total, prompt_next_ts) {
+    this.data[id] = [correct, total, prompt_next_ts]
+    localStorage.setItem('matching_accuracies', JSON.stringify(this.data))
+  }
+  updateItem(id, was_correct) {
+    let [correct, total, prompt_next_ts] = this.getItem(id)
+    if (was_correct) {
+      prompt_next_ts = Date.now() + 15 * 60 * 1_000 // 15 mins
+      correct += 1
+    } else {
+      prompt_next_ts = Date.now() + 3 * 60 * 1_000 // 3 mins
+    }
+    this.setItem(id, correct, total + 1, prompt_next_ts)
+  }
+}
+
 let questions
 let prompt_text, prompt_audio_btn, next_btn, ans_inputs, ans_texts, ans_audios
 async function onloadFunction() {
@@ -64,6 +93,20 @@ async function getQuestions() {
   }
   console.log(questions)
   return questions
+}
+
+let accuracies = {}
+function getAccuracies() {
+  accuracies = JSON.parse(localStorage.getItem('matching_accuracies'))
+  if (accuracies === null) {
+    accuracies = {}
+  }
+  return accuracies
+}
+
+function setAccuracies(id, correct, total) {
+  accuracies[id] = [correct, total]
+  localStorage.setItem('matching_accuracies', JSON.stringify(accuracies))
 }
 
 function filterQuestionsByLesson() {
@@ -144,6 +187,17 @@ function grade(question) {
     ans_texts[user_choice].parentElement.classList.remove('btn-outline-tertiary')
     ans_texts[user_choice].parentElement.classList.add('btn-outline-danger')
   }
+
+  let correct, total
+  if (accuracies[question.id] === undefined) {
+    correct = 0
+    total = 0
+  } else {
+    ;[correct, total] = accuracies[question.id]
+  }
+  correct += Number(correct_choice === user_choice) // increase # correct
+  total += 1 // increase total
+  setAccuracies(question.id, correct, total)
 
   next_btn.innerHTML = 'Next &rightarrow;'
 }
