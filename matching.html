@@ -1,0 +1,40 @@
+---
+title: Matching
+layout: default
+script: matching.js
+---
+
+<div class="container">
+  <div id="practice_box">
+    <!-- #prompt -->
+    <div>
+      <div id="prompt_text" class="text-center h3">FRONT</div>
+      <button id="prompt_audio_btn" class="btn btn-primary mx-auto" style="display: block">
+        <i class="bi bi-volume-down">
+          <span class="visually-hidden">Play audio</span>
+        </i>
+      </button>
+    </div>
+    <!-- visibility: still renders size -->
+    <div id="back">
+      <hr id="horz_rule" />
+      <form>
+        <div class="row row-cols-2 g-3">
+          {% for i in (1..4) %}
+          <div class="col">
+            <input id="ans{{forloop.index}}" type="radio" class="answer btn-check" name="answers" />
+            <label class="answer-label btn btn-outline-tertiary p-3 d-flex align-items-center w-100" for="ans{{forloop.index}}">
+              <kbd>{{forloop.index}}</kbd>
+              <span class="ans_text">answer text</span>
+              <i class="ans_audio bi bi-volume-down ms-auto">
+                <span class="visually-hidden">Play audio</span>
+              </i>
+            </label>
+          </div>
+          {% endfor %}
+        </div>
+        <button class="btn btn-primary d-block mt-5 ms-auto" id="next_btn" type="button">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

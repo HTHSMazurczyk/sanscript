@@ -8,7 +8,6 @@ function getPracticePreferences() {
   } else if (style === 'Flashcards') {
     prefs.is_matching = false
   } else {
-    alert('Choose a practice style!')
     return null
   }
 
@@ -22,6 +21,12 @@ function getPracticePreferences() {
 function processForm() {
   let prefs = getPracticePreferences()
   if (prefs === null) {
+    alert('Choose a practice style!')
+    return
+  }
+  let isAnyUnitSelected = Object.values(prefs).some((x) => x)
+  if (!isAnyUnitSelected) {
+    alert('Choose at least one lesson!')
     return
   }
 

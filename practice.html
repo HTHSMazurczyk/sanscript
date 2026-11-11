@@ -4,21 +4,21 @@ layout: default
 script: practice.js
 ---
 
-<div class="container mx-2 my-5">
+<div class="container my-5">
   <form id="perfs_form">
     <div class="mb-2">
-      <select id="practice_style" class="form-select">
+      <select id="practice_style" class="form-select fs-4 mb-2">
         <option selected disabled>Choose a practice style</option>
         <option>Flashcards</option>
         <option>Matching</option>
       </select>
       {% for item in site.data.lessons %}
-      <div class="form-check">
+      <div class="form-check fs-4">
         <input type="checkbox" id="{{item.name}}_check" class="form-check-input" />
         <label for="{{item.name}}_check" class="form-check-label">{{item.name}}</label>
       </div>
       {% endfor %}
     </div>
-    <button type="button" class="btn btn-primary" id="run_btn">Run</button>
+    <button type="button" class="btn btn-primary fs-4 mt-1" id="run_btn">Run</button>
   </form>
 </div>

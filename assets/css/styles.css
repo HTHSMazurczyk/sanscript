@@ -31,7 +31,7 @@ img {
   --bs-btn-border-color: var(--accent-50);
   --bs-btn-hover-color: var(--bg-color);
   --bs-btn-hover-bg: var(--accent-50);
-  --bs-btn-hover-border-color: var(--accent-1);
+  --bs-btn-hover-border-color: var(--accent-70);
 }
 
 .btn-secondary {
@@ -40,9 +40,22 @@ img {
   --bs-btn-border-color: var(--accent-20);
   --bs-btn-hover-color: var(--bg-color);
   --bs-btn-hover-bg: var(--accent-20);
-  --bs-btn-hover-border-color: var(--accent-2);
+  --bs-btn-hover-border-color: var(--accent-50);
 }
 
+.btn-outline-tertiary {
+  --bs-btn-color: var(--accent-20);
+  --bs-btn-border-color: var(--accent-20);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--accent-20);
+  --bs-btn-hover-border-color: var(--accent-20);
+  --bs-btn-focus-shadow-rgb: 108, 117, 125;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--accent-20);
+  --bs-btn-active-border-color: var(--accent-20);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-gradient: none;
+}
 .logo {
   font-family: 'Times New Roman', Times, serif;
   font-size: 3.375em;
@@ -195,20 +208,56 @@ i.bi {
 /* ---------------------------------------------------Practice CSS (shared) ---------------------------- */
 
 #practice_box {
-  margin: 2rem;
+  margin: 2rem auto;
   padding: 2rem;
-  width: 70vw;
-  height: 70vw;
+  max-width: min(70vw, 70vh);
+  /* height: 70vw; */
   border: 2px solid var(--accent-50);
   border-radius: 10%;
 }
 
-/* ---------------------------------------------------Practice CSS (shared) ---------------------------- */
-#front {
-  /* height - padding - horizontal rule */
-  height: calc((70vw - 4rem - 1rem) / 2);
+#next_btn {
+  font-size: 1em;
 }
+
+/* --------------------------------------------------- Flashcard CSS ---------------------------- */
+
+div:has(> #back) {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* height - padding - horizontal rule */
+
+#front {
+  flex-basis: 0;
+}
+
 #back {
-  height: calc(70vw - (70vw - 4rem - 1rem) / 2);
+  flex-basis: 0;
+}
+
+#flip-directive {
+  font-size: 0.75em;
+}
+
+#flip-directive kbd {
+  background: var(--accent-20) 75%;
+  opacity: 0.75;
+  margin: 0 1ch;
+}
+
+/* --------------------------------------------------- Matching CSS ---------------------------- */
+
+.answer-label {
+  border-width: 2px;
+}
+
+.answer-label kbd {
+  background: var(--accent-20) 75%;
+  opacity: 0.75;
+  margin-right: 1ch;
 }
 
