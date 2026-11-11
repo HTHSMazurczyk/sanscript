@@ -2,131 +2,146 @@
   noUnder:
   under: K
   noUnder1: ind
+  id: k
 - iast: kh
   noUnder: Blo
   under: ckh
   noUnder1: ead
+  id: kh
 - iast: g
   noUnder:
   under: G
   noUnder1: ate
+  id: g
 - iast: gh
   noUnder: Lo
   under: g-h
   noUnder1: ut
+  id: gh
 - iast: ṅ
   noUnder: S
   under: in
   noUnder1: g
+  id: nDot
 - iast: c
   noUnder:
   under: Ch
   noUnder1: unk
+  id: c
 - iast: ch
   noUnder: Mat
   under: ch
   noUnder1:
+  id: ch
 - iast: j
   noUnder:
   under: J
   noUnder1: ug
+  id: j
 - iast: jh
   noUnder: Hed
   under: ge
   noUnder1: hog
+  id: jh
 - iast: ñ
   noUnder: Bu
   under: n
   noUnder1: ch
+  id: nLine
 - iast: ṭ
   noUnder:
   under: T
   noUnder1: ouch
+  id: tDot
 - iast: ṭh
   noUnder: An
   under: t-h
   noUnder1: ill
+  id: thDot
 - iast: ḍ
   noUnder:
   under: D
   noUnder1: uck
+  id: dDot
 - iast: ḍh
   noUnder: Go
   under: dh
   noUnder1: ood
+  id: dhDot
 - iast: ṇ
   noUnder:
   under: T
   noUnder1: o
-- iast: t
+  id: nDot
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: th
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: d
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: dh
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: n
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: p
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: ph
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: b
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: bh
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: m
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: y
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: r
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: l
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: v
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: ś
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: ṣ
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: s
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
-- iast: h
+- iast: ṭ
   noUnder:
   under: T
   noUnder1: o
