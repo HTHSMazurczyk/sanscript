@@ -121,6 +121,13 @@ function showQuestion(question) {
   }
 }
 
+function handleNumberPress(event) {
+  if (['1', '2', '3', '4'].includes(event.key)) {
+    let idx = Number(event.key) - 1
+    ans_inputs[idx].checked = true
+  }
+}
+
 function grade(question) {
   // zero-indexed
   let user_choice = Array.from(ans_inputs)
@@ -146,7 +153,8 @@ async function mainloop() {
     let question = pickNextQuestion()
     showQuestion(question)
 
-    // wait for space press
+    document.addEventListener('keyup', handleNumberPress)
+    // wait for enter press
     await new Promise((resolve, reject) => {
       next_btn.onclick = () => resolve()
       document.addEventListener('keyup', (event) => {
@@ -156,6 +164,7 @@ async function mainloop() {
       })
     })
 
+    document.removeEventListener('keyup', handleNumberPress)
     grade(question)
 
     // wait for button press
