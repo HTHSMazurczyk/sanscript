@@ -9,11 +9,11 @@ img {
 
 :root {
   --txt-color: #000;
-  --bg-color: #fff;
+  --bg-color: #ebebcd;
   --gray: #4d4d4d;
-  --accent-50: hsl(217, 89%, 50%);
-  --accent-20: hsl(217, 89%, 20%);
-  --accent-70: hsl(217, 89%, 70%);
+  --accent-50: #8d3434;
+  --accent-70: #eacd65;
+  --accent-20: #e14242;
   --bs-body-bg: var(--bg-color);
 }
 
