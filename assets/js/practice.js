@@ -43,6 +43,49 @@ function processForm() {
   }
 }
 
+async function getIdsFromCSV(name) {
+  let data
+  try {
+    const response = await fetch(`assets/questiondata/${name}.csv`)
+    if (!response.ok) {
+      throw new Error('Network Error!')
+    }
+    data = await response.text()
+  } catch (err) {
+    console.error(err)
+    alert('error fetching card database!')
+    return null
+  }
+
+  let rows = data.split('\n')
+  rows.shift() // pop first row out
+
+  let ids = []
+  for (let row of rows) {
+    row = row.split(',').map((x) => x.trim())
+    ids.push(row[0])
+  }
+  return ids
+}
+
+async function checkDB() {
+  for (let name of ['matching', 'flashcards']) {
+    let ids = await getIdsFromCSV(name)
+    let accuracies = JSON.parse(localStorage.getItem(`${name}_accuracies`))
+    if (accuracies === null) {
+      accuracies = {}
+    }
+
+    for (let id of ids) {
+      if (id in accuracies === false) {
+        accuracies[id] = [0, 0, new Date(0)] // unix time 0 => card never shown
+      }
+    }
+    localStorage.setItem(`${name}_accuracies`, JSON.stringify(accuracies))
+  }
+}
+
 window.onload = () => {
   document.getElementById('run_btn').onclick = processForm
+  checkDB()
 }
