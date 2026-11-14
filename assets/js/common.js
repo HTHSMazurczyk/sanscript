@@ -59,7 +59,6 @@ export async function getCSVrows(style) {
   let questions = []
   for (let row of rows) {
     row = row.split(',').map((x) => x.trim())
-    // prettier-ignore
     questions.push(Object.fromEntries(zip(header, row)))
   }
   console.log(questions)
@@ -76,7 +75,7 @@ export function filterQuestionsByLesson(questions) {
   return questions.filter((question) => validLessons.includes(question.lesson))
 }
 
-export function pickNextQuestion() {
+export function pickNextQuestion(questions) {
   return questions[Math.floor(Math.random() * questions.length)]
 }
 

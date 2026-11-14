@@ -1,4 +1,5 @@
-let cards
+import * as common from './common.js'
+
 let front_text, back, back_text, next_btn, front_audio_btn, back_audio_btn
 async function onloadFunction() {
   front_text = document.getElementById('front_text')
@@ -7,67 +8,13 @@ async function onloadFunction() {
   back_text = document.getElementById('back_text')
   back_audio_btn = document.getElementById('back_audio_btn')
   next_btn = document.getElementById('next_btn')
-  cards = await getCards()
-  filterCardsByLesson(cards)
+  let cards = await common.getCSVrows('flashcards')
+  cards = common.filterQuestionsByLesson(cards)
   console.log(cards)
   if (cards.length > 0) {
-    await mainloop()
+    await mainloop(cards)
   } else {
     alert('no cards found!')
-  }
-}
-
-function zip(left, right) {
-  let out = []
-  for (let i = 0; i < Math.min(left.length, right.length); i++) {
-    out.push([left[i], right[i]])
-  }
-  return out
-}
-
-async function getCards() {
-  let data
-  try {
-    const response = await fetch('assets/questiondata/flashcards.csv')
-    if (!response.ok) {
-      throw new Error('Network Error!')
-    }
-    data = await response.text()
-  } catch (err) {
-    console.error(err)
-    alert('error fetching card database!')
-    return null
-  }
-
-  let rows = data.split('\n')
-  let header = rows.shift().trim().split(',')
-
-  cards = []
-  for (let row of rows) {
-    cards.push(Object.fromEntries(zip(header, row.trim().split(','))))
-  }
-  // console.log(cards)
-  return cards
-}
-
-function filterCardsByLesson() {
-  let validLessons = []
-  const url_params = new URLSearchParams(window.location.search)
-  for (const [key, val] of url_params)
-    if (val === 'true') {
-      validLessons.push(key)
-    }
-  cards = cards.filter((card) => validLessons.includes(card.lesson))
-}
-
-function pickNextCard() {
-  return cards[Math.floor(Math.random() * cards.length)]
-}
-
-function playAudioCallback(audio_name) {
-  const path = `assets/audio/${audio_name}`
-  return () => {
-    new Audio(path).play()
   }
 }
 
@@ -78,8 +25,8 @@ function showCard(card) {
   let audio_name = card['front audio path']
   if (audio_name) {
     front_audio_btn.style.display = 'inline-block' /* default */
-    front_audio_btn.onclick = playAudioCallback(audio_name)
-    playAudioCallback(audio_name)() // play on card load
+    front_audio_btn.onclick = common.playAudioCallback(audio_name)
+    common.playAudioCallback(audio_name)() // play on card load
   } else {
     front_audio_btn.style.display = 'none'
   }
@@ -91,15 +38,15 @@ function showCard(card) {
   audio_name = card['back audio path']
   if (audio_name) {
     back_audio_btn.style.display = 'inline-block' /* default */
-    back_audio_btn.onclick = playAudioCallback(audio_name)
+    back_audio_btn.onclick = common.playAudioCallback(audio_name)
   } else {
     back_audio_btn.style.display = 'none'
   }
 }
 
-async function mainloop() {
+async function mainloop(cards) {
   while (true) {
-    let card = pickNextCard()
+    let card = common.pickNextQuestion(cards)
     showCard(card)
 
     // wait for space press

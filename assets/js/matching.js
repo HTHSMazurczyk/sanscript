@@ -1,33 +1,5 @@
-class AccuracyDB {
-  constructor() {
-    this.data = JSON.parse(localStorage.getItem('matching_accuracies'))
-  }
-  getItem(id) {
-    if (id in this.data) {
-      let item = this.data[id].slice(0, -1)
-      item.push(new Date(this.data[id].at(-1)))
-      return item
-    } else {
-      alert('ummmmmmmm card not found :(')
-    }
-  }
-  setItem(id, correct, total, prompt_next_ts) {
-    this.data[id] = [correct, total, prompt_next_ts]
-    localStorage.setItem('matching_accuracies', JSON.stringify(this.data))
-  }
-  updateItem(id, was_correct) {
-    let [correct, total, prompt_next_ts] = this.getItem(id)
-    if (was_correct) {
-      prompt_next_ts = Date.now() + 15 * 60 * 1_000 // 15 mins
-      correct += 1
-    } else {
-      prompt_next_ts = Date.now() + 3 * 60 * 1_000 // 3 mins
-    }
-    this.setItem(id, correct, total + 1, prompt_next_ts)
-  }
-}
+import * as common from './common.js'
 
-let questions
 let prompt_text, prompt_audio_btn, next_btn, ans_inputs, ans_texts, ans_audios
 async function onloadFunction() {
   prompt_text = document.getElementById('prompt_text')
@@ -36,98 +8,32 @@ async function onloadFunction() {
   ans_inputs = document.getElementsByClassName('answer')
   ans_texts = document.getElementsByClassName('ans_text')
   ans_audios = document.getElementsByClassName('ans_audio')
-  questions = await getQuestions()
-  filterQuestionsByLesson(questions)
+  let rows = await common.getCSVrows('matching')
+  let questions = rowsToQuestions(rows)
+  questions = common.filterQuestionsByLesson(questions)
   if (questions.length > 0) {
-    await mainloop()
+    await mainloop(questions)
   } else {
     alert('no cards found!')
   }
 }
 
-function zip(left, right) {
-  let out = []
-  for (let i = 0; i < Math.min(left.length, right.length); i++) {
-    out.push([left[i], right[i]])
-  }
-  return out
-}
-
-async function getQuestions() {
-  /* question = {
-    id: str, lesson: str, prompt_text: str, prompt_audio: str, correct_choice: str
-    answers: list[str], ans_audios: list[str]
-  */
-  let data
-  try {
-    const response = await fetch('assets/questiondata/matching.csv')
-    if (!response.ok) {
-      throw new Error('Network Error!')
-    }
-    data = await response.text()
-  } catch (err) {
-    console.error(err)
-    alert('error fetching card database!')
-    return null
-  }
-
-  let rows = data.split('\n')
-  let header = rows
-    .shift() // pop first row out
-    .split(',')
-    .map((x) => x.trim())
-
-  questions = []
+function rowsToQuestions(rows) {
+  let questions = []
   for (let row of rows) {
-    row = row.split(',').map((x) => x.trim())
     // prettier-ignore
     let { 
       ans1, ans2, ans3, ans4,
       ans1_audio, ans2_audio, ans3_audio, ans4_audio,
       ...question 
-    } = Object.fromEntries(zip(header, row))
+    } = row
 
     question.answers = [ans1, ans2, ans3, ans4]
     question.ans_audios = [ans1_audio, ans2_audio, ans3_audio, ans4_audio]
     questions.push(question)
   }
-  console.log(questions)
+  console.log(rows)
   return questions
-}
-
-let accuracies = {}
-function getAccuracies() {
-  accuracies = JSON.parse(localStorage.getItem('matching_accuracies'))
-  if (accuracies === null) {
-    accuracies = {}
-  }
-  return accuracies
-}
-
-function setAccuracies(id, correct, total) {
-  accuracies[id] = [correct, total]
-  localStorage.setItem('matching_accuracies', JSON.stringify(accuracies))
-}
-
-function filterQuestionsByLesson() {
-  let validLessons = []
-  const url_params = new URLSearchParams(window.location.search)
-  for (const [key, val] of url_params)
-    if (val === 'true') {
-      validLessons.push(key)
-    }
-  questions = questions.filter((question) => validLessons.includes(question.lesson))
-}
-
-function pickNextQuestion() {
-  return questions[Math.floor(Math.random() * questions.length)]
-}
-
-function playAudioCallback(audio_name) {
-  const path = `assets/audio/${audio_name}`
-  return () => {
-    new Audio(path).play()
-  }
 }
 
 function showQuestion(question) {
@@ -136,8 +42,8 @@ function showQuestion(question) {
   let audio_name = question.prompt_audio
   if (audio_name) {
     prompt_audio_btn.style.display = 'block' // default
-    prompt_audio_btn.onclick = playAudioCallback(audio_name)
-    playAudioCallback(audio_name)() // play on question load
+    prompt_audio_btn.onclick = common.playAudioCallback(audio_name)
+    common.playAudioCallback(audio_name)() // play on question load
   } else {
     prompt_audio_btn.style.display = 'none'
   }
@@ -153,7 +59,7 @@ function showQuestion(question) {
     let ans_input = ans_inputs[i]
     if (audio_name) {
       audio_icon.style.display = 'inline-block' /* default */
-      ans_input.onclick = playAudioCallback(audio_name)
+      ans_input.onclick = common.playAudioCallback(audio_name)
     } else {
       audio_icon.style.display = 'none'
     }
@@ -188,23 +94,23 @@ function grade(question) {
     ans_texts[user_choice].parentElement.classList.add('btn-outline-danger')
   }
 
-  let correct, total
-  if (accuracies[question.id] === undefined) {
-    correct = 0
-    total = 0
-  } else {
-    ;[correct, total] = accuracies[question.id]
-  }
-  correct += Number(correct_choice === user_choice) // increase # correct
-  total += 1 // increase total
-  setAccuracies(question.id, correct, total)
+  // let correct, total
+  // if (accuracies[question.id] === undefined) {
+  //   correct = 0
+  //   total = 0
+  // } else {
+  //   ;[correct, total] = accuracies[question.id]
+  // }
+  // correct += Number(correct_choice === user_choice) // increase # correct
+  // total += 1 // increase total
+  // setAccuracies(question.id, correct, total)
 
   next_btn.innerHTML = 'Next &rightarrow;'
 }
 
-async function mainloop() {
+async function mainloop(questions) {
   while (true) {
-    let question = pickNextQuestion()
+    let question = common.pickNextQuestion(questions)
     showQuestion(question)
 
     document.addEventListener('keyup', handleNumberPress)

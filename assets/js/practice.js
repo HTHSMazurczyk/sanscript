@@ -33,7 +33,7 @@ function processForm() {
   let is_matching = prefs.is_matching
   // encode the preferences into the url
   delete prefs.is_matching
-  query = new URLSearchParams(prefs).toString()
+  let query = new URLSearchParams(prefs).toString()
   console.log(query)
   // redirect to appropriate page
   if (is_matching) {

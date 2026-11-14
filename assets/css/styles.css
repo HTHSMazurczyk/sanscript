@@ -15,6 +15,7 @@ img {
   --accent-70: #eacd65;
   --accent-20: #e14242;
   --bs-body-bg: var(--bg-color);
+  --bs-border-color: #c1cad2;
 }
 
 .btn-primary {
