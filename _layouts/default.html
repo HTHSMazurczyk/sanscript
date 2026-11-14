@@ -17,7 +17,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     {% if page.script %}
-    <script src="assets/js/{{page.script}}"></script>
+    <script src="assets/js/{{page.script}}" type="module"></script>
+    <!-- only pages with a script need common.js-->
+    <script src="assets/js/common.js" type="module"></script>
     {% endif %}
 
     <link rel="icon" href="assets/images/logo.png" type="image/png" />
