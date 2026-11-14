@@ -1,7 +1,8 @@
 export class AccuracyDB {
   constructor(style) {
+    console.assert(['flashcards', 'matching'].includes(style))
     this.style = style
-    this.data = JSON.parse(localStorage.getItem(style))
+    this.data = JSON.parse(localStorage.getItem(`${this.style}_accuracies`))
     if (this.data === null) {
       this.data = {}
     }

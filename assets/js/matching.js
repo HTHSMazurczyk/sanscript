@@ -1,5 +1,6 @@
 import * as common from './common.js'
 
+let accuracies = new common.AccuracyDB('matching')
 let prompt_text, prompt_audio_btn, next_btn, ans_inputs, ans_texts, ans_audios
 async function onloadFunction() {
   prompt_text = document.getElementById('prompt_text')
@@ -94,16 +95,7 @@ function grade(question) {
     ans_texts[user_choice].parentElement.classList.add('btn-outline-danger')
   }
 
-  // let correct, total
-  // if (accuracies[question.id] === undefined) {
-  //   correct = 0
-  //   total = 0
-  // } else {
-  //   ;[correct, total] = accuracies[question.id]
-  // }
-  // correct += Number(correct_choice === user_choice) // increase # correct
-  // total += 1 // increase total
-  // setAccuracies(question.id, correct, total)
+  accuracies.updateItem(question.id, correct_choice === user_choice)
 
   next_btn.innerHTML = 'Next &rightarrow;'
 }
