@@ -1,7 +1,10 @@
 export class AccuracyDB {
   constructor(style) {
     this.style = style
-    this.data = JSON.parse(localStorage.getItem())
+    this.data = JSON.parse(localStorage.getItem(style))
+    if (this.data === null) {
+      this.data = {}
+    }
   }
   getItem(id) {
     if (id in this.data) {
@@ -25,6 +28,21 @@ export class AccuracyDB {
       prompt_next_ts = Date.now() + 3 * 60 * 1_000 // 3 mins
     }
     this.setItem(id, correct, total + 1, prompt_next_ts)
+  }
+  async checkDB() {
+    let rows = await getCSVrows(this.style)
+    let ids = rows.map((row) => row.id)
+    let accuracies = JSON.parse(localStorage.getItem(`${this.style}_accuracies`))
+    if (accuracies === null) {
+      accuracies = {}
+    }
+
+    for (let id of ids) {
+      if (id in accuracies === false) {
+        this.setItem(id, 0, 0, new Date(0)) // unix time 0 => card never shown
+      }
+    }
+    this.data = JSON.parse(localStorage.getItem(this.style))
   }
 }
 
