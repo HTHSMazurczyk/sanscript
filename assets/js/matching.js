@@ -75,6 +75,7 @@ function handleNumberPress(event) {
   if (['1', '2', '3', '4'].includes(event.key)) {
     let idx = Number(event.key) - 1
     ans_inputs[idx].checked = true
+    ans_inputs[idx].onclick() // play audio
   }
 }
 
