@@ -18,7 +18,7 @@ script: flashcards.js
     </div>
     <div>
       <em id="flip-directive" class="d-block mb-2">press<kbd>space</kbd>to flip</em>
-      <hr id="horz_rule" class="my-0" />
+      <hr id="qa-separator" class="my-0" />
     </div>
     <div id="back" class="d-flex flex-column">
       <div id="back_text" class="h3">BACK</div>
@@ -27,8 +27,12 @@ script: flashcards.js
           <span class="visually-hidden">Play audio</span>
         </i>
       </button>
+      <br />
+      <br />
+      <div id="next_btns">
+        <button class="btn btn-primary me-5" id="incorrect_btn">Again</button>
+        <button class="btn btn-primary" id="correct_btn">Good</button>
+      </div>
     </div>
-    <br />
-    <button class="btn btn-primary align-self-end" id="next_btn">Next &rightarrow;</button>
   </div>
 </div>

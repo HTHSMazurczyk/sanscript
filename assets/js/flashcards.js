@@ -1,13 +1,15 @@
 import * as common from './common.js'
 
-let front_text, back, back_text, next_btn, front_audio_btn, back_audio_btn
+let accuracies = new common.AccuracyDB('flashcards')
+let front_text, back, back_text, front_audio_btn, back_audio_btn, correct_btn, incorrect_btn
 async function onloadFunction() {
   front_text = document.getElementById('front_text')
   front_audio_btn = document.getElementById('front_audio_btn')
   back = document.getElementById('back')
   back_text = document.getElementById('back_text')
   back_audio_btn = document.getElementById('back_audio_btn')
-  next_btn = document.getElementById('next_btn')
+  correct_btn = document.getElementById('correct_btn')
+  incorrect_btn = document.getElementById('incorrect_btn')
   let cards = await common.getCSVrows('flashcards')
   cards = common.filterQuestionsByLesson(cards)
   console.log(cards)
@@ -51,15 +53,11 @@ async function mainloop(cards) {
 
     // wait for space press
     await new Promise((resolve, reject) => {
-      document.addEventListener(
-        'keyup',
-        (event) => {
-          if (event.key == ' ') {
-            resolve()
-          }
-        },
-        { once: true },
-      )
+      document.addEventListener('keyup', (event) => {
+        if (event.key === ' ') {
+          resolve()
+        }
+      })
     })
 
     // flip card
@@ -69,20 +67,22 @@ async function mainloop(cards) {
     }
 
     // wait for button press
+    let user_correct = false
     await new Promise((resolve, reject) => {
-      next_btn.onclick = () => {
-        resolve()
-      }
-      document.addEventListener(
-        'keyup',
-        (event) => {
-          if (event.key == ' ') {
-            resolve()
-          }
-        },
-        { once: true },
-      )
+      correct_btn.onclick = resolve
+      incorrect_btn.onclick = reject
+
+      // prettier-ignore
+      document.addEventListener('keyup', (event) => {
+        if (event.key === '1') { resolve(true) }
+        if (event.key === '2') { resolve(false) }
+      })
+    }).then((ret) => {
+      user_correct = ret
     })
+
+    accuracies.updateItem(card.id, user_correct)
+
     // console.log('done!')
   }
 }

@@ -236,12 +236,14 @@ div:has(> #back) {
   justify-content: space-evenly;
 }
 
-/* height - padding - horizontal rule */
-
 #front {
   flex-basis: 0;
 }
 
+#qa-separator {
+  border: 1px solid var(--accent-50);
+  opacity: 0.5;
+}
 #back {
   flex-basis: 0;
 }
@@ -254,6 +256,13 @@ div:has(> #back) {
   background: var(--accent-20) 75%;
   opacity: 0.75;
   margin: 0 1ch;
+}
+
+#next_btns {
+  padding: 1rem 0.5rem;
+  border-top: 1px dashed var(--bs-border-color);
+  width: fit-content;
+  margin: 0 auto;
 }
 
 /* --------------------------------------------------- Matching CSS ---------------------------- */
