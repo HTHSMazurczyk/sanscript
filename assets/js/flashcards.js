@@ -1,6 +1,7 @@
 import * as common from './common.js'
 
 let accuracies = new common.AccuracyDB('flashcards')
+let card_picker = new common.CardPicker(accuracies)
 let front_text, back, back_text, front_audio_btn, back_audio_btn, correct_btn, incorrect_btn
 async function onloadFunction() {
   front_text = document.getElementById('front_text')
@@ -12,8 +13,14 @@ async function onloadFunction() {
   incorrect_btn = document.getElementById('incorrect_btn')
   let cards = await common.getCSVrows('flashcards')
   cards = common.filterQuestionsByLesson(cards)
+  cards = Object.fromEntries(
+    common.zip(
+      cards.map((x) => x.id),
+      cards,
+    ),
+  )
   console.log(cards)
-  if (cards.length > 0) {
+  if (Object.keys(cards).length > 0) {
     await mainloop(cards)
   } else {
     alert('no cards found!')
@@ -48,7 +55,9 @@ function showCard(card) {
 
 async function mainloop(cards) {
   while (true) {
-    let card = common.pickNextQuestion(cards)
+    const cardid = card_picker.getQuestionId()
+    console.assert(cardid !== undefined)
+    let card = cards[cardid]
     showCard(card)
 
     // wait for space press

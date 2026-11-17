@@ -47,6 +47,52 @@ export class AccuracyDB {
   }
 }
 
+export class CardPicker {
+  constructor(db) {
+    this.db = db
+    this.style = db.style
+    this.ids = Object.keys(db.data)
+    this.new_questions_seen = 0
+  }
+
+  getOldestQuestionId() {
+    const ts_zero = new Date(0).getTime()
+    const now = new Date()
+    const questions = this.ids // get timestamps
+      .map((id) => ({
+        id,
+        date: this.db.getItem(id).at(-1),
+      }))
+      .filter((q) => q.date.getTime() !== ts_zero && q.date < now) // filter out new and future
+      .sort((a, b) => a.date - b.date)
+
+    if (questions.length > 0) {
+      return questions.at(0).id // get oldest one
+    }
+    return undefined
+  }
+
+  getRandomNewQuestionID() {
+    const ts_zero = new Date(0).getTime()
+    //                                                         timestamp
+    const questions = this.ids.filter((id) => this.db.getItem(id).at(-1).getTime() === ts_zero)
+    return questions[Math.floor(Math.random() * questions.length)]
+  }
+
+  getQuestionId() {
+    let old = this.getOldestQuestionId()
+    if (old === undefined) {
+      if (this.new_questions_seen > 20) {
+        alert('oops')
+        return null
+      }
+      this.new_questions_seen += 1
+      return this.getRandomNewQuestionID()
+    }
+    return old
+  }
+}
+
 export function zip(left, right) {
   let out = []
   for (let i = 0; i < Math.min(left.length, right.length); i++) {
