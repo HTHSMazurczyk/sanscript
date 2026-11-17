@@ -47,6 +47,7 @@ function showQuestion(question) {
     common.playAudioCallback(audio_name)() // play on question load
   } else {
     prompt_audio_btn.style.display = 'none'
+    prompt_audio_btn.onclick = null
   }
 
   // create answer text, create answer audio, reset button states
@@ -63,6 +64,7 @@ function showQuestion(question) {
       ans_input.onclick = common.playAudioCallback(audio_name)
     } else {
       audio_icon.style.display = 'none'
+      ans_input.onclick = null
     }
 
     ans_input.checked = false
@@ -75,7 +77,9 @@ function handleNumberPress(event) {
   if (['1', '2', '3', '4'].includes(event.key)) {
     let idx = Number(event.key) - 1
     ans_inputs[idx].checked = true
-    ans_inputs[idx].onclick() // play audio
+    if (ans_inputs[idx].onclick !== null) {
+      ans_inputs[idx].onclick() // play audio
+    }
   }
 }
 
@@ -107,15 +111,24 @@ async function mainloop(questions) {
     showQuestion(question)
 
     document.addEventListener('keyup', handleNumberPress)
-    // wait for enter press
-    await new Promise((resolve, reject) => {
-      next_btn.onclick = () => resolve()
-      document.addEventListener('keyup', (event) => {
-        if (event.key === 'Enter') {
-          resolve()
-        }
+    while (true) {
+      // wait for enter or next btn press
+      await new Promise((resolve, reject) => {
+        next_btn.onclick = () => resolve()
+        document.addEventListener('keyup', (event) => {
+          if (event.key === 'Enter') {
+            resolve()
+          }
+        })
       })
-    })
+      if (
+        Array.from(ans_inputs)
+          .map((x) => x.checked)
+          .some((x) => x)
+      ) {
+        break
+      }
+    }
 
     document.removeEventListener('keyup', handleNumberPress)
     grade(question)
