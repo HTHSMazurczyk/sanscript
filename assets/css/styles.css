@@ -3,6 +3,10 @@
   font-family: 'Quicksand', Arial, sans-serif;
 }
 
+.tahoma {
+  font-family: 'Tahoma', serif;
+}
+
 img {
   object-fit: contain;
 }
