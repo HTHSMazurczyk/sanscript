@@ -83,7 +83,6 @@ export class CardPicker {
     let old = this.getOldestQuestionId()
     if (old === undefined) {
       if (this.new_questions_seen > 20) {
-        alert('oops')
         return null
       }
       this.new_questions_seen += 1

@@ -1,6 +1,8 @@
 import * as common from './common.js'
 
 let accuracies = new common.AccuracyDB('matching')
+let card_picker = new common.CardPicker(accuracies)
+
 let prompt_text, prompt_audio_btn, next_btn, ans_inputs, ans_texts, ans_audios
 async function onloadFunction() {
   prompt_text = document.getElementById('prompt_text')
@@ -12,7 +14,13 @@ async function onloadFunction() {
   let rows = await common.getCSVrows('matching')
   let questions = rowsToQuestions(rows)
   questions = common.filterQuestionsByLesson(questions)
-  if (questions.length > 0) {
+  questions = Object.fromEntries(
+    common.zip(
+      questions.map((x) => x.id),
+      questions,
+    ),
+  )
+  if (Object.keys(questions).length > 0) {
     await mainloop(questions)
   } else {
     alert('no cards found!')
@@ -107,7 +115,20 @@ function grade(question) {
 
 async function mainloop(questions) {
   while (true) {
-    let question = common.pickNextQuestion(questions)
+    let questionid = card_picker.getQuestionId()
+    if (questionid === undefined) {
+      alert(`You've finished the deck! take a break for a few minutes to review?`)
+      return
+    }
+    if (questionid === null) {
+      let response = confirm(`You've now seen 20 new question! Continue?`)
+      if (response) {
+        window.location.reload()
+      } else {
+        window.location.assign('practice.html')
+      }
+    }
+    let question = questions[questionid]
     showQuestion(question)
 
     document.addEventListener('keyup', handleNumberPress)

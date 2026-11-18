@@ -2,6 +2,7 @@ import * as common from './common.js'
 
 let accuracies = new common.AccuracyDB('flashcards')
 let card_picker = new common.CardPicker(accuracies)
+
 let front_text, back, back_text, front_audio_btn, back_audio_btn, correct_btn, incorrect_btn
 async function onloadFunction() {
   front_text = document.getElementById('front_text')
@@ -56,7 +57,19 @@ function showCard(card) {
 async function mainloop(cards) {
   while (true) {
     const cardid = card_picker.getQuestionId()
-    console.assert(cardid !== undefined)
+    if (cardid === undefined) {
+      alert(`You've finished the deck! take a break for a few minutes to review?`)
+      window.location.assign('practice.html')
+      return
+    }
+    if (cardid === null) {
+      let response = confirm(`You've now seen 20 new cards! Continue?`)
+      if (response) {
+        window.location.reload()
+      } else {
+        window.location.assign('practice.html')
+      }
+    }
     let card = cards[cardid]
     showCard(card)
 
@@ -78,8 +91,8 @@ async function mainloop(cards) {
     // wait for button press
     let user_correct = false
     await new Promise((resolve, reject) => {
-      correct_btn.onclick = resolve
-      incorrect_btn.onclick = reject
+      correct_btn.onclick = () => resolve(true)
+      incorrect_btn.onclick = () => resolve(false)
 
       // prettier-ignore
       document.addEventListener('keyup', (event) => {
