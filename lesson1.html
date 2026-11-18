@@ -57,8 +57,8 @@ script: lesson1.js
             {% for letter in site.data.consonants limit:col offset:continue%}
                 <td class = "letter-table-text">
                     {{letter.iast}}
-                    <br>
-                    <button type = "button" class = "btn btn-primary" id = "{{letters.id}}_btn"  onclick= "playAudio( '{{letters.id}}' )"> 
+                    <p class="text-capitalize">{{letter.iast}}</p>
+                    <button type="button" class="btn btn-primary btn-sm" id="{{letters.id}}_btn" onclick="playAudio( '{{letters.id}}' )">
                     <i class="bi bi-volume-down" aria>
                         <span class="visually-hidden">Play audio</span>
                     </i>
@@ -81,9 +81,8 @@ script: lesson1.js
 </div>
     <!--Table for Vowels-->
 <div class="container" id = "table-contain">
-    <table class = "letter-table">
+    <table class="letter-table" style="width: 40%">
         <tr>
-            <th>Devangari</th>
             <th colspan ="2">Transcription</th>
             <th>Sound</th>
             
@@ -91,9 +90,10 @@ script: lesson1.js
 
         {% for letters in site.data.vowels%}
             <tr>
-                <td class = "letter-table-text">dev</td>
                 <td class = "letter-table-text">{{letters.iast}}</td>
-                <td class = "cap-letter-table-text">some text</td>
+                <td class="cap-letter-table-text">
+                    <p class="text-capitalize">{{letters.iast}}</p>
+                </td>
                 <td class = "letter-table-text"> 
                     <button type = "button" class = "btn btn-primary" id = letters>
                         <i class="bi bi-volume-down" aria>
@@ -117,20 +117,24 @@ script: lesson1.js
         The final part is codas. These are just unique sounds for Sanskrit and come with their own weird pronunciation. These are ending sounds for words and will have a vowel before them. So, similar to the consonants, these codas are pronounced with a leading “a” sound. However, you can substitute any vowel before the coda for further practice.
     </p>
     <br>
+</div>
     <!--Table for Codas-->
-    <table id = "vowelTable">
+<div class="container" id="table-contain" style="width: 10%;">
+    <table class="w-100">
         <tr>
-            <th>Codas</th>
-            <th>Sound</th>
+            <th class="text-center" colspan="2">Codas</th>
+            <th class="text-center">Sound</th>
             
         </tr>
         <!--Make yml file with list of codas(get from AK)-->
-        {% for letters in site.data.vowels%}
-            <tr>
-                <td>{{letters.iast}}</td>
-                <td>some text</td>
-                <td> 
-                    <button type = "button" class = "btn btn-primary" id = letters>
+        {% for coda in site.data.codas%}
+        <tr>
+            <td class="tahoma letter-table-text">{{coda.iast}}</td>
+            <td class="text-capitalize tahoma letter-table-text">{{coda.iast}}
+            
+            </td>
+            <td class="letter-table-text">
+                <button type="button" class="btn btn-primary btn-sm" id=letters>
                         <i class="bi bi-volume-down" aria>
                             <span class="visually-hidden">Play audio</span>
                         </i>
@@ -139,18 +143,14 @@ script: lesson1.js
             </tr>
         {% endfor %}
     </table>
+</div>
+<div class="container">
     <br>
     <hr>
     <p>
         And that brings us to the end of our lesson! Thank you so much for showing interest in learning Sanskrit! You should now try to practice these letters on the dedicated practice page. More information is available there, but it is recommended that you familiarize yourself with the letters, as they are quite literally the foundation of the upcoming lessons. With that said, I will see you next lesson!
     </p>
 
-</div>
-
-<div class="container">
-    <button onclick="playAudio('one')">
-        Example Button
-    </button>
 </div>
 
 <div class="container">

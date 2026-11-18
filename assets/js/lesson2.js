@@ -1,9 +1,10 @@
-function showBhartuh(){
-    document.getElementById("bhartuhAnswerText").style.color = "black";
-    document.getElementById("bhartuhAnswer").style.color = "black";
+function showBhartuh() {
+  document.getElementById('bhartuhAnswer').style.display = 'block'
+  document.getElementById('please').style.display = 'block'
+
+  console.log('its working')
 }
 
-function showVarsa(){
-    document.getElementById("varsaAnswerText").style.color = "black";
-    document.getElementById("varsaAnswer").style.color = "black";
+function showVarsa() {
+  document.getElementById('varsaAnswer').style.display = 'block'
 }
