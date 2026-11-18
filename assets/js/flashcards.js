@@ -59,6 +59,7 @@ async function mainloop(cards) {
     const cardid = card_picker.getQuestionId()
     if (cardid === undefined) {
       alert(`You've finished the deck! take a break for a few minutes to review?`)
+      window.location.assign('practice.html')
       return
     }
     if (cardid === null) {
