@@ -2,6 +2,9 @@
 * {
   font-family: 'Quicksand', Arial, sans-serif;
 }
+.tahoma {
+  font-family: 'Tahoma', serif;
+}
 
 img {
   object-fit: contain;
@@ -25,6 +28,7 @@ img {
   --bs-btn-hover-color: var(--bg-color);
   --bs-btn-hover-bg: var(--accent-50);
   --bs-btn-hover-border-color: var(--accent-20);
+  --bs-btn-active-bg: #5f2020;
 }
 
 .btn-outline-primary {
@@ -307,14 +311,15 @@ div:has(> #back) {
   width: 50%;
   text-align: center;
   vertical-align: center;
-  font-size: 1.2em;
+  font-size: 1em;
+    font-weight: bold;
 }
 
 .letter-table-text {
   border: 2px solid brown;
   text-align: center;
   vertical-align: center;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .cap-letter-table-text {
@@ -325,4 +330,16 @@ div:has(> #back) {
   text-transform: capitalize;
 }
 
+#varsaAnswer {
+  display: none;
 
+}
+
+#bhartuhAnswer {
+  display: none;
+
+}
+
+#please {
+  color: red;
+}
