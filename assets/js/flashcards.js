@@ -57,7 +57,7 @@ function showCard(card) {
 async function mainloop(cards) {
   while (true) {
     const cardid = card_picker.getQuestionId()
-    if (cardid !== undefined) {
+    if (cardid === undefined) {
       alert(`You've finished the deck! take a break for a few minutes to review?`)
       return
     }
