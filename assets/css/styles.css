@@ -296,3 +296,33 @@ div:has(> #back) {
   font-weight: bold;
   font-size: 2.2em;
 }
+
+#table-contain {
+  display: flex;
+  justify-content: center;
+}
+
+.letter-table {
+  border: 2px solid brown;
+  width: 50%;
+  text-align: center;
+  vertical-align: center;
+  font-size: 1.2em;
+}
+
+.letter-table-text {
+  border: 2px solid brown;
+  text-align: center;
+  vertical-align: center;
+  font-size: 1.2em;
+}
+
+.cap-letter-table-text {
+  border: 2px solid brown;
+  text-align: center;
+  vertical-align: center;
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+
+

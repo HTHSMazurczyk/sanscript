@@ -30,72 +30,71 @@ script: lesson1.js
         <br>
         <br>
     </p>
+</div>
+
+<h2 align = "center">Consonants</h2>
 
 <!--Table for Consonants-->
-    <table id = "constTable">
+<div class = "container" id = "table-contain">
+    <table class = "letter-table">
+  
+        {%assign col = 6%}
+        {% for i in (0..7)%}
         <tr>
-            <th>Consonants</th>              <!--1-->
-            <th>Pronunciation</th>           <!--1-->
-            <th>Btn</th>
-            <th>Consonants</th>              <!--2-->
-            <th>Pronunciation</th>           <!--2-->
-            <th>Btn</th>
-            <th>Consonants</th>              <!--3-->
-            <th>Pronunciation</th>           <!--3-->
-            
-        </tr>
+            {%if i > 1%}
+                {%assign col = 5%}
+                <td></td>
+            {% endif %}
+            {%if i > 4%}
+                {%assign col = 3%}
+                <td></td>
+            {% endif %}
+            {%if i > 6%}
+                {%assign col = 1%}
+                <td></td>
+            {% endif %}
 
-        {% for letters in site.data.consonants limit:7%}
-        <tr>
-            <td>{{letters.iast}}</td>
-            <td>some text</td>
-            <td> 
-                <button type = "button" class = "btn btn-primary" id = "{{letters.id}}_btn"  onclick= "playAudio( '{{letters.id}}' )"> 
+            {% for letter in site.data.consonants limit:col offset:continue%}
+                <td class = "letter-table-text">
+                    {{letter.iast}}
+                    <br>
+                    <button type = "button" class = "btn btn-primary" id = "{{letters.id}}_btn"  onclick= "playAudio( '{{letters.id}}' )"> 
                     <i class="bi bi-volume-down" aria>
                         <span class="visually-hidden">Play audio</span>
                     </i>
                 </button> 
-            </td>
-            <td>
+                </td>
+            {% endfor %}
                 
-            </td>
         </tr>
         {% endfor %}
 
-        {% for letters in site.data.consonants limit:7 offset: continue %}
-        <tr>
-            <td>{{letters.iast}}</td>
-            <td>some text</td>
-            <td> 
-                <button type = "button" class = "btn btn-primary" id = "{{letters.id}}_btn" onclick = "playAudio('{{letters.id}}')">
-                    <i class="bi bi-volume-down" aria>
-                        <span class="visually-hidden">Play audio</span>
-                    </i>
-                </button> 
-            </td>
-        </tr>
-        {% endfor %}
     </table>
-
+</div>
+<div class = "container">
     <br>
     <p>
         You got some practice? Good! Now do the same thing with the vowels. It’s a much shorter list than before, but they are separated because of just how often you will see these letters. For that reason, spend a bit more time trying out these letters. If you can’t pronounce these, then you probably can’t move on to the other lessons. You can also try to use different vowels for the endings of the consonants above. Simply remove the “a” sound at the end and replace it with the sound of the vowel you choose. This helps you learn the general sounds of the consonants and also helps you 
     </p>
     <br>
     <br>
+</div>
     <!--Table for Vowels-->
-    <table id = "vowelTable" border = 1 cellpadding = 5>
+<div class="container" id = "table-contain">
+    <table class = "letter-table">
         <tr>
-            <th>Vowels</th>
+            <th>Devangari</th>
+            <th colspan ="2">Transcription</th>
             <th>Sound</th>
             
         </tr>
 
         {% for letters in site.data.vowels%}
             <tr>
-                <td>{{letters.iast}}</td>
-                <td>some text</td>
-                <td> 
+                <td class = "letter-table-text">dev</td>
+                <td class = "letter-table-text">{{letters.iast}}</td>
+                <td class = "cap-letter-table-text">some text</td>
+                <td class = "letter-table-text"> 
                     <button type = "button" class = "btn btn-primary" id = letters>
                         <i class="bi bi-volume-down" aria>
                             <span class="visually-hidden">Play audio</span>
@@ -105,7 +104,9 @@ script: lesson1.js
             </tr>
         {% endfor %}
     </table>
+</div>
 
+<div class="container">
     <br>
     <p>
         These vowels are going to be pretty important to know for the next lesson on syllables. The consonants are also going to be equally important in that regard, specifically the ones represented by two letters. These two-lettered consonants are considered one grouping, so they can never be split into the individual letters that make them up.
