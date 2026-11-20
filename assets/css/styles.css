@@ -292,16 +292,19 @@ div:has(> #back) {
 
 /* --------------------------------------------------- Lesson CSS ---------------------------- */
 
-.next-lesson {
-  text-align: right;
-  color: var(--accent-50);
-  font-size: 2.5em;
-}
-
 .past-lesson {
   text-align: left;
   color: var(--accent-50);
-  font-size: 2.5em;
+  font-size: 1.2em;
+
+}
+
+.next-lesson {
+  margin-left: none;
+  text-align: right;
+  color: var(--accent-50);
+  font-size: 1.2em;
+
 }
 
 .ex-text {
@@ -340,10 +343,23 @@ div:has(> #back) {
 }
 #varsaAnswer {
   display: none;
+  text-align: center;
 
 }
 
 #bhartuhAnswer {
   display: none;
 
+}
+
+.syl-btn {
+  font-size: 1.7em;
+}
+
+.word-btn {
+  font-size: 1.4em;
+}
+
+.spacer {
+  width: 3%;
 }
