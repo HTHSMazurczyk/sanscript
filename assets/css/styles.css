@@ -17,6 +17,7 @@ img {
   --accent-50: #8d3434;
   --accent-70: #eacd65;
   --accent-20: #e14242;
+  --accent-50-shadow: hsl(0 46 25);
   --bs-body-bg: var(--bg-color);
   --bs-border-color: #c1cad2;
 }
@@ -27,7 +28,7 @@ img {
   --bs-btn-border-color: var(--accent-50);
   --bs-btn-hover-color: var(--bg-color);
   --bs-btn-hover-bg: var(--accent-50);
-  --bs-btn-hover-border-color: var(--accent-20);
+  --bs-btn-hover-border-color: var(--accent-50-shadow);
   --bs-btn-active-bg: #5f2020;
 }
 
@@ -321,7 +322,7 @@ div:has(> #back) {
   text-align: center;
   vertical-align: center;
   font-size: 1em;
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .letter-table-text {
@@ -340,10 +341,49 @@ div:has(> #back) {
 }
 #varsaAnswer {
   display: none;
-
 }
 
 #bhartuhAnswer {
   display: none;
+}
 
+/* -------------------------- Landing Page ----------------- */
+#top {
+  height: 80vh;
+  background: var(--accent-70);
+  padding: 20vw;
+}
+
+#landing-container h1 {
+  color: var(--accent-50);
+  font-weight: bold;
+}
+
+.call-to-action {
+  padding: 0.375rem 1rem;
+  box-shadow: var(--accent-50-shadow) 5px 5px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.chevron {
+  width: 0;
+  height: 0;
+  --magic-factor: 2.3rem; /* *magic* */
+  border-left: calc((100vw - var(--magic-factor)) / 2) solid transparent;
+  border-right: calc((100vw - var(--magic-factor)) / 2) solid transparent;
+  border-top: calc(8.5vw) solid var(--accent-70);
+}
+
+#features .card {
+  border-color: transparent;
+}
+#features .card-text {
+  padding-top: 0.5rem;
+}
+
+#highlight {
+  background-color: var(--accent-70);
+  border-radius: 2rem;
+  padding: 2rem;
 }
