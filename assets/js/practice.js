@@ -1,7 +1,7 @@
 import { AccuracyDB } from './common.js'
 
 function getPracticePreferences() {
-  const LESSON_KEYS = ['Letters', 'Syllables', 'Words']
+  const LESSON_KEYS = ['Letters', 'Syllables', 'Words', 'Songs']
   let prefs = {}
 
   let style = document.getElementById('practice_style').value
@@ -10,11 +10,18 @@ function getPracticePreferences() {
   } else if (style === 'Flashcards') {
     prefs.is_matching = false
   } else {
+    alert('Choose a practice style!')
     return null
   }
 
   for (let name of LESSON_KEYS) {
     prefs[name] = document.getElementById(name + '_check').checked
+  }
+
+  // if matching and Songs is only one checked
+  if (prefs.is_matching && prefs['Songs'] && !(prefs['Letters'] || prefs['Syllables'] || prefs['Words'])) {
+    alert('There are no Song quiz questions')
+    return null
   }
   // console.log(prefs)
   return prefs
@@ -23,7 +30,6 @@ function getPracticePreferences() {
 function processForm() {
   let prefs = getPracticePreferences()
   if (prefs === null) {
-    alert('Choose a practice style!')
     return
   }
   let isAnyUnitSelected = Object.values(prefs).some((x) => x)
