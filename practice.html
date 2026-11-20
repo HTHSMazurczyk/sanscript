@@ -7,11 +7,15 @@ script: practice.js
 <div class="container my-5">
   <form id="perfs_form">
     <div class="mb-2">
-      <select id="practice_style" class="form-select fs-4 mb-2">
-        <option selected disabled>Choose a practice style</option>
-        <option>Flashcards</option>
-        <option>Matching</option>
-      </select>
+      <div class="d-flex">
+        <label id="practice-label" class="col-form-label fs-4" for="practice_style">Choose a practice style: </label>
+        <select id="practice_style" class="form-select fs-4 mb-2">
+          <option selected disabled></option>
+          <option>Flashcards</option>
+          <option>Matching</option>
+        </select>
+      </div>
+
       {% for item in site.data.lessons %}
       <div class="form-check fs-4">
         <input type="checkbox" id="{{item.name}}_check" class="form-check-input" />
