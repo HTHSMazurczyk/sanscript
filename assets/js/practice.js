@@ -5,7 +5,7 @@ function getPracticePreferences() {
   let prefs = {}
 
   let style = document.getElementById('practice_style').value
-  if (style === 'Matching') {
+  if (style === 'Quiz') {
     prefs.is_matching = true
   } else if (style === 'Flashcards') {
     prefs.is_matching = false
