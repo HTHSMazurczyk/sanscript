@@ -274,6 +274,10 @@ div:has(> #back) {
   flex-basis: 0;
 }
 
+#front_text {
+  overflow-wrap: break-word;
+}
+
 #qa-separator {
   border: 1px solid var(--accent-50);
   opacity: 0.5;
@@ -313,7 +317,6 @@ div:has(> #back) {
   text-align: left;
   color: var(--accent-50);
   font-size: 1.2em;
-
 }
 
 .next-lesson {
@@ -321,7 +324,6 @@ div:has(> #back) {
   text-align: right;
   color: var(--accent-50);
   font-size: 1.2em;
-
 }
 
 .ex-text {
@@ -361,7 +363,6 @@ div:has(> #back) {
 #varsaAnswer {
   display: none;
   text-align: center;
-
 }
 
 #bhartuhAnswer {
@@ -416,7 +417,6 @@ div:has(> #back) {
 #highlight img {
   max-width: 40rem;
 }
-
 
 .syl-btn {
   font-size: 1.7em;

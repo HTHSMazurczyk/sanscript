@@ -1,7 +1,7 @@
 import * as common from './common.js'
 
 let accuracies = new common.AccuracyDB('matching')
-let card_picker = new common.CardPicker(accuracies)
+let card_picker
 
 let prompt_text, prompt_audio_btn, next_btn, ans_inputs, ans_texts, ans_audios
 async function onloadFunction() {
@@ -20,6 +20,7 @@ async function onloadFunction() {
       questions,
     ),
   )
+  card_picker = new common.CardPicker(accuracies, questions)
   if (Object.keys(questions).length > 0) {
     await mainloop(questions)
   } else {

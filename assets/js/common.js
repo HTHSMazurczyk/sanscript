@@ -48,10 +48,11 @@ export class AccuracyDB {
 }
 
 export class CardPicker {
-  constructor(db) {
-    this.db = db
-    this.style = db.style
-    this.ids = Object.keys(db.data)
+  constructor(acc_db, card_db) {
+    this.acc_db = acc_db
+    this.style = acc_db.style
+    let ids = Object.keys(acc_db.data)
+    this.ids = ids.filter((id) => Object.keys(card_db).includes(id))
     this.new_questions_seen = 0
   }
 
@@ -61,7 +62,7 @@ export class CardPicker {
     const questions = this.ids // get timestamps
       .map((id) => ({
         id,
-        date: this.db.getItem(id).at(-1),
+        date: this.acc_db.getItem(id).at(-1),
       }))
       .filter((q) => q.date.getTime() !== ts_zero && q.date < now) // filter out new and future
       .sort((a, b) => a.date - b.date)
@@ -75,7 +76,7 @@ export class CardPicker {
   getRandomNewQuestionID() {
     const ts_zero = new Date(0).getTime()
     //                                                         timestamp
-    const questions = this.ids.filter((id) => this.db.getItem(id).at(-1).getTime() === ts_zero)
+    const questions = this.ids.filter((id) => this.acc_db.getItem(id).at(-1).getTime() === ts_zero)
     return questions[Math.floor(Math.random() * questions.length)]
   }
 

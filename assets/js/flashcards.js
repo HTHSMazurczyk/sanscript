@@ -1,7 +1,7 @@
 import * as common from './common.js'
 
 let accuracies = new common.AccuracyDB('flashcards')
-let card_picker = new common.CardPicker(accuracies)
+let card_picker
 
 let front_text, back, back_text, front_audio_btn, back_audio_btn, correct_btn, incorrect_btn
 async function onloadFunction() {
@@ -21,6 +21,7 @@ async function onloadFunction() {
     ),
   )
   console.log(cards)
+  card_picker = new common.CardPicker(accuracies, cards)
   if (Object.keys(cards).length > 0) {
     await mainloop(cards)
   } else {
