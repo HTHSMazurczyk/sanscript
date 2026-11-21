@@ -348,6 +348,7 @@ div:has(> #back) {
   vertical-align: center;
   font-size: 1em;
   font-weight: bold;
+  
 }
 
 .letter-table-text {
@@ -355,6 +356,7 @@ div:has(> #back) {
   text-align: center;
   vertical-align: center;
   font-size: 1em;
+  row-gap: 5%;
 }
 
 .cap-letter-table-text {

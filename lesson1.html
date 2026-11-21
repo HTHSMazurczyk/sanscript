@@ -57,7 +57,8 @@ script: lesson1.js
             {% for letter in site.data.consonants limit:col offset:continue%}
                 <td class = "letter-table-text">
                     {{letter.iast}}
-                    <p class="text-capitalize">{{letter.iast}}</p>
+                    <span class="text-capitalize">{{letter.iast}}</span>
+                    <p></p>
                     <button type="button" class="btn btn-primary btn-sm" id="{{letters.id}}_btn" onclick="playAudio( '{{letters.id}}' )">
                     <i class="bi bi-volume-down" aria>
                         <span class="visually-hidden">Play audio</span>
@@ -80,30 +81,57 @@ script: lesson1.js
     <br>
 </div>
     <!--Table for Vowels-->
-<div class="container" id = "table-contain">
-    <table class="letter-table" style="width: 40%">
-        <tr>
-            <th colspan ="2">Transcription</th>
-            <th>Sound</th>
-            
-        </tr>
-
-        {% for letters in site.data.vowels%}
+<div class = "container d-flex justify-content-center">
+    <div id = "table-contain">
+        <table class="letter-table" style="width: 30%">
             <tr>
-                <td class = "letter-table-text">{{letters.iast}}</td>
-                <td class="cap-letter-table-text">
-                    <p class="text-capitalize">{{letters.iast}}</p>
-                </td>
-                <td class = "letter-table-text"> 
-                    <button type = "button" class = "btn btn-primary" id = letters>
-                        <i class="bi bi-volume-down" aria>
-                            <span class="visually-hidden">Play audio</span>
-                        </i>
-                    </button> 
-                </td>
+                <th colspan ="2" class = "letter-table-text"  style = "font-size: 1.1em;">Transcription</th>
+                <th class = "letter-table-text"  style = "font-size: 1.1em;">Sound</th>
+                
             </tr>
-        {% endfor %}
-    </table>
+
+            {{assign halfLen = site}}
+            {% for letters in site.data.vowels limit:7 %}
+                <tr>
+                    <td class = "letter-table-text"> {{letters.iast}} </td>
+                    <td class="cap-letter-table-text"> {{letters.iast}} </td>
+                    <td class = "letter-table-text"> 
+                        <button type = "button" class = "btn btn-primary btn-sm" id = letters>
+                            <i class="bi bi-volume-down" aria>
+                                <span class="visually-hidden">Play audio</span>
+                            </i>
+                        </button> 
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class = "spacer"></div>
+    <div class = "spacer"></div>
+    <div class = "spacer"></div>
+    <div id = "table-contain">
+        <table class="letter-table" style="width: 30%">
+            <tr>
+                <th colspan ="2" class = "letter-table-text" style = "font-size: 1.1em;">Transcription</th>
+                <th class = "letter-table-text" style = "font-size: 1.1em;">Sound</th>
+            </tr>
+
+            {{assign halfLen = site}}
+            {% for letters in site.data.vowels offset: continue %}
+                <tr>
+                    <td class = "letter-table-text">{{letters.iast}}</td>
+                    <td class="cap-letter-table-text"> {{letters.iast}} </td>
+                    <td class = "letter-table-text"> 
+                        <button type = "button" class = "btn btn-primary btn-sm" id = letters>
+                            <i class="bi bi-volume-down" aria>
+                                <span class="visually-hidden">Play audio</span>
+                            </i>
+                        </button> 
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
 
 <div class="container">
@@ -118,6 +146,7 @@ script: lesson1.js
     </p>
     <br>
 </div>
+
     <!--Table for Codas-->
 <div class="container" id="table-contain" style="width: 17%;">
     <table class="w-100">
@@ -126,7 +155,7 @@ script: lesson1.js
             <th class="text-center">Sound</th>
             
         </tr>
-        <!--Make yml file with list of codas(get from AK)-->
+        
         {% for coda in site.data.codas%}
         <tr>
             <td class="tahoma letter-table-text">{{coda.iast}}</td>
@@ -144,6 +173,7 @@ script: lesson1.js
         {% endfor %}
     </table>
 </div>
+
 <div class="container">
     <br>
     <hr>
