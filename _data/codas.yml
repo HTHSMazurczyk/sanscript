@@ -1,12 +1,30 @@
 - iast: ṃ
-  id:  m-dot
-- iast: ḥ
+  noUnder: TODO
+  under:
+  noUnder1:
   id: m-dot
+- iast: ḥ
+  id: h-dot
+  noUnder: TODO
+  under:
+  noUnder1:
 - iast: m̐
+  noUnder: TODO
+  under:
+  noUnder1:
   id: m-dot
 - iast: ’
+  noUnder: TODO
+  under:
+  noUnder1:
   id: m-dot
 - iast: ẖ
+  noUnder: TODO
+  under:
+  noUnder1:
   id: m-dot
 - iast: ḫ
+  noUnder: TODO
+  under:
+  noUnder1:
   id: m-dot
