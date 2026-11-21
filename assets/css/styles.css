@@ -274,6 +274,10 @@ div:has(> #back) {
   flex-basis: 0;
 }
 
+#front_text {
+  overflow-wrap: break-word;
+}
+
 #qa-separator {
   border: 1px solid var(--accent-50);
   opacity: 0.5;
@@ -363,7 +367,6 @@ div:has(> #back) {
 #varsaAnswer {
   display: none;
   text-align: center;
-
 }
 
 #bhartuhAnswer {
@@ -430,4 +433,3 @@ div:has(> #back) {
 #highlight img {
   max-width: 40rem;
 }
-

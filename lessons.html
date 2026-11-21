@@ -5,7 +5,7 @@ layout: default
 
 <div class="container-lg">
   <h1 class="fw-bold text-center pt-5">Lessons</h1>
-  <div class="row">
+  <div class="row row-cols-2">
     {% for item in site.data.lessons %}
     <div class="col">
       <a class="lesson text-reset" href="lesson{{ forloop.index }}.html">
