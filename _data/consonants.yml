@@ -14,24 +14,24 @@
   noUnder1: ouch
   id: tDot
 - iast: t
-  noUnder: 
-  under:
-  noUnder1:
+  noUnder:
+  under: T
+  noUnder1: ouch
   id: t
 - iast: p
   noUnder:
-  under: T
-  noUnder1: o
+  under: P
+  noUnder1: urse
   id: p
 - iast: ph
-  noUnder:
-  under: T
-  noUnder1: o
+  noUnder: Sap
+  under: ph
+  noUnder1: ire
   id: ph
 - iast: h
   noUnder:
-  under: 
-  noUnder1: 
+  under: H
+  noUnder1: ouse
   id: h
 - iast: kh
   noUnder: Blo
@@ -49,14 +49,14 @@
   noUnder1: ill
   id: thDot
 - iast: th
-  noUnder:
-  under: T
-  noUnder1: o
+  noUnder: Pa
+  under: th
+  noUnder1: etic
   id: th
 - iast: b
   noUnder:
-  under: T
-  noUnder1: o
+  under: B
+  noUnder1: ut
   id: b
 - iast: g
   noUnder:
@@ -74,14 +74,14 @@
   noUnder1: uck
   id: dDot
 - iast: d
-  noUnder:
-  under: T
-  noUnder1: o
+  noUnder: Fa
+  under: th
+  noUnder1: er
   id: d
 - iast: bh
-  noUnder:
-  under: T
-  noUnder1: o
+  noUnder: A
+  under: bh
+  noUnder1: or
   id: bh
 - iast: gh
   noUnder: Lo
@@ -99,14 +99,14 @@
   noUnder1: ood
   id: dhDot
 - iast: dh
-  noUnder:
-  under: T
-  noUnder1: o
+  noUnder: Brea
+  under: the h
+  noUnder1: ard
   id: dh
 - iast: m
   noUnder:
-  under: T
-  noUnder1: o
+  under: M
+  noUnder1: other
   id: m
 - iast: ṅ
   noUnder: S
@@ -119,52 +119,52 @@
   noUnder1: ch
   id: nLine
 - iast: ṇ
-  noUnder:
-  under: T
-  noUnder1: o
+  noUnder: Thu
+  under: n
+  noUnder1: der
   id: nDot
 - iast: n
   noUnder:
-  under: T
-  noUnder1: o
+  under: N
+  noUnder1: umb
   id: n
 - iast: v
   noUnder:
-  under: T
-  noUnder1: o
+  under: V
+  noUnder1: irtue
   id: v
 - iast: y
   noUnder:
-  under: 
-  noUnder1: 
+  under: Y
+  noUnder1: oung
   id: y
 - iast: r
   noUnder:
-  under: 
-  noUnder1: 
+  under: R
+  noUnder1: un
   id: r
 - iast: l
   noUnder:
-  under: 
-  noUnder1: 
+  under: L
+  noUnder1: uck
   id: l
 - iast: ś
   noUnder:
-  under: 
-  noUnder1: 
+  under: Sh
+  noUnder1: ove
   id: s-accent
 - iast: ṣ
-  noUnder:
-  under: 
-  noUnder1: 
+  noUnder: Bu
+  under: sh
+  noUnder1: el
   id: s-dot
 - iast: s
   noUnder:
-  under: 
-  noUnder1: 
+  under: S
+  noUnder1: ir
   id: s
-- iast: l
-  noUnder:
-  under: 
-  noUnder1: 
+- iast: ḻ
+  noUnder: TODO
+  under:
+  noUnder1:
   id: l-bar
