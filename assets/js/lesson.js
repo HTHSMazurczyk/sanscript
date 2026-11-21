@@ -1,3 +1,8 @@
+function playAudio(audio_name) {
+  const path = `assets/audio/one.mp3`
+  new Audio(path).play()
+}
+
 function showBhartuh() {
   document.getElementById('bhartuhAnswer').style.display = 'block'
   document.getElementById('please').style.display = 'block'
@@ -7,4 +12,8 @@ function showBhartuh() {
 
 function showVarsa() {
   document.getElementById('varsaAnswer').style.display = 'block'
+}
+
+function showGurusukra(){
+  document.getElementById('gurusukAnswer').style.display = 'block'
 }

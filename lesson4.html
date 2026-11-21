@@ -1,7 +1,7 @@
 ---
 title: Lesson 4
 layout: default
-script: lesson1.js
+lessonScript: lesson.js
 ---
 
 <div class="container">
@@ -30,38 +30,50 @@ script: lesson1.js
   <p>This is pretty long. But let's go word by word. For each word, separate it into its syllables. You should have been doing this a lot last lesson and the lesson before. If you did it correctly, it should look like this.</p>
 </div>
 
-<div class="container d-flex justify-content-center flex-wrap row-gap-4 align-items-center">
-  <button class="btn btn-primary word-btn">Na</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">maḥ</button>
+<div class="container d-flex justify-content-center flex-wrap flex-row row-gap-4">
+  <div class = "d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary word-btn">Na</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">maḥ</button>
+  </div>
   <div class="spacer"></div>
-  <button class="btn btn-primary word-btn">sūr</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">yā</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">ya</button>
+  <div class = "d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary word-btn">sūr</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">yā</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">ya</button>
+  </div>
   <div class="spacer"></div>
-  <button class="btn btn-primary word-btn">cand</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">rā</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">ya</button>
+  <div class = "d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary word-btn">cand</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">rā</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">ya</button>
+  </div>
   <div class="spacer"></div>
-  <button class="btn btn-primary word-btn">maṅ</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">ga</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">lā</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">ya</button>
+  <div class = "d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary word-btn">maṅ</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">ga</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">lā</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">ya</button>
+  </div>
   <div class="spacer"></div>
-  <button class="btn btn-primary word-btn">bu</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">dhā</button>
-  <h1>-</h1>
-  <button class="btn btn-primary word-btn">ya</button>
-  <div class="spacer"></div>
-  <button class="btn btn-primary word-btn">ca</button>
+  <div class = "d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary word-btn">bu</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">dhā</button>
+    <h1>-</h1>
+    <button class="btn btn-primary word-btn">ya</button>
+  </div>
+    <div class="spacer"></div>
+  <div class = "d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary word-btn">ca</button>
+  </div>
 </div>
 
 <div class="container">
@@ -83,14 +95,16 @@ script: lesson1.js
 
 <div class="container">
   <p>First lets break it down into syllables</p>
-  <button class="btn btn-primary">Show Syllables</button>
+  <button class="btn btn-primary" onClick = "showGurusukra()" >Show Syllables</button>
+  <br>
+  <br>
 </div>
 <!--Might need to change id name-->
-<div class="container d-flex justify-content-center" id="Gurusukrasanibhyasca">
-  <h1 class="ex-text" id="varsaAnswer">Gu - ru - śuk - ra - śa - nibh - yaś - ca rā - ha - ve ke - ta - ve na - maḥ</h1>
+<div class="container d-flex justify-content-center">
+  
+  <h1 class="ex-text" id="gurusukAnswer" style="display: none;">Gu - ru - śuk - ra - śa - nibh - yaś - ca rā - ha - ve ke - ta - ve na - maḥ</h1>
 </div>
 <div class="container">
-  <br />
   <hr />
   <p>Once we have this, we can split it in half and rejoin the words back together. The rounding part just means that we can’t put the halfway point inside a word. Now that we've done that, we can pronounce each half of the line separately, leaving a small gap between the halves. This gap not only provides auditory comfort, but also allows the speaker to take a short break and pronounce the rest of the line instead of slowly going syllable by syllable.</p>
   <br />
@@ -101,15 +115,14 @@ script: lesson1.js
   <br />
 </div>
 
-<div class="container d-flex justify-content-center align-items-center">
-  <button class="btn btn-primary btn-sm">
-    <i class="bi bi-volume-down" aria>
-      <span class="visually-hidden">Play audio</span>
-    </i>
-  </button>
-  <div style="width: 1%"></div>
+<div class="container d-flex justify-content-center">
   <h1 class="ex-text">Guruśukraśanibhyaśca rāhave ketave namaḥ</h1>
 </div>
+<div class="container d-flex justify-content-center">
+  <button class="btn btn-primary" id="NamahSuryayaReveal" onclick="playAudio('gg')">Play Audio</button>
+</div>
+  
+
 
 <div class="container">
   <br />
