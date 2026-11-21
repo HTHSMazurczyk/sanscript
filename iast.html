@@ -3,9 +3,28 @@ title: IAST Guide
 layout: default
 ---
 
-<div class="container">
-  <h1>Letters</h1>
-  <table>
+<div class="container-xl pt-2">
+  <h1 class="text-center">Letters</h1>
+  <div id="guide-table" class="d-flex flex-wrap flex-column gap-2">
+    {% for item in site.data.consonants %}
+    <div class="p-1 rounded">
+      <span class="tahoma"> {{item.iast}} </span>
+      <span class="ps-4">{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <!-- <div id="guide-table" class="row">
+    {% for item in site.data.vowels %}
+    <div class="col">{{item.iast}} <span class="ps-4">{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</span></div>
+    {% endfor %} 
+    {% for item in site.data.consonants%}
+    <div class="col">
+      {{item.iast}}
+      <span class="ps-4">{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</span>
+    </div>
+    {% endfor %}
+  </div> -->
+  <!-- <table>
     <tr>
       <th>IAST</th>
       <th>Approximate English</th>
@@ -15,13 +34,11 @@ layout: default
       <td>{{item.iast}}</td>
       <td>{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</td>
     </tr>
-    {% endfor %}
-
-    {% for item in site.data.consonants%}
+    {% endfor %} {% for item in site.data.consonants%}
     <tr>
       <td>{{item.iast}}</td>
       <td>{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</td>
     </tr>
     {% endfor %}
-  </table>
+  </table> -->
 </div>
