@@ -312,7 +312,8 @@ div:has(> #back) {
 .past-lesson {
   text-align: left;
   color: var(--accent-50);
-  font-size: 1.2em;
+  font-size: 2em;
+  font-weight: bold;
 
 }
 
@@ -320,7 +321,8 @@ div:has(> #back) {
   margin-left: none;
   text-align: right;
   color: var(--accent-50);
-  font-size: 1.2em;
+  font-size: 2em;
+  font-weight: bold;
 
 }
 
@@ -366,6 +368,18 @@ div:has(> #back) {
 
 #bhartuhAnswer {
   display: none;
+}
+
+.syl-btn {
+  font-size: 1.7em;
+}
+
+.word-btn {
+  font-size: 1.4em;
+}
+
+.spacer {
+  width: 3%;
 }
 
 /* -------------------------- Landing Page ----------------- */
@@ -417,15 +431,3 @@ div:has(> #back) {
   max-width: 40rem;
 }
 
-
-.syl-btn {
-  font-size: 1.7em;
-}
-
-.word-btn {
-  font-size: 1.4em;
-}
-
-.spacer {
-  width: 3%;
-}
