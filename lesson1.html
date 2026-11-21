@@ -47,9 +47,9 @@ script: lesson1.js
       {% endif %} {%if i > 6%} {%assign col = 1%}
       <td></td>
       {% endif %} {% for letter in site.data.consonants limit:col offset:continue%}
-      <td class="letter-table-text">
+      <td class="letter-table-text tahoma">
         {{letter.iast}}
-        <span class="text-capitalize">{{letter.iast}}</span>
+        <span class="text-capitalize tahoma">{{letter.iast}}</span>
         <p></p>
         <button type="button" class="btn btn-primary btn-sm" id="{{letters.id}}_btn" onclick="playAudio( '{{letters.id}}' )">
           <i class="bi bi-volume-down">
@@ -82,8 +82,8 @@ script: lesson1.js
 
       {{assign halfLen = site}} {% for letters in site.data.vowels limit:7 %}
       <tr>
-        <td class="letter-table-text">{{letters.iast}}</td>
-        <td class="cap-letter-table-text">{{letters.iast}}</td>
+        <td class="letter-table-text tahoma">{{letters.iast}}</td>
+        <td class="cap-letter-table-text tahoma">{{letters.iast}}</td>
         <td class="letter-table-text">
           <button type="button" class="btn btn-primary btn-sm" id="letters">
             <i class="bi bi-volume-down">
@@ -107,8 +107,8 @@ script: lesson1.js
 
       {{assign halfLen = site}} {% for letters in site.data.vowels offset: continue %}
       <tr>
-        <td class="letter-table-text">{{letters.iast}}</td>
-        <td class="cap-letter-table-text">{{letters.iast}}</td>
+        <td class="letter-table-text tahoma">{{letters.iast}}</td>
+        <td class="cap-letter-table-text tahoma">{{letters.iast}}</td>
         <td class="letter-table-text">
           <button type="button" class="btn btn-primary btn-sm" id="letters">
             <i class="bi bi-volume-down">
