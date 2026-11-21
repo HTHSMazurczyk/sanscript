@@ -3,184 +3,162 @@ title: Lesson 1
 layout: default
 script: lesson1.js
 ---
+
 <div class="container">
+  <h1>
+    <br />
+    Lesson 1 - Letters
+  </h1>
 
-    <h1>
-        <br>
-        Lesson 1 - Letters
-    </h1>
-
-    <hr>
-<!--Introductory Paragraph-->
-    <p>
-        Welcome to lesson one! Before we start, I wanted to give you a little overview of what you are going to expect not only in this lesson, but in future lessons as well. 
-        This beginning paragraph, or these beginning paragraphs, will be seen in future lessons as you continue and will explain the basics of what you are going to learn in the full lesson. 
-        Then you get into the actual lesson, where you learn what the lesson you chose covers, such as this lesson covering the letters and the sounds they make. Understood? Ok, let's start! 
-        <br> 
-        <hr>
-    </p>
+  <hr />
+  <!-- Introductory Paragraph -->
+  <p>
+    Welcome to lesson one! Before we start, I wanted to give you a little overview of what you are going to expect not only in this lesson, but in future lessons as well. This beginning paragraph, or these beginning paragraphs, will be seen in future lessons as you continue and will explain the basics of what you are going to learn in the full lesson. Then you get into the actual lesson, where you learn what the lesson you chose covers, such as this lesson covering the letters and the sounds
+    they make. Understood? Ok, let's start!
+    <br />
+  </p>
+  <hr />
 </div>
 
 <div class="container">
-    <p>
-        Lesson one, as I just said, is about the letters you will encounter. But before we get to that, I need to share a bit more information to make things easier. The letters that you see later on will look like English characters, but are not pronounced like English characters. This is the Romanized version of Sanskrit, or the International Alphabet of Sanskrit Transliteration (IAST). It basically makes the letters into English ones. You don’t need to know a whole lot about IAST, as it will be used a lot here.
-        <br>
-        <br>
-        Below, you are going to find a table. This contains the consonants in Sanskrit. Listen to how each letter is pronounced and replicate it. Make sure you fully understand how you say each letter before moving on to the next consonants. When you are ready, you can continue to the vowels, where we can really get into making sounds. Please note that all of the consonants are pronounced with an “a” vowel at the end, as trying to pronounce just the consonants without the vowel is actual torture. Just remember that as you listen in.
-        <br>
-        <br>
-    </p>
+  <p>
+    Lesson one, as I just said, is about the letters you will encounter. But before we get to that, I need to share a bit more information to make things easier. The letters that you see later on will look like English characters, but are not pronounced like English characters. This is the Romanized version of Sanskrit, or the International Alphabet of Sanskrit Transliteration (IAST). It basically makes the letters into English ones. You don’t need to know a whole lot about IAST, as it will be
+    used a lot here.
+    <br />
+    <br />
+    Below, you are going to find a table. This contains the consonants in Sanskrit. Listen to how each letter is pronounced and replicate it. Make sure you fully understand how you say each letter before moving on to the next consonants. When you are ready, you can continue to the vowels, where we can really get into making sounds. Please note that all of the consonants are pronounced with an “a” vowel at the end, as trying to pronounce just the consonants without the vowel is actual torture.
+    Just remember that as you listen in.
+    <br />
+    <br />
+  </p>
 </div>
 
-<h2 align = "center">Consonants</h2>
+<h2 align="center">Consonants</h2>
 
 <!--Table for Consonants-->
-<div class = "container" id = "table-contain">
-    <table class = "letter-table">
-  
-        {%assign col = 6%}
-        {% for i in (0..7)%}
-        <tr>
-            {%if i > 1%}
-                {%assign col = 5%}
-                <td></td>
-            {% endif %}
-            {%if i > 4%}
-                {%assign col = 3%}
-                <td></td>
-            {% endif %}
-            {%if i > 6%}
-                {%assign col = 1%}
-                <td></td>
-            {% endif %}
+<div class="container" id="table-contain">
+  <table class="letter-table">
+    {%assign col = 6%} {% for i in (0..7)%}
+    <tr>
+      {%if i > 1%} {%assign col = 5%}
+      <td></td>
+      {% endif %} {%if i > 4%} {%assign col = 3%}
+      <td></td>
+      {% endif %} {%if i > 6%} {%assign col = 1%}
+      <td></td>
+      {% endif %} {% for letter in site.data.consonants limit:col offset:continue%}
+      <td class="letter-table-text">
+        {{letter.iast}}
+        <span class="text-capitalize">{{letter.iast}}</span>
+        <p></p>
+        <button type="button" class="btn btn-primary btn-sm" id="{{letters.id}}_btn" onclick="playAudio( '{{letters.id}}' )">
+          <i class="bi bi-volume-down">
+            <span class="visually-hidden">Play audio</span>
+          </i>
+        </button>
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<div class="container">
+  <br />
+  <p>
+    You got some practice? Good! Now do the same thing with the vowels. It’s a much shorter list than before, but they are separated because of just how often you will see these letters. For that reason, spend a bit more time trying out these letters. If you can’t pronounce these, then you probably can’t move on to the other lessons. You can also try to use different vowels for the endings of the consonants above. Simply remove the “a” sound at the end and replace it with the sound of the vowel
+    you choose. This helps you learn the general sounds of the consonants and also helps you
+  </p>
+  <br />
+  <br />
+</div>
+<!--Table for Vowels-->
+<div class="container d-flex justify-content-center">
+  <div id="table-contain">
+    <table class="letter-table" style="width: 30%">
+      <tr>
+        <th colspan="2" class="letter-table-text" style="font-size: 1.1em">Transcription</th>
+        <th class="letter-table-text" style="font-size: 1.1em">Sound</th>
+      </tr>
 
-            {% for letter in site.data.consonants limit:col offset:continue%}
-                <td class = "letter-table-text">
-                    {{letter.iast}}
-                    <span class="text-capitalize">{{letter.iast}}</span>
-                    <p></p>
-                    <button type="button" class="btn btn-primary btn-sm" id="{{letters.id}}_btn" onclick="playAudio( '{{letters.id}}' )">
-                    <i class="bi bi-volume-down" aria>
-                        <span class="visually-hidden">Play audio</span>
-                    </i>
-                </button> 
-                </td>
-            {% endfor %}
-                
-        </tr>
-        {% endfor %}
-
+      {{assign halfLen = site}} {% for letters in site.data.vowels limit:7 %}
+      <tr>
+        <td class="letter-table-text">{{letters.iast}}</td>
+        <td class="cap-letter-table-text">{{letters.iast}}</td>
+        <td class="letter-table-text">
+          <button type="button" class="btn btn-primary btn-sm" id="letters">
+            <i class="bi bi-volume-down">
+              <span class="visually-hidden">Play audio</span>
+            </i>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
     </table>
-</div>
-<div class = "container">
-    <br>
-    <p>
-        You got some practice? Good! Now do the same thing with the vowels. It’s a much shorter list than before, but they are separated because of just how often you will see these letters. For that reason, spend a bit more time trying out these letters. If you can’t pronounce these, then you probably can’t move on to the other lessons. You can also try to use different vowels for the endings of the consonants above. Simply remove the “a” sound at the end and replace it with the sound of the vowel you choose. This helps you learn the general sounds of the consonants and also helps you 
-    </p>
-    <br>
-    <br>
-</div>
-    <!--Table for Vowels-->
-<div class = "container d-flex justify-content-center">
-    <div id = "table-contain">
-        <table class="letter-table" style="width: 30%">
-            <tr>
-                <th colspan ="2" class = "letter-table-text"  style = "font-size: 1.1em;">Transcription</th>
-                <th class = "letter-table-text"  style = "font-size: 1.1em;">Sound</th>
-                
-            </tr>
+  </div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div id="table-contain">
+    <table class="letter-table" style="width: 30%">
+      <tr>
+        <th colspan="2" class="letter-table-text" style="font-size: 1.1em">Transcription</th>
+        <th class="letter-table-text" style="font-size: 1.1em">Sound</th>
+      </tr>
 
-            {{assign halfLen = site}}
-            {% for letters in site.data.vowels limit:7 %}
-                <tr>
-                    <td class = "letter-table-text"> {{letters.iast}} </td>
-                    <td class="cap-letter-table-text"> {{letters.iast}} </td>
-                    <td class = "letter-table-text"> 
-                        <button type = "button" class = "btn btn-primary btn-sm" id = letters>
-                            <i class="bi bi-volume-down" aria>
-                                <span class="visually-hidden">Play audio</span>
-                            </i>
-                        </button> 
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-    <div class = "spacer"></div>
-    <div class = "spacer"></div>
-    <div class = "spacer"></div>
-    <div id = "table-contain">
-        <table class="letter-table" style="width: 30%">
-            <tr>
-                <th colspan ="2" class = "letter-table-text" style = "font-size: 1.1em;">Transcription</th>
-                <th class = "letter-table-text" style = "font-size: 1.1em;">Sound</th>
-            </tr>
-
-            {{assign halfLen = site}}
-            {% for letters in site.data.vowels offset: continue %}
-                <tr>
-                    <td class = "letter-table-text">{{letters.iast}}</td>
-                    <td class="cap-letter-table-text"> {{letters.iast}} </td>
-                    <td class = "letter-table-text"> 
-                        <button type = "button" class = "btn btn-primary btn-sm" id = letters>
-                            <i class="bi bi-volume-down" aria>
-                                <span class="visually-hidden">Play audio</span>
-                            </i>
-                        </button> 
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
+      {{assign halfLen = site}} {% for letters in site.data.vowels offset: continue %}
+      <tr>
+        <td class="letter-table-text">{{letters.iast}}</td>
+        <td class="cap-letter-table-text">{{letters.iast}}</td>
+        <td class="letter-table-text">
+          <button type="button" class="btn btn-primary btn-sm" id="letters">
+            <i class="bi bi-volume-down">
+              <span class="visually-hidden">Play audio</span>
+            </i>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
 </div>
 
 <div class="container">
-    <br>
-    <p>
-        These vowels are going to be pretty important to know for the next lesson on syllables. The consonants are also going to be equally important in that regard, specifically the ones represented by two letters. These two-lettered consonants are considered one grouping, so they can never be split into the individual letters that make them up.
-    </p>
-    <br>
-    <br>
-    <p>
-        The final part is codas. These are just unique sounds for Sanskrit and come with their own weird pronunciation. These are ending sounds for words and will have a vowel before them. So, similar to the consonants, these codas are pronounced with a leading “a” sound. However, you can substitute any vowel before the coda for further practice.
-    </p>
-    <br>
+  <br />
+  <p>These vowels are going to be pretty important to know for the next lesson on syllables. The consonants are also going to be equally important in that regard, specifically the ones represented by two letters. These two-lettered consonants are considered one grouping, so they can never be split into the individual letters that make them up.</p>
+  <br />
+  <br />
+  <p>The final part is codas. These are just unique sounds for Sanskrit and come with their own weird pronunciation. These are ending sounds for words and will have a vowel before them. So, similar to the consonants, these codas are pronounced with a leading “a” sound. However, you can substitute any vowel before the coda for further practice.</p>
+  <br />
 </div>
 
-    <!--Table for Codas-->
-<div class="container" id="table-contain" style="width: 17%;">
-    <table class="w-100">
-        <tr>
-            <th class="text-center" colspan="2">Codas</th>
-            <th class="text-center">Sound</th>
-            
-        </tr>
-        
-        {% for coda in site.data.codas%}
-        <tr>
-            <td class="tahoma letter-table-text">{{coda.iast}}</td>
-            <td class="text-capitalize tahoma letter-table-text">{{coda.iast}}
-            
-            </td>
-            <td class="letter-table-text">
-                <button type="button" class="btn btn-primary btn-sm" id=letters>
-                        <i class="bi bi-volume-down" aria>
-                            <span class="visually-hidden">Play audio</span>
-                        </i>
-                    </button> 
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+<!--Table for Codas-->
+<div class="container" id="table-contain" style="width: 17%">
+  <table class="w-100">
+    <tr>
+      <th class="text-center" colspan="2">Codas</th>
+      <th class="text-center">Sound</th>
+    </tr>
+
+    {% for coda in site.data.codas%}
+    <tr>
+      <td class="tahoma letter-table-text">{{coda.iast}}</td>
+      <td class="text-capitalize tahoma letter-table-text">{{coda.iast}}</td>
+      <td class="letter-table-text">
+        <button type="button" class="btn btn-primary btn-sm" id="letters">
+          <i class="bi bi-volume-down">
+            <span class="visually-hidden">Play audio</span>
+          </i>
+        </button>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
 </div>
 
 <div class="container">
-    <br>
-    <hr>
-    <p>
-        And that brings us to the end of our lesson! Thank you so much for showing interest in learning Sanskrit! You should now try to practice these letters on the dedicated practice page. More information is available there, but it is recommended that you familiarize yourself with the letters, as they are quite literally the foundation of the upcoming lessons. With that said, I will see you next lesson!
-    </p>
-
+  <br />
+  <hr />
+  <p>And that brings us to the end of our lesson! Thank you so much for showing interest in learning Sanskrit! You should now try to practice these letters on the dedicated practice page. More information is available there, but it is recommended that you familiarize yourself with the letters, as they are quite literally the foundation of the upcoming lessons. With that said, I will see you next lesson!</p>
 </div>
 
 <div class="container d-flex justify-content-end">
