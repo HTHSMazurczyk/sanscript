@@ -448,5 +448,11 @@ div:has(> #back) {
 
 #guide-table {
   width: 100%;
-  height: 70vh;
+  height: 85vh;
+}
+
+.guide-btn {
+  font-size: 0.8em;
+  margin-left: 1ch;
+  float: right;
 }
