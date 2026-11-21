@@ -9,7 +9,7 @@ layout: default
     {% for item in site.data.lessons %}
     <div class="col">
       <a class="lesson text-reset" href="lesson{{ forloop.index }}.html">
-        <div class="circle">{{ forloop.index }}</div>
+        <div class="circle container">{{ forloop.index }}</div>
         <div class="d-inline-block">
           <h2 class="fw-bold">{{ item.name }}</h2>
         </div>
