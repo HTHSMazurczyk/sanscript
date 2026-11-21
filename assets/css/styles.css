@@ -373,6 +373,11 @@ div:has(> #back) {
   display: none;
 }
 
+.answer {
+  display: none;
+  text-align: center;
+}
+
 .syl-btn {
   font-size: 1.7em;
 }
