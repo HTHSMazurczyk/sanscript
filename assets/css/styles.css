@@ -318,7 +318,6 @@ div:has(> #back) {
   color: var(--accent-50);
   font-size: 2em;
   font-weight: bold;
-
 }
 
 .next-lesson {
@@ -327,13 +326,13 @@ div:has(> #back) {
   color: var(--accent-50);
   font-size: 2em;
   font-weight: bold;
-
 }
 
 .ex-text {
   text-align: center;
   font-weight: bold;
   font-size: 2.2em;
+  font-family: Tahoma, serif;
 }
 
 #table-contain {
@@ -347,8 +346,7 @@ div:has(> #back) {
   text-align: center;
   vertical-align: center;
   font-size: 1em;
-  font-weight: bold;
-  
+  /* font-weight: bold; */
 }
 
 .letter-table-text {
@@ -386,6 +384,7 @@ div:has(> #back) {
 
 .word-btn {
   font-size: 1.4em;
+  font-family: Tahoma, serif;
 }
 
 .spacer {
