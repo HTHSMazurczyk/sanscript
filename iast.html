@@ -1,6 +1,7 @@
 ---
 title: IAST Guide
 layout: default
+lessonScript: lesson.js
 ---
 
 <div class="container-xl pt-2">
@@ -12,7 +13,7 @@ layout: default
     <div class="p-1 rounded d-flex">
       <span class="tahoma"> {{item.iast}} </span>
       <span class="ps-4" style = "margin-right: auto;">{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</span>
-      <button class="btn btn-primary btn-sm"><i class="bi bi-volume-down" ></i></button>
+      <button class="btn btn-primary btn-sm"><i class="bi bi-volume-down" onclick="playAudio('')"></i></button>
     </div>
     {% endfor %}
   </div>
