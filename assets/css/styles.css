@@ -392,17 +392,29 @@ div:has(> #back) {
 }
 
 /* -------------------------- Landing Page ----------------- */
+#landing-container h1 {
+  color: var(--accent-50);
+  font-weight: bold;
+}
+
+#highlight .row-cols-2 > .col,
+#bottom .row-cols-2 > .col {
+  min-height: 10em;
+  display: flex;
+  align-items: center;
+}
+
+#landing-container h1,
+#landing-container p {
+  width: 100%;
+}
+
 #top {
   height: 90vh;
   background: var(--accent-70);
   padding: 0 10vw;
   width: 100%;
   margin: 0;
-}
-
-#landing-container h1 {
-  color: var(--accent-50);
-  font-weight: bold;
 }
 
 .call-to-action {
@@ -426,6 +438,11 @@ div:has(> #back) {
   max-width: 15rem;
   margin: 0 auto;
 }
+
+#features .card > i {
+  font-size: max(4em, 10vw);
+}
+
 #features .card-text {
   padding-top: 0.5rem;
 }
