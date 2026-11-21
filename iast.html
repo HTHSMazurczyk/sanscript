@@ -9,9 +9,10 @@ layout: default
     {% assign letters = site.data.vowels | concat: site.data.consonants | concat: site.data.codas %}
     <!--  -->
     {% for item in letters %}
-    <div class="p-1 rounded">
+    <div class="p-1 rounded d-flex">
       <span class="tahoma"> {{item.iast}} </span>
-      <span class="ps-4">{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</span>
+      <span class="ps-4" style = "margin-right: auto;">{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</span>
+      <button class="btn btn-primary btn-sm"><i class="bi bi-volume-down" ></i></button>
     </div>
     {% endfor %}
   </div>
