@@ -1,28 +1,343 @@
 id,lesson,front text,front audio path,back text,back audio path
-1,Letters,Transcribe,one.mp3,one,
-2,Letters,Pronounce: two,,,two.mp3
-3,Letters,3front,,back,
-4,Letters,4front,,back,
-5,Letters,5front,,back,
-6,Letters,6front,,back,
-7,Letters,7front,,back,
-8,Letters,8front,,back,
-9,Letters,9front,,back,
-10,Letters,10front,,back,
-11,Letters,11front,,back,
-12,Letters,12front,,back,
-13,Letters,13front,,back,
-14,Letters,14front,,back,
-15,Letters,15front,,back,
-16,Letters,16front,,back,
-17,Letters,17front,,back,
-18,Letters,18front,,back,
-19,Letters,19front,,back,
-20,Letters,20front,,back,
-21,Letters,21front,,back,
-22,Letters,22front,,back,
-23,Letters,23front,,back,
-24,Letters,24front,,back,
-25,Letters,25front,,back,
-26,Letters,26front,,back,
-27,Letters,27front,,back,
+1,Songs,karāgrē vasatē lakṣmīḥ karamadhyē sarasvatī,,,flashcard-1-Songs.mp3
+2,Songs,karamūlē sthitā gaurī prabhātē karadarśanam,,,flashcard-2-Songs.mp3
+3,Songs,samudra vasanē dēvī parvata stana maṇḍalē,,,flashcard-3-Songs.mp3
+4,Songs,viṣṇupatni namastubhyam pādasparśam kṣamasva mē,,,flashcard-4-Songs.mp3
+5,Songs,āyurbalaṃ yaśo varcaḥ prajāḥ paśuvasūni ca,,,flashcard-5-Songs.mp3
+6,Songs,brahamaprajñaṃ ca medhāṃ ca tvaṃ no dehi vanaspate,,,flashcard-6-Songs.mp3
+7,Songs,mukhadurgandhanāśāya dantānāṃ ca viśuddhaye,,,flashcard-7-Songs.mp3
+8,Songs,ṣṭhīvanāya ca gātrāṇāṃ kurve'haṃ dantadhāvanam,,,flashcard-8-Songs.mp3
+9,Songs,puṣkarādyāni tīrthāni gaṅgādyaḥ saritastathā,,,flashcard-9-Songs.mp3
+10,Songs,āgacchantu pavitrāṇi snānakāle sadā mama,,,flashcard-10-Songs.mp3
+11,Songs,gaṇge ca yamune caiva godāvari sarasvati,,,flashcard-11-Songs.mp3
+12,Songs,kāveri narmade sindho jale'smin sannidhiṃ kuru,,,flashcard-12-Songs.mp3
+13,Songs,apavitraḥ pavitro vā sarvāvasthāṃ gato'pi vā,,,flashcard-13-Songs.mp3
+14,Songs,yaḥ smaret puṇḍarīkākṣaṃ sa bāhyābhyantaraśśuciḥ,,,flashcard-14-Songs.mp3
+15,Songs,agajānanapadmārkaṃ gajānanamaharniśam,,,flashcard-15-Songs.mp3
+16,Songs,anekadaṃ taṃ bhaktānām ekadantamupāsmahe,,,flashcard-16-Songs.mp3
+17,Songs,śāradā śāradāmbhojavadanā vadanāmbuje,,,flashcard-17-Songs.mp3
+18,Songs,sarvadā sarvadāsmākaṃ sannidhiṃ sannidhiṃ kriyāt,,,flashcard-18-Songs.mp3
+19,Songs,gururbrahmā gururviṣṇuḥ gururdevo maheśvaraḥ,,,flashcard-19-Songs.mp3
+20,Songs,gurussākṣāt paraṃ brahma tasmai śrīgurave namaḥ,,,flashcard-20-Songs.mp3
+21,Songs,gurave sarvalokānām bhiṣaje bhavarogiṇām,,,flashcard-21-Songs.mp3
+22,Songs,nidhaye sarvavidyānāṃ dakṣiṇāmūrtaye namaḥ,,,flashcard-22-Songs.mp3
+23,Songs,dattātreyībrahmavidyāsamvedyānandavigraham,,,flashcard-23-Songs.mp3
+24,Songs,tripānnārāyaṇākāraṃ dattātreyamupāsmahe,,,flashcard-24-Songs.mp3
+25,Songs,skandāya kārttikeyāya pārvatīnadanāya ca,,,flashcard-25-Songs.mp3
+26,Songs,mahādevakumārāya subrahmaṇyāya te namaḥ,,,flashcard-26-Songs.mp3
+27,Songs,yaḥ śivo nāmarūpābhyaṃ yā devī sarvamaṅgalā,,,flashcard-27-Songs.mp3
+28,Songs,tayoḥ saṃsmaraṇāt puṃsāṃ sarvato jayamaṅgalam ,,,flashcard-28-Songs.mp3
+29,Songs,yā devī sarvabhūteṣu buddhirūpeṇe saṃsthitā,,,flashcard-29-Songs.mp3
+30,Songs,namastasyai namastasyai namastasyai namo namaḥ,,,flashcard-30-Songs.mp3
+31,Songs,ugraṃ vīraṃ mahāviṣṇuṃ jvalantaṃ sarvatomukham,,,flashcard-31-Songs.mp3
+32,Songs,nṛsiṃhaṃ bhīṣaṇaṃ bhadraṃ mṛtyumṛtyum namāyaham,,,flashcard-32-Songs.mp3
+33,Songs,rāmāya rāmabhadrāya rāmacandrāya vedhase,,,flashcard-33-Songs.mp3
+34,Songs,raghunāthāya nāthāya sitāyāḥ pataye namaḥ,,,flashcard-34-Songs.mp3
+35,Songs,kṛṣṇāya vāsudevāya devakīnandanāya ca,,,flashcard-35-Songs.mp3
+36,Songs,nandagopakumārāya govindāya namo namaḥ,,,flashcard-36-Songs.mp3
+37,Songs,kalyāṇādbhutagātrāya kāmitārthapradāyine,,,flashcard-37-Songs.mp3
+38,Songs,śrīmadveṅkaṭanāthāya śrīnivāsāya maṅgalam,,,flashcard-38-Songs.mp3
+39,Songs,namaste'stu mahāmāye śrīpīṭhe surapūjite,,,flashcard-39-Songs.mp3
+40,Songs,śaṇkhacakragadāhaste mahālakṣmi namo'stu te,,,flashcard-40-Songs.mp3
+41,Songs,bhūtanātha sadānanda sarvabhūtadayāpara,,,flashcard-41-Songs.mp3
+42,Songs,rakṣa rakṣa mahābāho śāstre tabhyaṃ namo namaḥ,,,flashcard-42-Songs.mp3
+43,Songs,buddhirbalaṃ yaśo dhairyaṃ nirbhayatvamarogatā,,,flashcard-43-Songs.mp3
+44,Songs,ajāḍyaṃ vākpaṭutvaṃ ca hanūmatsmaraṇādbhavet,,,flashcard-44-Songs.mp3
+45,Songs,yanmūle sarvatīrthāni yanmule sarvadevatāḥ,,,flashcard-45-Songs.mp3
+46,Songs,yadagre sarvavedāśca tulasi tvāṃ namāmyaham,,,flashcard-46-Songs.mp3
+47,Songs,udaye brahmarūpo'yaṃ madhyāhne tu maheśvaraḥ,,,flashcard-47-Songs.mp3
+48,Songs,astamāne svayaṃ viṣṇuḥ trayīmūrtirdivākaraḥ,,,flashcard-48-Songs.mp3
+49,Songs,namaḥ sūryāya candrāya maṅgalāya budhāya ca,,,flashcard-49-Songs.mp3
+50,Songs,guruśukraśanibhyaśca rāhave ketave namaḥ,,,flashcard-50-Songs.mp3
+51,Words,āgacchantu,,,flashcard-51-Words.mp3
+52,Words,agajānanapadmārkaṃ,,,flashcard-52-Words.mp3
+53,Words,ajāḍyaṃ,,,flashcard-53-Words.mp3
+54,Words,anekadaṃ,,,flashcard-54-Words.mp3
+55,Words,apavitraḥ,,,flashcard-55-Words.mp3
+56,Words,astamāne,,,flashcard-56-Words.mp3
+57,Words,āyurbalaṃ,,,flashcard-57-Words.mp3
+58,Words,bāhyābhyantaraśśuciḥ,,,flashcard-58-Words.mp3
+59,Words,bhadraṃ,,,flashcard-59-Words.mp3
+60,Words,bhaktānām,,,flashcard-60-Words.mp3
+61,Words,bhavarogiṇām,,,flashcard-61-Words.mp3
+62,Words,bhiṣaje,,,flashcard-62-Words.mp3
+63,Words,bhīṣaṇaṃ,,,flashcard-63-Words.mp3
+64,Words,bhūtanātha,,,flashcard-64-Words.mp3
+65,Words,brahamaprajñaṃ,,,flashcard-65-Words.mp3
+66,Words,brahma,,,flashcard-66-Words.mp3
+67,Words,brahmarūpo'yaṃ,,,flashcard-67-Words.mp3
+68,Words,buddhirbalaṃ,,,flashcard-68-Words.mp3
+69,Words,buddhirūpeṇe,,,flashcard-69-Words.mp3
+70,Words,budhāya,,,flashcard-70-Words.mp3
+71,Words,ca,,,flashcard-71-Words.mp3
+72,Words,caiva,,,flashcard-72-Words.mp3
+73,Words,candrāya,,,flashcard-73-Words.mp3
+74,Words,dakṣiṇāmūrtaye,,,flashcard-74-Words.mp3
+75,Words,dantadhāvanam,,,flashcard-75-Words.mp3
+76,Words,dantānāṃ,,,flashcard-76-Words.mp3
+77,Words,dattātreyamupāsmahe,,,flashcard-77-Words.mp3
+78,Words,dattātreyībrahmavidyāsamvedyānandavigraham,,,flashcard-78-Words.mp3
+79,Words,dehi,,,flashcard-79-Words.mp3
+80,Words,devakīnandanāya,,,flashcard-80-Words.mp3
+81,Words,devī,,,flashcard-81-Words.mp3
+82,Words,dēvī,,,flashcard-82-Words.mp3
+83,Words,dhairyaṃ,,,flashcard-83-Words.mp3
+84,Words,ekadantamupāsmahe,,,flashcard-84-Words.mp3
+85,Words,gajānanamaharniśam,,,flashcard-85-Words.mp3
+86,Words,gaṅgādyaḥ,,,flashcard-86-Words.mp3
+87,Words,gaṇge,,,flashcard-87-Words.mp3
+88,Words,gato'pi,,,flashcard-88-Words.mp3
+89,Words,gātrāṇāṃ,,,flashcard-89-Words.mp3
+90,Words,gaurī,,,flashcard-90-Words.mp3
+91,Words,godāvari,,,flashcard-91-Words.mp3
+92,Words,govindāya,,,flashcard-92-Words.mp3
+93,Words,gurave,,,flashcard-93-Words.mp3
+94,Words,gururbrahmā,,,flashcard-94-Words.mp3
+95,Words,gururdevo,,,flashcard-95-Words.mp3
+96,Words,gururviṣṇuḥ,,,flashcard-96-Words.mp3
+97,Words,gurussākṣāt,,,flashcard-97-Words.mp3
+98,Words,guruśukraśanibhyaśca,,,flashcard-98-Words.mp3
+99,Words,hanūmatsmaraṇādbhavet,,,flashcard-99-Words.mp3
+100,Words,jale'smin,,,flashcard-100-Words.mp3
+101,Words,jayamaṅgalam,,,flashcard-101-Words.mp3
+102,Words,jvalantaṃ,,,flashcard-102-Words.mp3
+103,Words,kalyāṇādbhutagātrāya,,,flashcard-103-Words.mp3
+104,Words,kāmitārthapradāyine,,,flashcard-104-Words.mp3
+105,Words,karadarśanam,,,flashcard-105-Words.mp3
+106,Words,karāgrē,,,flashcard-106-Words.mp3
+107,Words,karamadhyē,,,flashcard-107-Words.mp3
+108,Words,karamūlē,,,flashcard-108-Words.mp3
+109,Words,kārttikeyāya,,,flashcard-109-Words.mp3
+110,Words,kāveri,,,flashcard-110-Words.mp3
+111,Words,ketave,,,flashcard-111-Words.mp3
+112,Words,kriyāt,,,flashcard-112-Words.mp3
+113,Words,kṛṣṇāya,,,flashcard-113-Words.mp3
+114,Words,kṣamasva,,,flashcard-114-Words.mp3
+115,Words,kuru,,,flashcard-115-Words.mp3
+116,Words,kurve'haṃ,,,flashcard-116-Words.mp3
+117,Words,lakṣmīḥ,,,flashcard-117-Words.mp3
+118,Words,madhyāhne,,,flashcard-118-Words.mp3
+119,Words,mahābāho,,,flashcard-119-Words.mp3
+120,Words,mahādevakumārāya,,,flashcard-120-Words.mp3
+121,Words,mahālakṣmi,,,flashcard-121-Words.mp3
+122,Words,mahāmāye,,,flashcard-122-Words.mp3
+123,Words,mahāviṣṇuṃ,,,flashcard-123-Words.mp3
+124,Words,maheśvaraḥ,,,flashcard-124-Words.mp3
+125,Words,mama,,,flashcard-125-Words.mp3
+126,Words,maṇḍalē,,,flashcard-126-Words.mp3
+127,Words,maṅgalam,,,flashcard-127-Words.mp3
+128,Words,maṅgalāya,,,flashcard-128-Words.mp3
+129,Words,me,,,flashcard-129-Words.mp3
+130,Words,medhāṃ,,,flashcard-130-Words.mp3
+131,Words,mṛtyumṛtyum,,,flashcard-131-Words.mp3
+132,Words,mukhadurgandhanāśāya,,,flashcard-132-Words.mp3
+133,Words,namaḥ,,,flashcard-133-Words.mp3
+134,Words,namāmyaham,,,flashcard-134-Words.mp3
+135,Words,nāmarūpābhyaṃ,,,flashcard-135-Words.mp3
+136,Words,namastasyai,,,flashcard-136-Words.mp3
+137,Words,namaste'stu,,,flashcard-137-Words.mp3
+138,Words,namastubhyam,,,flashcard-138-Words.mp3
+139,Words,namāyaham,,,flashcard-139-Words.mp3
+140,Words,namo,,,flashcard-140-Words.mp3
+141,Words,namo'stu,,,flashcard-141-Words.mp3
+142,Words,nandagopakumārāya,,,flashcard-142-Words.mp3
+143,Words,narmade,,,flashcard-143-Words.mp3
+144,Words,nāthāya,,,flashcard-144-Words.mp3
+145,Words,nidhaye,,,flashcard-145-Words.mp3
+146,Words,nirbhayatvamarogatā,,,flashcard-146-Words.mp3
+147,Words,no,,,flashcard-147-Words.mp3
+148,Words,nṛsiṃhaṃ,,,flashcard-148-Words.mp3
+149,Words,pādasparśam mē,,,flashcard-149-Words.mp3
+150,Words,paraṃ,,,flashcard-150-Words.mp3
+151,Words,parvata,,,flashcard-151-Words.mp3
+152,Words,pārvatīnadanāya,,,flashcard-152-Words.mp3
+153,Words,paśuvasūni,,,flashcard-153-Words.mp3
+154,Words,pataye,,,flashcard-154-Words.mp3
+155,Words,pavitrāṇi,,,flashcard-155-Words.mp3
+156,Words,pavitro,,,flashcard-156-Words.mp3
+157,Words,prabhātē,,,flashcard-157-Words.mp3
+158,Words,prajāḥ,,,flashcard-158-Words.mp3
+159,Words,puṃsāṃ,,,flashcard-159-Words.mp3
+160,Words,puṇḍarīkākṣaṃ,,,flashcard-160-Words.mp3
+161,Words,puṣkarādyāni,,,flashcard-161-Words.mp3
+162,Words,raghunāthāya,,,flashcard-162-Words.mp3
+163,Words,rāhave,,,flashcard-163-Words.mp3
+164,Words,rakṣa,,,flashcard-164-Words.mp3
+165,Words,rāmabhadrāya,,,flashcard-165-Words.mp3
+166,Words,rāmacandrāya,,,flashcard-166-Words.mp3
+167,Words,rāmāya,,,flashcard-167-Words.mp3
+168,Words,sa,,,flashcard-168-Words.mp3
+169,Words,sadā,,,flashcard-169-Words.mp3
+170,Words,sadānanda,,,flashcard-170-Words.mp3
+171,Words,saṃsmaraṇāt,,,flashcard-171-Words.mp3
+172,Words,saṃsthitā,,,flashcard-172-Words.mp3
+173,Words,samudra,,,flashcard-173-Words.mp3
+174,Words,śaṇkhacakragadāhaste,,,flashcard-174-Words.mp3
+175,Words,sannidhiṃ,,,flashcard-175-Words.mp3
+176,Words,śāradā,,,flashcard-176-Words.mp3
+177,Words,śāradāmbhojavadanā,,,flashcard-177-Words.mp3
+178,Words,sarasvati,,,flashcard-178-Words.mp3
+179,Words,sarasvatī,,,flashcard-179-Words.mp3
+180,Words,saritastathā,,,flashcard-180-Words.mp3
+181,Words,sarvabhūtadayāpara,,,flashcard-181-Words.mp3
+182,Words,sarvabhūteṣu,,,flashcard-182-Words.mp3
+183,Words,sarvadā,,,flashcard-183-Words.mp3
+184,Words,sarvadāsmākaṃ,,,flashcard-184-Words.mp3
+185,Words,sarvadevatāḥ,,,flashcard-185-Words.mp3
+186,Words,sarvalokānām,,,flashcard-186-Words.mp3
+187,Words,sarvamaṅgalā,,,flashcard-187-Words.mp3
+188,Words,sarvatīrthāni,,,flashcard-188-Words.mp3
+189,Words,sarvato,,,flashcard-189-Words.mp3
+190,Words,sarvatomukham,,,flashcard-190-Words.mp3
+191,Words,sarvāvasthāṃ,,,flashcard-191-Words.mp3
+192,Words,sarvavedāśca,,,flashcard-192-Words.mp3
+193,Words,sarvavidyānāṃ,,,flashcard-193-Words.mp3
+194,Words,śāstre,,,flashcard-194-Words.mp3
+195,Words,sindho,,,flashcard-195-Words.mp3
+196,Words,sitāyāḥ,,,flashcard-196-Words.mp3
+197,Words,śivo,,,flashcard-197-Words.mp3
+198,Words,skandāya,,,flashcard-198-Words.mp3
+199,Words,smaret,,,flashcard-199-Words.mp3
+200,Words,snānakāle,,,flashcard-200-Words.mp3
+201,Words,śrīgurave,,,flashcard-201-Words.mp3
+202,Words,śrīmadveṅkaṭanāthāya,,,flashcard-202-Words.mp3
+203,Words,śrīnivāsāya,,,flashcard-203-Words.mp3
+204,Words,śrīpīṭhe,,,flashcard-204-Words.mp3
+205,Words,stana,,,flashcard-205-Words.mp3
+206,Words,sthitā,,,flashcard-206-Words.mp3
+207,Words,ṣṭhīvanāya,,,flashcard-207-Words.mp3
+208,Words,subrahmaṇyāya,,,flashcard-208-Words.mp3
+209,Words,surapūjite,,,flashcard-209-Words.mp3
+210,Words,sūryāya,,,flashcard-210-Words.mp3
+211,Words,svayaṃ,,,flashcard-211-Words.mp3
+212,Words,tabhyaṃ,,,flashcard-212-Words.mp3
+213,Words,taṃ,,,flashcard-213-Words.mp3
+214,Words,tasmai,,,flashcard-214-Words.mp3
+215,Words,tayoḥ,,,flashcard-215-Words.mp3
+216,Words,te,,,flashcard-216-Words.mp3
+217,Words,tīrthāni,,,flashcard-217-Words.mp3
+218,Words,trayīmūrtirdivākaraḥ,,,flashcard-218-Words.mp3
+219,Words,tripānnārāyaṇākāraṃ,,,flashcard-219-Words.mp3
+220,Words,tu,,,flashcard-220-Words.mp3
+221,Words,tulasi,,,flashcard-221-Words.mp3
+222,Words,tvaṃ,,,flashcard-222-Words.mp3
+223,Words,tvāṃ,,,flashcard-223-Words.mp3
+224,Words,udaye,,,flashcard-224-Words.mp3
+225,Words,ugraṃ,,,flashcard-225-Words.mp3
+226,Words,vā,,,flashcard-226-Words.mp3
+227,Words,vadanāmbuje,,,flashcard-227-Words.mp3
+228,Words,vākpaṭutvaṃ,,,flashcard-228-Words.mp3
+229,Words,vanaspate,,,flashcard-229-Words.mp3
+230,Words,varcaḥ,,,flashcard-230-Words.mp3
+231,Words,vasanē,,,flashcard-231-Words.mp3
+232,Words,vasatē,,,flashcard-232-Words.mp3
+233,Words,vāsudevāya,,,flashcard-233-Words.mp3
+234,Words,vedhase,,,flashcard-234-Words.mp3
+235,Words,vīraṃ,,,flashcard-235-Words.mp3
+236,Words,viṣṇuḥ,,,flashcard-236-Words.mp3
+237,Words,viṣṇupatni,,,flashcard-237-Words.mp3
+238,Words,viśuddhaye,,,flashcard-238-Words.mp3
+239,Words,yā,,,flashcard-239-Words.mp3
+240,Words,yadagre,,,flashcard-240-Words.mp3
+241,Words,yaḥ,,,flashcard-241-Words.mp3
+242,Words,yamune,,,flashcard-242-Words.mp3
+243,Words,yanmule,,,flashcard-243-Words.mp3
+244,Words,yanmūle,,,flashcard-244-Words.mp3
+245,Words,yaśo,,,flashcard-245-Words.mp3
+246,Syllable,bho,,,flashcard-246-Syllable.mp3
+247,Syllable,ḍhī,,,flashcard-247-Syllable.mp3
+248,Syllable,cūkh,,,flashcard-248-Syllable.mp3
+249,Syllable,cḷ,,,flashcard-249-Syllable.mp3
+250,Syllable,go,,,flashcard-250-Syllable.mp3
+251,Syllable,bhḹ,,,flashcard-251-Syllable.mp3
+252,Syllable,nḹ,,,flashcard-252-Syllable.mp3
+253,Syllable,pī,,,flashcard-253-Syllable.mp3
+254,Syllable,pḹ,,,flashcard-254-Syllable.mp3
+255,Syllable,ṣauv,,,flashcard-255-Syllable.mp3
+256,Syllable,dūjh,,,flashcard-256-Syllable.mp3
+257,Syllable,bī,,,flashcard-257-Syllable.mp3
+258,Syllable,ḍḹ,,,flashcard-258-Syllable.mp3
+259,Syllable,bā,,,flashcard-259-Syllable.mp3
+260,Syllable,chau,,,flashcard-260-Syllable.mp3
+261,Syllable,liv,,,flashcard-261-Syllable.mp3
+262,Syllable,jṛ,,,flashcard-262-Syllable.mp3
+263,Syllable,vṛ,,,flashcard-263-Syllable.mp3
+264,Syllable,ma,,,flashcard-264-Syllable.mp3
+265,Syllable,bhu,,,flashcard-265-Syllable.mp3
+266,Syllable,mu,,,flashcard-266-Syllable.mp3
+267,Syllable,śai,,,flashcard-267-Syllable.mp3
+268,Syllable,ga,,,flashcard-268-Syllable.mp3
+269,Syllable,dhe,,,flashcard-269-Syllable.mp3
+270,Syllable,lec,,,flashcard-270-Syllable.mp3
+271,Syllable,śe,,,flashcard-271-Syllable.mp3
+272,Syllable,chi,,,flashcard-272-Syllable.mp3
+273,Syllable,jī,,,flashcard-273-Syllable.mp3
+274,Syllable,lo,,,flashcard-274-Syllable.mp3
+275,Syllable,tho,,,flashcard-275-Syllable.mp3
+276,Syllable,bau,,,flashcard-276-Syllable.mp3
+277,Syllable,sṝḍ,,,flashcard-277-Syllable.mp3
+278,Syllable,ṅaukh,,,flashcard-278-Syllable.mp3
+279,Syllable,gu,,,flashcard-279-Syllable.mp3
+280,Syllable,sṝ,,,flashcard-280-Syllable.mp3
+281,Syllable,ghṝ,,,flashcard-281-Syllable.mp3
+282,Syllable,du,,,flashcard-282-Syllable.mp3
+283,Syllable,jhai,,,flashcard-283-Syllable.mp3
+284,Syllable,di,,,flashcard-284-Syllable.mp3
+285,Syllable,ham,,,flashcard-285-Syllable.mp3
+286,Syllable,sḹ,,,flashcard-286-Syllable.mp3
+287,Syllable,rat,,,flashcard-287-Syllable.mp3
+288,Syllable,nai,,,flashcard-288-Syllable.mp3
+289,Syllable,lī,,,flashcard-289-Syllable.mp3
+290,Syllable,jāl,,,flashcard-290-Syllable.mp3
+291,Letters,a,,,lesson-1-a.mp3
+292,Letters,ā,,,lesson-1-a-bar.mp3
+293,Letters,i,,,lesson-1-i.mp3
+294,Letters,ī,,,lesson-1-i-bar.mp3
+295,Letters,u,,,lesson-1-u.mp3
+296,Letters,ū,,,lesson-1-u-bar.mp3
+297,Letters,ṛ,,,lesson-1-r-dot.mp3
+298,Letters,ṝ,,,lesson-1-r-bar-dot.mp3
+299,Letters,ḷ,,,lesson-1-l-dot.mp3
+300,Letters,ḹ,,,lesson-1-l-bar-dot.mp3
+301,Letters,e,,,lesson-1-e.mp3
+302,Letters,a,,,lesson-1-ai.mp3
+303,Letters,o,,,lesson-1-o.mp3
+304,Letters,a,,,lesson-1-au.mp3
+305,Letters,k,,,k.mp3
+306,Letters,c,,,c.mp3
+307,Letters,ṭ,,,tDot.mp3
+308,Letters,t,,,t.mp3
+309,Letters,p,,,p.mp3
+310,Letters,p,,,ph.mp3
+311,Letters,h,,,h.mp3
+312,Letters,k,,,kh.mp3
+313,Letters,c,,,ch.mp3
+314,Letters,ṭ,,,thDot.mp3
+315,Letters,t,,,th.mp3
+316,Letters,b,,,b.mp3
+317,Letters,g,,,g.mp3
+318,Letters,j,,,j.mp3
+319,Letters,ḍ,,,dDot.mp3
+320,Letters,d,,,d.mp3
+321,Letters,b,,,bh.mp3
+322,Letters,g,,,gh.mp3
+323,Letters,j,,,jh.mp3
+324,Letters,ḍ,,,dhDot.mp3
+325,Letters,d,,,dh.mp3
+326,Letters,m,,,m.mp3
+327,Letters,ṅ,,,n-high-dot.mp3
+328,Letters,ñ,,,nLine.mp3
+329,Letters,ṇ,,,nDot.mp3
+330,Letters,n,,,n.mp3
+331,Letters,v,,,v.mp3
+332,Letters,y,,,y.mp3
+333,Letters,r,,,r.mp3
+334,Letters,l,,,l.mp3
+335,Letters,ś,,,s-accent.mp3
+336,Letters,ṣ,,,s-dot.mp3
+337,Letters,s,,,s.mp3
+338,Letters,ḻ,,,l-bar.mp3
+339,Letters,ṃ,,,m-dot.mp3
+340,Letters,ḥ,,,h-dot.mp3
+341,Letters,m̐,,,m-circle.mp3
+342,Letters,’,,,apostrophe.mp3
