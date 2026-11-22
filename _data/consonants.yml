@@ -12,7 +12,7 @@
   noUnder:
   under: T
   noUnder1: ouch
-  id: tDot
+  id: t-dot
 - iast: t
   noUnder:
   under: T
@@ -47,7 +47,7 @@
   noUnder: An
   under: t-h
   noUnder1: ill
-  id: thDot
+  id: th-dot
 - iast: th
   noUnder: Pa
   under: th
@@ -72,7 +72,7 @@
   noUnder:
   under: D
   noUnder1: uck
-  id: dDot
+  id: d-dot
 - iast: d
   noUnder: Fa
   under: th
@@ -97,7 +97,7 @@
   noUnder: Go
   under: dh
   noUnder1: ood
-  id: dhDot
+  id: dh-dot
 - iast: dh
   noUnder: Brea
   under: the h
@@ -112,17 +112,17 @@
   noUnder: S
   under: in
   noUnder1: g
-  id: n-high-dot
+  id: n-dot-top
 - iast: ñ
   noUnder: Bu
   under: n
   noUnder1: ch
-  id: nLine
+  id: n-tilde
 - iast: ṇ
   noUnder: Thu
   under: n
   noUnder1: der
-  id: nDot
+  id: n-dot-bottom
 - iast: n
   noUnder:
   under: N

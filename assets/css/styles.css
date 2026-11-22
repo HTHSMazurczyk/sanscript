@@ -169,7 +169,7 @@ i.bi {
 
 /* -----------------------------------------------------------Footer CSS------------------------------------------------------------------ */
 main {
-  min-height: 80vh;
+  min-height: 85vh;
 }
 .footer {
   background-color: var(--accent-50);
@@ -303,6 +303,10 @@ div:has(> #back) {
 
 .answer-label kbd {
   margin-right: 1ch;
+}
+
+.ans_text {
+  overflow-wrap: anywhere;
 }
 
 /* --------------------------------------------------- Lesson CSS ---------------------------- */
