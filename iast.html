@@ -1,19 +1,23 @@
 ---
 title: IAST Guide
 layout: default
-lessonScript: lesson.js
+lessonScript: iast.js
 ---
 
 <div class="container-xl pt-2">
   <h1 class="text-center">Letters</h1>
-  <div id="guide-table" class="d-flex flex-wrap flex-column gap-2">
+  <div id="guide-table" class="d-flex flex-wrap flex-column gap-2 column-gap-3">
     {% assign letters = site.data.vowels | concat: site.data.consonants | concat: site.data.codas %}
     <!--  -->
     {% for item in letters %}
-    <div class="p-1 rounded d-flex">
+    <div class="p-1 rounded">
       <span class="tahoma"> {{item.iast}} </span>
-      <span class="ps-4" style = "margin-right: auto;">{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</span>
-      <button class="btn btn-primary btn-sm"><i class="bi bi-volume-down" onclick="playAudio('')"></i></button>
+      <span class="ps-4">{{ item.noUnder }}<ins>{{item.under}}</ins>{{item.noUnder1}}</span>
+      <button class="btn btn-sm btn-outline-primary guide-btn" onclick="playAudio('{{item.id}}')">
+        <i class="ans_audio bi bi-volume-down ms-auto">
+          <span class="visually-hidden">Play audio</span>
+        </i>
+      </button>
     </div>
     {% endfor %}
   </div>
