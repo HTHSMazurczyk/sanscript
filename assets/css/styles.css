@@ -65,7 +65,7 @@ img {
 .logo {
   font-family: 'Times New Roman', Times, serif;
   font-size: 3.375em;
-  color: var(--accent-20);
+  color: var(--bg-color);
   font-style: italic;
 }
 
