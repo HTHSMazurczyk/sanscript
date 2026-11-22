@@ -18,8 +18,9 @@ function getPracticePreferences() {
     prefs[name] = document.getElementById(name + '_check').checked
   }
 
-  if (prefs.is_matching && !prefs['Words']) {
-    alert('There are only Words quiz questions at this time')
+  // if matching and Songs is only one checked
+  if (prefs.is_matching && prefs['Songs'] && !(prefs['Letters'] || prefs['Syllables'] || prefs['Words'])) {
+    alert('There are no Song quiz questions')
     return null
   }
   // console.log(prefs)
