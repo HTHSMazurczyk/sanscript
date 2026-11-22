@@ -1,5 +1,5 @@
 function playAudio(audio_name) {
-  const path = `assets/audio/one.mp3`
+  const path = `assets/audio/${audio_name}.mp3`
   new Audio(path).play()
 }
 
@@ -14,6 +14,6 @@ function showVarsa() {
   document.getElementById('varsaAnswer').style.display = 'block'
 }
 
-function showGurusukra(){
+function showGurusukra() {
   document.getElementById('gurusukAnswer').style.display = 'block'
 }

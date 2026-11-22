@@ -1,7 +1,7 @@
 ---
 title: Lesson 1
 layout: default
-script: lesson.js
+lessonScript: lesson.js
 ---
 
 <div class="container">
@@ -51,7 +51,7 @@ script: lesson.js
         {{letter.iast}}
         <span class="text-capitalize tahoma">{{letter.iast}}</span>
         <p></p>
-        <button type="button" class="btn btn-primary btn-sm" id="{{letters.id}}_btn" onclick="playAudio( '{{letters.id}}' )">
+        <button type="button" class="btn btn-primary btn-sm" id="{{letter.id}}_btn" onclick="playAudio( '{{letter.id}}' )">
           <i class="bi bi-volume-down">
             <span class="visually-hidden">Play audio</span>
           </i>
