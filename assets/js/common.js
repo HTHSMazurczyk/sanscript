@@ -1,4 +1,13 @@
+/**
+ * Wraps over `localStorage` to store the number of times the user has answered
+ * each question, the number corrrect, and the timestamp the user should see the
+ * question next
+ */
 export class AccuracyDB {
+  /**
+   * Create an `AccuracyDB` object, pull initial data from localStorage
+   * @param {string} style either `flashcards` or `matching`
+   */
   constructor(style) {
     console.assert(['flashcards', 'matching'].includes(style))
     this.style = style
@@ -7,6 +16,12 @@ export class AccuracyDB {
       this.data = {}
     }
   }
+
+  /**
+   * Pull the data for a specific id
+   * @param {string} id of the question
+   * @returns array[correct, total, next_seen_date]
+   */
   getItem(id) {
     if (id in this.data) {
       let item = this.data[id].slice(0, -1)
@@ -16,10 +31,23 @@ export class AccuracyDB {
       alert('ummmmmmmm card not found :(')
     }
   }
+
+  /**
+   * Write to localStorage with the question details
+   * @param {string} id of the question
+   * @param {number} correct times answered
+   * @param {number} total times answered
+   * @param {Date} prompt_next_ts when user should see question next
+   */
   setItem(id, correct, total, prompt_next_ts) {
     this.data[id] = [correct, total, prompt_next_ts]
     localStorage.setItem(`${this.style}_accuracies`, JSON.stringify(this.data))
   }
+
+  /**
+   * @param {string} id of the question
+   * @param {boolean} was_correct did the user answer correctly?
+   */
   updateItem(id, was_correct) {
     let [correct, total, prompt_next_ts] = this.getItem(id)
     if (was_correct) {
@@ -30,6 +58,10 @@ export class AccuracyDB {
     }
     this.setItem(id, correct, total + 1, prompt_next_ts)
   }
+
+  /**
+   * make sure localStorage contains an entry for every question in the CSV
+   */
   async checkDB() {
     let rows = await getCSVrows(this.style)
     let ids = rows.map((row) => row.id)
@@ -47,15 +79,28 @@ export class AccuracyDB {
   }
 }
 
+/**
+ * Using data from `AccuracyDB`, get the id of the next question according to
+ * the timestamps
+ */
 export class CardPicker {
+  /**
+   * Create a `CardPicker` object
+   * @param {AccuracyDB} acc_db
+   * @param {Object} card_db An object with ids as the keys representing the questions availble to the user
+   */
   constructor(acc_db, card_db) {
     this.acc_db = acc_db
     this.style = acc_db.style
     let ids = Object.keys(acc_db.data)
-    this.ids = ids.filter((id) => Object.keys(card_db).includes(id))
+    this.ids = ids.filter((id) => Object.keys(card_db).includes(id)) // filter to only lessons selected by user
     this.new_questions_seen = 0
   }
 
+  /**
+   * Find the id of the oldest question that is not new
+   * @returns id
+   */
   getOldestQuestionId() {
     const ts_zero = new Date(0).getTime()
     const now = new Date()
@@ -73,6 +118,10 @@ export class CardPicker {
     return undefined
   }
 
+  /**
+   * Find a random id of a question that is new
+   * @returns id
+   */
   getRandomNewQuestionID() {
     const ts_zero = new Date(0).getTime()
     //                                                         timestamp
@@ -80,6 +129,11 @@ export class CardPicker {
     return questions[Math.floor(Math.random() * questions.length)]
   }
 
+  /**
+   * Find the oldest question that has been seen, or if none exist, find a random new question
+   * (if user hasn't seen 20 new questions yet this session)
+   * @returns id
+   */
   getQuestionId() {
     let old = this.getOldestQuestionId()
     if (old === undefined) {
@@ -93,6 +147,12 @@ export class CardPicker {
   }
 }
 
+/**
+ * "Zip" the two iterables: return an array of arrays containing an item from the left iterable and the right iterable
+ * @param {Iterable} left
+ * @param {Iterable} right
+ * @returns array[array[item, item]]
+ */
 export function zip(left, right) {
   let out = []
   for (let i = 0; i < Math.min(left.length, right.length); i++) {
