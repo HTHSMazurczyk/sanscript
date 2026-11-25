@@ -87,7 +87,7 @@ export class CardPicker {
   /**
    * Create a `CardPicker` object
    * @param {AccuracyDB} acc_db
-   * @param {Object} card_db An object with ids as the keys representing the questions availble to the user
+   * @param {Object} card_db An object with ids as the keys representing the questions available to the user
    */
   constructor(acc_db, card_db) {
     this.acc_db = acc_db
@@ -148,7 +148,8 @@ export class CardPicker {
 }
 
 /**
- * "Zip" the two iterables: return an array of arrays containing an item from the left iterable and the right iterable
+ * "Zip" the two iterables: return an array of arrays containing an item from the
+ * left iterable and the right iterable
  * @param {Iterable} left
  * @param {Iterable} right
  * @returns array[array[item, item]]
@@ -161,7 +162,15 @@ export function zip(left, right) {
   return out
 }
 
+/**
+ * Fetch CSV data from server. Return an array of rows where the keys are the CSV headers
+ * and the values are the row values
+ * @param {string} style either `flashcards` or `matching`
+ * @returns array[{...}]
+ */
+
 export async function getCSVrows(style) {
+  // get CSV from network
   let data
   try {
     const response = await fetch(`assets/questiondata/${style}.csv`)
@@ -175,21 +184,27 @@ export async function getCSVrows(style) {
     return null
   }
 
+  // split into rows, get header
   let rows = data.split('\n')
   let header = rows
     .shift() // pop first row out
     .split(',')
     .map((x) => x.trim())
 
+  // convert rows to objects
   let questions = []
   for (let row of rows) {
     row = row.split(',').map((x) => x.trim())
     questions.push(Object.fromEntries(zip(header, row)))
   }
-  console.log(questions)
   return questions
 }
 
+/**
+ * Filter questions to just the lessons present in the URL
+ * @param {Array[{...}]} questions array of objects with a value for the `lesson` key
+ * @returns questions array, filtered
+ */
 export function filterQuestionsByLesson(questions) {
   let validLessons = []
   const url_params = new URLSearchParams(window.location.search)
@@ -200,10 +215,11 @@ export function filterQuestionsByLesson(questions) {
   return questions.filter((question) => validLessons.includes(question.lesson))
 }
 
-export function pickNextQuestion(questions) {
-  return questions[Math.floor(Math.random() * questions.length)]
-}
-
+/**
+ * Create a callback to play audio
+ * @param {string} audio_name name of the audio file (ie. one.mp3)
+ * @returns an arrow function which will play the audio
+ */
 export function playAudioCallback(audio_name) {
   const path = `assets/audio/${audio_name}`
   return () => {
