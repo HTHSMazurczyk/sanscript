@@ -30,6 +30,8 @@ img {
   --bs-btn-hover-bg: var(--accent-50);
   --bs-btn-hover-border-color: var(--accent-50-shadow);
   --bs-btn-active-bg: #5f2020;
+  --bs-btn-disabled-bg: var(--accent-50);
+  --bs-btn-disabled-border-color: var(--accent-50);
 }
 
 .btn-outline-primary {
@@ -38,6 +40,8 @@ img {
   --bs-btn-hover-color: var(--bg-color);
   --bs-btn-hover-bg: var(--accent-50);
   --bs-btn-hover-border-color: var(--accent-70);
+  --bs-btn-disabled-color: var(--accent-50);
+  --bs-btn-disabled-border-color: var(--accent-50);
 }
 
 .btn-secondary {

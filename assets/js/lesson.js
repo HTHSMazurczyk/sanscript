@@ -17,3 +17,9 @@ function showVarsa() {
 function showGurusukra() {
   document.getElementById('gurusukAnswer').style.display = 'block'
 }
+
+window.onload = () => {
+  let apostrophe = document.querySelector("button[onclick*='apostrophe']")
+  apostrophe.classList.add('disabled')
+  apostrophe.parentElement.title = 'Breath mark makes no sound'
+}

@@ -51,7 +51,7 @@ lessonScript: lesson.js
         {{letter.iast}}
         <span class="text-capitalize tahoma">{{letter.iast}}</span>
         <p></p>
-        <button type="button" class="btn btn-primary btn-sm" id="{{letter.id}}_btn" onclick="playAudio( '{{letter.id}}' )">
+        <button type="button" class="btn btn-primary btn-sm" id="{{letter.id}}_btn" onclick="playAudio('{{letter.id}}')">
           <i class="bi bi-volume-down">
             <span class="visually-hidden">Play audio</span>
           </i>
@@ -80,12 +80,12 @@ lessonScript: lesson.js
         <th class="letter-table-text" style="font-size: 1.1em">Sound</th>
       </tr>
 
-      {{assign halfLen = site}} {% for letters in site.data.vowels limit:7 %}
+      {{assign halfLen = site}} {% for letter in site.data.vowels limit:7 %}
       <tr>
-        <td class="letter-table-text tahoma">{{letters.iast}}</td>
-        <td class="cap-letter-table-text tahoma">{{letters.iast}}</td>
+        <td class="letter-table-text tahoma">{{letter.iast}}</td>
+        <td class="cap-letter-table-text tahoma">{{letter.iast}}</td>
         <td class="letter-table-text">
-          <button type="button" class="btn btn-primary btn-sm" id="letters">
+          <button type="button" class="btn btn-primary btn-sm" id="letters" onclick="playAudio('{{letter.id}}')">
             <i class="bi bi-volume-down">
               <span class="visually-hidden">Play audio</span>
             </i>
@@ -105,12 +105,12 @@ lessonScript: lesson.js
         <th class="letter-table-text" style="font-size: 1.1em">Sound</th>
       </tr>
 
-      {{assign halfLen = site}} {% for letters in site.data.vowels offset: continue %}
+      {{assign halfLen = site}} {% for letter in site.data.vowels offset: continue %}
       <tr>
-        <td class="letter-table-text tahoma">{{letters.iast}}</td>
-        <td class="cap-letter-table-text tahoma">{{letters.iast}}</td>
+        <td class="letter-table-text tahoma">{{letter.iast}}</td>
+        <td class="cap-letter-table-text tahoma">{{letter.iast}}</td>
         <td class="letter-table-text">
-          <button type="button" class="btn btn-primary btn-sm" id="letters">
+          <button type="button" class="btn btn-primary btn-sm" id="letters" onclick="playAudio('{{letter.id}}')">
             <i class="bi bi-volume-down">
               <span class="visually-hidden">Play audio</span>
             </i>
@@ -144,7 +144,7 @@ lessonScript: lesson.js
       <td class="tahoma letter-table-text">{{coda.iast}}</td>
       <td class="text-capitalize tahoma letter-table-text">{{coda.iast}}</td>
       <td class="letter-table-text">
-        <button type="button" class="btn btn-primary btn-sm" id="letters">
+        <button type="button" class="btn btn-primary btn-sm" id="letters" onclick="playAudio('{{coda.id}}')">
           <i class="bi bi-volume-down">
             <span class="visually-hidden">Play audio</span>
           </i>
