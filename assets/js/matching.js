@@ -1,9 +1,14 @@
 import * as common from './common.js'
 
+// initialize objects, create global variables
 let accuracies = new common.AccuracyDB('matching')
 let card_picker
-
 let prompt_text, prompt_audio_btn, next_btn, ans_inputs, ans_texts, ans_audios
+
+/**
+ * Gets references to all interactive elements, gets and filters questions,
+ * starts mainloop
+ */
 async function onloadFunction() {
   prompt_text = document.getElementById('prompt_text')
   prompt_audio_btn = document.getElementById('prompt_audio_btn')
@@ -28,6 +33,11 @@ async function onloadFunction() {
   }
 }
 
+/**
+ * Restructures output from `getCSVRows` to be easier to work with
+ * @param {Array} rows array of objects
+ * @returns array of {id, lesson, prompt_text, prompt_audio, correct_choice, answers: [str,...], ans_audios: [str, ...]}
+ */
 function rowsToQuestions(rows) {
   let questions = []
   for (let row of rows) {
@@ -42,10 +52,13 @@ function rowsToQuestions(rows) {
     question.ans_audios = [ans1_audio, ans2_audio, ans3_audio, ans4_audio]
     questions.push(question)
   }
-  console.log(rows)
   return questions
 }
 
+/**
+ * Writes question content (prompt, audio, answers) to screen. Resets formatting
+ * @param {Object} question
+ */
 function showQuestion(question) {
   // create front text + audio
   prompt_text.innerText = question.prompt_text + '\n'
@@ -61,10 +74,12 @@ function showQuestion(question) {
 
   // create answer text, create answer audio, reset button states
   for (let i = 0; i < 4; i = i + 1) {
+    // set text
     let text = question.answers[i]
     let ans_text = ans_texts[i]
     ans_text.innerText = text
 
+    // set audio
     let audio_name = question.ans_audios[i]
     let audio_icon = ans_audios[i]
     let ans_input = ans_inputs[i]
@@ -76,12 +91,17 @@ function showQuestion(question) {
       ans_input.onclick = null
     }
 
+    // reset correct answer styling
     ans_input.checked = false
     ans_text.parentElement.classList.add('btn-outline-tertiary')
     ans_text.parentElement.classList.remove('btn-outline-success', 'btn-outline-danger')
   }
 }
 
+/**
+ * Checks of answer choices based on keyboard input, plays audio
+ * @param {KeyboardEvent} event
+ */
 function handleNumberPress(event) {
   if (['1', '2', '3', '4'].includes(event.key)) {
     let idx = Number(event.key) - 1
@@ -92,17 +112,23 @@ function handleNumberPress(event) {
   }
 }
 
+/**
+ * Highlight correct answer, update AccuracyDB with response, change next button
+ * @param {Object} question
+ */
 function grade(question) {
-  // zero-indexed
-  let user_choice = Array.from(ans_inputs)
+  // Get user and correct choice
+  let user_choice = Array.from(ans_inputs) // zero-indexed
     .map((x) => x.checked)
     .findIndex((x) => x)
   console.assert(user_choice >= 0)
   let correct_choice = Number(question.correct_choice) - 1
 
+  // highlight correct answer
   ans_texts[correct_choice].parentElement.classList.remove('btn-outline-tertiary')
   ans_texts[correct_choice].parentElement.classList.add('btn-outline-success')
 
+  // uncheck user answer, highlight as wrong if appropriate
   ans_inputs[user_choice].checked = false // make button outline again
   if (correct_choice !== user_choice) {
     ans_texts[user_choice].parentElement.classList.remove('btn-outline-tertiary')
@@ -114,6 +140,11 @@ function grade(question) {
   next_btn.innerHTML = 'Next &rightarrow;'
 }
 
+/**
+ * Runs the web page: picks question, displays question, handles user inputs, grades question, updates AccuracyDB
+ * @param {Array<Object>} questions array of questions from `rowsToQuestions`
+ * @returns Never
+ */
 async function mainloop(questions) {
   while (true) {
     let questionid = card_picker.getQuestionId()

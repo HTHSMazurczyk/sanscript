@@ -202,7 +202,7 @@ export async function getCSVrows(style) {
 
 /**
  * Filter questions to just the lessons present in the URL
- * @param {Array[{...}]} questions array of objects with a value for the `lesson` key
+ * @param {Array} questions array of objects with a value for the `lesson` key
  * @returns questions array, filtered
  */
 export function filterQuestionsByLesson(questions) {
